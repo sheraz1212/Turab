@@ -94,6 +94,11 @@ Footage sources: US National Archives, Wikimedia (public domain).
 - Speed: 5 s at 720x1280, 24 fps, software WebGL (`--gl=swangle`), 4 CPU cores: **172 s total = 1.43 s/frame**, roughly 36 min for a 63 s video.
 - Look: the soil cross-section looks good and not cartoon-like. Bushes and trees still look game-like, and the figure is low-poly. There is no ray-traced light, so it is less realistic than Blender Cycles.
 - Render: `cd remotion-test && npm i && npx remotion render SoilTest out/soil_test.mp4 --gl=swangle`
+- **Full Cu Chi short remade in Remotion (2026-11-19):** composition `CuChi` in `remotion-test/src/cuchi/`. It is a 1:1 port of the Blender scene: the same 15 voiceover lines, camera keys, beats, lid/outline/arrows, explosions, night, gas U-bend, levels, "100+ KM" and stuck soldier.
+  - Render time: 1524 frames (63.5 s, 720x1280) in **32.2 min = 1.27 s/frame** on 4 cloud CPUs. On the laptop the same video took ~2.5 h in Blender.
+  - Audio: synthesised SFX only (`scripts/make_sfx.py` → `public/cuchi_sfx.wav`, not committed). **No voiceover yet**; ElevenLabs voice files still need to be added.
+  - Captions: one word at a time, timed by estimate because there is no voice track.
+  - Render it: `python3 scripts/make_sfx.py public/cuchi_sfx.wav && npx remotion render CuChi out.mp4 --gl=swangle`
 
 ## 6. Repo map
 - `CLAUDE.md`: this file, the single source of truth. Claude Code reads it automatically; for other tools, paste its text.
@@ -104,7 +109,8 @@ Footage sources: US National Archives, Wikimedia (public domain).
 - Working branch: `claude/peaceful-brahmagupta-3lxb4a`.
 
 ## 7. Open decisions / next steps
-- Choose the final pipeline (Blender vs Remotion) for the shorts, based on the soil test.
+- User is comparing the Blender Cu Chi video with the Remotion remake to choose the final pipeline.
+- Add the voiceover (ElevenLabs) to the Remotion version.
 - The test mp4 at `remotion-test/out/soil_test.mp4` was pushed before the "no videos in repo" rule; ask before removing it.
 - Pick the channel name.
 
@@ -112,3 +118,4 @@ Footage sources: US National Archives, Wikimedia (public domain).
 - 2026-11-17: Channel plan made; reference long video analysed.
 - 2026-11-19: Cu Chi clone template, Iwo Jima and Desert scripts; Blender full render (~2.5 h, cartoonish).
 - 2026-11-19: Remotion soil test rendered in the cloud (1.43 s/frame). PC `.claude` data restored into `channel-notes/`. This brief created and merged into one file, `CLAUDE.md`.
+- 2026-11-19: Full Cu Chi short remade in Remotion (32 min render, SFX only, no voice). Sent to the user via chat for comparison with Blender.
