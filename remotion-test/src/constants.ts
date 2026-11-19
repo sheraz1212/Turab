@@ -1,0 +1,10 @@
+export const FRONT_Z = 2; // the cut face, towards camera
+export const BACK_Z = -3;
+export const HALF_W = 3.5;
+export const BOTTOM = -7;
+export const HOLE_X = -0.6; // hole centre x
+export const HOLE_HW = 0.55; // half width
+export const HOLE_Z0 = 0.9; // back wall of the hole (z)
+export const MAX_DEPTH = 2.9;
+export const PILE = {x: 1.05, z: 1.15};
+export const CYCLE = 24; // frames per shovel stroke
