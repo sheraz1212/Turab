@@ -73,6 +73,7 @@ Full second-by-second breakdown: `channel-notes/scripts-docs/Clone-Template_Cu-C
 |---|---|---|
 | Iwo Jima tunnels (beach hole) | `channel-notes/scripts-docs/Short-01_Iwo-Jima-Tunnels.md` | Script + shot list done; hook (first ~20 s) test-rendered in Blender |
 | Great Escape tunnel (Stalag Luft III) | `channel-notes/scripts-docs/Short-02_Great-Escape-Tunnel.md`, scene `channel-notes/blender/great-escape/` | Blender scene built (cloud); full render running 2026-11-19 (no voice yet) |
+| Wellington Quarry / tunnels under Arras (WW1) | `channel-notes/scripts-docs/Short-03_Wellington-Quarry-Arras.md`, scene `channel-notes/blender/wellington-quarry/` | Script + Blender scene done; renders in the cloud after Great Escape (no voice yet) |
 | Desert underground home | `channel-notes/scripts-docs/Short-01_Desert-Hole-Script.md` | Script + shot list done |
 | Cu Chi jungle hideout (clone) | `channel-notes/blender/cu-chi-jungle/` | Full ~63 s made in Blender; looked too cartoonish |
 
@@ -137,4 +138,4 @@ Footage sources: US National Archives, Wikimedia (public domain).
 - 2026-11-19: Full Cu Chi short remade in Remotion (32 min render, SFX only, no voice). Sent to the user via chat for comparison with Blender.
 - 2026-11-19: User chose Blender over Remotion. 8 creative story ideas with hooks added.
 - 2026-11-19: Short #02 Great Escape script + shot list written (user picked idea 1; idea 2 Wellington Quarry is next).
-- 2026-11-19: Blender runs in the cloud (bpy from PyPI). Great Escape scene built and rendering in the cloud overnight; then Wellington Quarry (user asked: finish video 1, then make video 2).
+- 2026-11-19: Blender runs in the cloud (bpy from PyPI). Great Escape scene built and rendering in the cloud overnight; then Wellington Quarry (user asked: finish video 1, then make video 2). Both scenes built; renders chained overnight.
