@@ -72,6 +72,7 @@ Full second-by-second breakdown: `channel-notes/scripts-docs/Clone-Template_Cu-C
 | Short | File | Status |
 |---|---|---|
 | Iwo Jima tunnels (beach hole) | `channel-notes/scripts-docs/Short-01_Iwo-Jima-Tunnels.md` | Script + shot list done; hook (first ~20 s) test-rendered in Blender |
+| Great Escape tunnel (Stalag Luft III) | `channel-notes/scripts-docs/Short-02_Great-Escape-Tunnel.md` | Script + shot list done (2026-11-19); next to build in Blender |
 | Desert underground home | `channel-notes/scripts-docs/Short-01_Desert-Hole-Script.md` | Script + shot list done |
 | Cu Chi jungle hideout (clone) | `channel-notes/blender/cu-chi-jungle/` | Full ~63 s made in Blender; looked too cartoonish |
 
@@ -129,3 +130,4 @@ Footage sources: US National Archives, Wikimedia (public domain).
 - 2026-11-19: Remotion soil test rendered in the cloud (1.43 s/frame). PC `.claude` data restored into `channel-notes/`. This brief created and merged into one file, `CLAUDE.md`.
 - 2026-11-19: Full Cu Chi short remade in Remotion (32 min render, SFX only, no voice). Sent to the user via chat for comparison with Blender.
 - 2026-11-19: User chose Blender over Remotion. 8 creative story ideas with hooks added.
+- 2026-11-19: Short #02 Great Escape script + shot list written (user picked idea 1; idea 2 Wellington Quarry is next).
