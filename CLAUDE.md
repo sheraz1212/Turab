@@ -75,6 +75,15 @@ Full second-by-second breakdown: `channel-notes/scripts-docs/Clone-Template_Cu-C
 | Desert underground home | `channel-notes/scripts-docs/Short-01_Desert-Hole-Script.md` | Script + shot list done |
 | Cu Chi jungle hideout (clone) | `channel-notes/blender/cu-chi-jungle/` | Full ~63 s made in Blender; looked too cartoonish |
 
+Story ideas pitched 2026-11-19 (hook → twist ending; verify facts before scripting):
+1. Great Escape tunnel "Harry" (Stalag Luft III, 1944). Hook: "You're a prisoner, and the guards buried microphones in the ground." Twist: the tunnel comes up short of the trees.
+2. Wellington Quarry, Arras (WW1, 1917). Hook: "24,000 soldiers vanish underground overnight." Twist: they burst out right under the German lines.
+3. Messines Ridge mines (WW1, 1917). Hook: "You dig toward the enemy while the enemy digs toward you." Twist: the blast is heard in London.
+4. Onoda's jungle hideout (Lubang, 1945–74). Hook: "The war ended. Nobody told you." Twist: only his old commander can order him out, 29 years later.
+5. Warsaw Uprising sewers (1944). Hook: "The only way out of the city is under it." Twist: the Germans throw gas and grenades into the manholes.
+6. Derinkuyu underground city. Hook: "A man knocks down a wall in his basement and finds a city." Twist: 18 floors and rolling stone doors.
+7. Tunnel 57 (Berlin, 1964). Hook: "You dig back into the country you escaped from." Twist: 57 people crawl out under the Wall.
+8. Fort Eben-Emael (1940). Reverse format: the "unbreakable" fort is beaten from the roof by glider troops.
 Next topic ideas: Great Escape tunnel "Harry", Messines Ridge WW1 tunnel, Tunnel 57 (Berlin Wall), Derinkuyu, Maginot Line fort, Führerbunker (no symbols), WW1 trench network, Atlantic Wall bunker.
 
 ### Long-video style reference
@@ -109,7 +118,7 @@ Footage sources: US National Archives, Wikimedia (public domain).
 - Working branch: `claude/peaceful-brahmagupta-3lxb4a`.
 
 ## 7. Open decisions / next steps
-- User is comparing the Blender Cu Chi video with the Remotion remake to choose the final pipeline.
+- **Decision (2026-11-19): Blender is the final pipeline.** The user did not like the Remotion version. Remotion code is kept only as reference.
 - Add the voiceover (ElevenLabs) to the Remotion version.
 - The test mp4 at `remotion-test/out/soil_test.mp4` was pushed before the "no videos in repo" rule; ask before removing it.
 - Pick the channel name.
@@ -119,3 +128,4 @@ Footage sources: US National Archives, Wikimedia (public domain).
 - 2026-11-19: Cu Chi clone template, Iwo Jima and Desert scripts; Blender full render (~2.5 h, cartoonish).
 - 2026-11-19: Remotion soil test rendered in the cloud (1.43 s/frame). PC `.claude` data restored into `channel-notes/`. This brief created and merged into one file, `CLAUDE.md`.
 - 2026-11-19: Full Cu Chi short remade in Remotion (32 min render, SFX only, no voice). Sent to the user via chat for comparison with Blender.
+- 2026-11-19: User chose Blender over Remotion. 8 creative story ideas with hooks added.
