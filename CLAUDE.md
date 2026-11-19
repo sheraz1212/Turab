@@ -72,7 +72,7 @@ Full second-by-second breakdown: `channel-notes/scripts-docs/Clone-Template_Cu-C
 | Short | File | Status |
 |---|---|---|
 | Iwo Jima tunnels (beach hole) | `channel-notes/scripts-docs/Short-01_Iwo-Jima-Tunnels.md` | Script + shot list done; hook (first ~20 s) test-rendered in Blender |
-| Great Escape tunnel (Stalag Luft III) | `channel-notes/scripts-docs/Short-02_Great-Escape-Tunnel.md` | Script + shot list done (2026-11-19); next to build in Blender |
+| Great Escape tunnel (Stalag Luft III) | `channel-notes/scripts-docs/Short-02_Great-Escape-Tunnel.md`, scene `channel-notes/blender/great-escape/` | Blender scene built (cloud); full render running 2026-11-19 (no voice yet) |
 | Desert underground home | `channel-notes/scripts-docs/Short-01_Desert-Hole-Script.md` | Script + shot list done |
 | Cu Chi jungle hideout (clone) | `channel-notes/blender/cu-chi-jungle/` | Full ~63 s made in Blender; looked too cartoonish |
 
@@ -98,6 +98,12 @@ Footage sources: US National Archives, Wikimedia (public domain).
 - Code: `channel-notes/blender/`.
 - Run Blender through the user's real terminal (`powershell -ExecutionPolicy Bypass -File …`). Claude's own PowerShell is sandboxed.
 - Problem: on the laptop a 63 s video took **~2.5 hours** to render. Flat colours and the Standard view transform looked cartoonish.
+
+### A2. Blender in the cloud (works, 2026-11-19), so the PC can stay off
+- Install: `python3 -m venv bvenv && bvenv/bin/pip install bpy` (Blender 5.3 as a Python module; download.blender.org is blocked but PyPI works). EEVEE also needs `apt-get install libegl1 libegl-mesa0 libgl1-mesa-dri`, but it is slow on CPU, so use **Cycles CPU**.
+- Speed on 4 cloud CPUs, 720x1280: Cycles 10 samples + denoise ≈ **12 s/frame**, so a 70 s video ≈ 5.5 h. EEVEE (software GL) ≈ 30 s/frame.
+- Run: `GE_OUT=<dir> bvenv/bin/python channel-notes/blender/great-escape/render_cloud.py` (resumable). Then finish with `python3 channel-notes/blender/cloud_finish.py <finish_config.py> <frames_dir> <out.mp4> <ffmpeg>`. That draws one-word captions + big yellow numbers with PIL, synthesises SFX with numpy/scipy, and encodes with ffmpeg; the Remotion ffmpeg binary works.
+- Look: AgX view transform (not Standard), stronger soil noise/strata/pebbles.
 
 ### B. Remotion + three.js (cloud, tested 2026-11-19)
 - Code: `remotion-test/` (React Three Fiber via `@remotion/three`, procedural canvas soil textures, bump/roughness maps, ACES tone mapping, soft shadows, fog).
@@ -131,3 +137,4 @@ Footage sources: US National Archives, Wikimedia (public domain).
 - 2026-11-19: Full Cu Chi short remade in Remotion (32 min render, SFX only, no voice). Sent to the user via chat for comparison with Blender.
 - 2026-11-19: User chose Blender over Remotion. 8 creative story ideas with hooks added.
 - 2026-11-19: Short #02 Great Escape script + shot list written (user picked idea 1; idea 2 Wellington Quarry is next).
+- 2026-11-19: Blender runs in the cloud (bpy from PyPI). Great Escape scene built and rendering in the cloud overnight; then Wellington Quarry (user asked: finish video 1, then make video 2).
