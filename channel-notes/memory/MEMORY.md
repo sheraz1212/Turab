@@ -1,0 +1,3 @@
+- [WW YouTube channel plan](yt-ww-channel-plan.md) — user's faceless WW1/WW2 (Germany, Japan) channel for US audience: format, rules, first 10 ideas
+- [No saving on PC](no-saving-on-pc.md) — deliver videos via chat only; keep work in temp, clean up after
+- [Reference video style](reference-video-style.md) — visual/audio breakdown of the Russia-history reference video + where FFmpeg is installed
