@@ -143,5 +143,6 @@ Footage sources: US National Archives, Wikimedia (public domain).
 - 2026-11-19: Short #02 Great Escape script + shot list written (user picked idea 1; idea 2 Wellington Quarry is next).
 - 2026-11-19: Blender runs in the cloud (bpy from PyPI). Great Escape scene built and rendering in the cloud overnight; then Wellington Quarry (user asked: finish video 1, then make video 2). Both scenes built; renders chained overnight.
 - 2026-11-20: Great Escape and Wellington Quarry videos finished and sent via chat (captions + SFX, no voice).
+- 2026-11-20: Explainer-style test in cloud Blender (Poly Haven assets + original 2D character "Benny", `channel-notes/explainer/`). **User verdict: far below the reference ("zameen asman ka frq").** About 9 min per frame. Free CPU Blender cannot match the game-engine look; next options are AI-generated scene images plus 2D animation, or GPU + paid assets.
 - 2026-11-20: 3 reference videos uploaded and analysed (scripts via caption OCR, cuts, shots, audio); formula added to the research file.
 - 2026-11-20: User wants a niche change; reference channel Ricks Clips analysed (YouTube hosts allowed in the cloud env; video pages bot-blocked, thumbnails/frames work).
