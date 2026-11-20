@@ -128,6 +128,7 @@ Footage sources: US National Archives, Wikimedia (public domain).
 - Working branch: `claude/peaceful-brahmagupta-3lxb4a`.
 
 ## 7. Open decisions / next steps
+- **2026-11-20: User wants to CHANGE NICHE** (not enjoying WW tunnels). New target: curiosity-explainer Shorts in the style of the reference channel **Ricks Clips** (@ricksclips3000). Analysis: `channel-notes/research/ricks-clips-analysis.md` (2D round-head cartoon characters in detailed 3D sets, one-word captions, "Why/How" fact topics, 5–35M views). Original characters and topics only.
 - **Decision (2026-11-19): Blender is the final pipeline.** The user did not like the Remotion version. Remotion code is kept only as reference.
 - Add the voiceover (ElevenLabs) to the Remotion version.
 - The test mp4 at `remotion-test/out/soil_test.mp4` was pushed before the "no videos in repo" rule; ask before removing it.
@@ -142,3 +143,4 @@ Footage sources: US National Archives, Wikimedia (public domain).
 - 2026-11-19: Short #02 Great Escape script + shot list written (user picked idea 1; idea 2 Wellington Quarry is next).
 - 2026-11-19: Blender runs in the cloud (bpy from PyPI). Great Escape scene built and rendering in the cloud overnight; then Wellington Quarry (user asked: finish video 1, then make video 2). Both scenes built; renders chained overnight.
 - 2026-11-20: Great Escape and Wellington Quarry videos finished and sent via chat (captions + SFX, no voice).
+- 2026-11-20: User wants a niche change; reference channel Ricks Clips analysed (YouTube hosts allowed in the cloud env; video pages bot-blocked, thumbnails/frames work).
