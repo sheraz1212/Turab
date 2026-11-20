@@ -30,3 +30,38 @@
   2. Voiceover (ElevenLabs).
   3. Faster scenes: fewer heavy booleans, more image planes.
 - Use original topics and scripts. Do not copy their titles, characters or wording.
+
+---
+
+## Deep dive on 3 uploaded videos (2026-11-20)
+Analysed "The Instinct That Makes You Crash" (59.5 s), "The Ancient Jar That Warned an Empire" (64.9 s) and "Why Perfect Railroads Don't Work" (65.3 s), all 720x1280 at 30 fps. Scripts were read from the burned-in captions (OCR), cuts were measured from frame differences, and loudness from the audio.
+
+### Script formula (the real secret: it is a STORY, not a list of facts)
+Third person, past or present tense, about 165–180 words, ~60–65 s.
+1. **Hook = a strange action, with no explanation** (first line, 0–3 s):
+   - "He sawed gaps into a railroad every 39 feet."
+   - "He put a bronze ball in a dragon's mouth and told the emperor: if this ever falls out, run."
+   - "If you plant a tree beside an empty road, cars will steer right into it."
+2. **"You see,…"** gives the setting in 1–2 lines (a race, a court, a lonely road). Stakes are set.
+3. **Everyone mocks or opposes the hero**: the boss turns purple, the court laughs, a short funny quoted line ("You're wrecking my railroad!").
+4. **The "wrong" side wins at first**: the rival finishes first, the ball falls and nothing happens, the town adds a flashing arrow and crashes double. A comic escalation beat (the tow-truck guy sets up a lawn chair).
+5. **The turn, caused by nature or time**: summer comes, one night all eight balls drop, the sheriff hits the stump.
+6. **Payoff**: a big visual consequence (the rail kicks sideways like a snake; the palace is a pile of rubble; the sheriff plows into the stump). Often an ironic twist on the mockers.
+7. **The explanation in the last ~10–15 s**: name the mechanism ("It's called target fixation", the pendulum inside, thermal expansion) in 2–3 simple lines. No outro and no call to action; it ends on the explanation.
+- Running jokes and quoted dialogue in every video; times shown as props ("in May", "by July").
+- Titles: "The Instinct That Makes You Crash", "The Ancient Jar That Warned an Empire", "Why Perfect Railroads Don't Work". Each names the mystery, not the answer.
+
+### Visual language
+- **Characters:** 2D flat cartoon cutouts (round white head, black outline, dot eyes, big expressive mouth, stick limbs, era hat and outfit) standing in **3D sets**. Faces change colour with emotion (an angry boss turns purple); sweat drops and steam puffs.
+- **Sets:** game-engine 3D (desert canyon with red rock layers, prairie road, Chinese palace). Bright saturated colours, soft sky, cinematic sun.
+- **Shot types:** close-up face at the centre (most common), medium two-shot, wide establishing / drone shot, low-angle hero shot, **driver POV** through a windshield, an insert close-up of the key object (the gap, the frog, the ball), over-the-shoulder.
+- **Explainer props built into the world:** a green road sign reading "TARGET FIXATION", a newspaper headline "THE CLICKETY CLACK LINE", a wall calendar "MAY", a thermometer, rails glowing pink→yellow to show heat, and slow-motion inserts.
+- **Pacing:** cuts every ~1.3 s in the fast videos (crash, rail) and every ~3 s in the jar video, where the camera keeps moving inside each shot. Something always moves (camera drift, a character reacting).
+- **Captions:** one word at a time, white bold with a thin black outline, small (about 4% of the height), at **~70% of the frame height** (lower third), not the centre.
+- **Audio:** loud and consistent (~ −17 dB RMS), a male narrator, music bed plus cartoon SFX.
+
+### How to make ours (plan)
+- Script template = the 7 steps above, with our own topics. Verify every fact.
+- Characters: our own original 2D design, rendered as camera-facing image planes in Blender (several mouth/eye poses per character, recoloured per emotion).
+- Sets: procedural Blender sets (road, canyon, palace, ship…), kept light so Cycles renders fast; reuse camera rigs (close-up, POV, drone).
+- Captions at 70% height, smaller font; ElevenLabs narrator; music + SFX.
