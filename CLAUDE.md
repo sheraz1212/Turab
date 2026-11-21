@@ -128,6 +128,7 @@ Footage sources: US National Archives, Wikimedia (public domain).
 - Working branch: `claude/peaceful-brahmagupta-3lxb4a`.
 
 ## 7. Open decisions / next steps
+- **2026-11-21: NEW PIPELINE = `cartoon-short-kit/`** (the user's kit): audio in, finished vertical cartoon Short out. 2D bean-head cards in an inked, painted three.js world, rendered in headless Chromium (no GPU), with a synthesized music bed + SFX. Read `cartoon-short-kit/README.md` first. Worked example: `example/soldier/` (story.js shot plan + audio.py cues). Tools: setup.sh, timing.py (word timings from voice.mp3 + script.txt), render.mjs, sheet.py, finish.sh. Old approaches below are history only.
 - **2026-11-20: User wants to CHANGE NICHE** (not enjoying WW tunnels). New target: curiosity-explainer Shorts in the style of the reference channel **Ricks Clips** (@ricksclips3000). Analysis: `channel-notes/research/ricks-clips-analysis.md` (2D round-head cartoon characters in detailed 3D sets, one-word captions, "Why/How" fact topics, 5–35M views). Original characters and topics only. **Script formula** (from 3 uploaded videos): strange-action hook → "You see," setup → everyone mocks → the wrong side wins first → nature/time turns it → big payoff → the mechanism explained in the last 10–15 s; third person, ~170 words, ~60–65 s, captions at ~70% height. Details in the analysis file.
 - **Decision (2026-11-19): Blender is the final pipeline.** The user did not like the Remotion version. Remotion code is kept only as reference.
 - Add the voiceover (ElevenLabs) to the Remotion version.
@@ -135,6 +136,7 @@ Footage sources: US National Archives, Wikimedia (public domain).
 - Pick the channel name.
 
 ## Changelog
+- 2026-11-21: User asked to clear old work data (cloud scratch only, repo kept) and switch to their `cartoon-short-kit` (added to the repo).
 - 2026-11-17: Channel plan made; reference long video analysed.
 - 2026-11-19: Cu Chi clone template, Iwo Jima and Desert scripts; Blender full render (~2.5 h, cartoonish).
 - 2026-11-19: Remotion soil test rendered in the cloud (1.43 s/frame). PC `.claude` data restored into `channel-notes/`. This brief created and merged into one file, `CLAUDE.md`.
