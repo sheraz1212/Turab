@@ -136,6 +136,7 @@ Footage sources: US National Archives, Wikimedia (public domain).
 - Pick the channel name.
 
 ## Changelog
+- 2026-11-21: First short with the cartoon-audio-short skill: **The London Beer Flood** (66 s, 1976 frames, 1.9 s/frame, ~65 min render, QA clean, -15.7 LUFS). Code + stills in `shorts/beer-flood/`; video sent via chat.
 - 2026-11-21: User asked to clear old work data (cloud scratch only, repo kept) and switch to their `cartoon-short-kit` (added to the repo), then added their skill `cartoon-audio-short` with the kit inside it.
 - 2026-11-17: Channel plan made; reference long video analysed.
 - 2026-11-19: Cu Chi clone template, Iwo Jima and Desert scripts; Blender full render (~2.5 h, cartoonish).

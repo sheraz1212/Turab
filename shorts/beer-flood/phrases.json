@@ -1,0 +1,314 @@
+{
+ "duration": 65.880813,
+ "frames30": 1976,
+ "source": "silence-align (cost 2.26)",
+ "segments": [
+  [
+   0.0,
+   0.759138
+  ],
+  [
+   0.940952,
+   2.35429
+  ],
+  [
+   2.83494,
+   3.5285
+  ],
+  [
+   4.22322,
+   4.94005
+  ],
+  [
+   5.19218,
+   6.2098
+  ],
+  [
+   6.73748,
+   10.7532
+  ],
+  [
+   11.1321,
+   13.2207
+  ],
+  [
+   13.5062,
+   14.8058
+  ],
+  [
+   15.2508,
+   17.1792
+  ],
+  [
+   17.4141,
+   19.478
+  ],
+  [
+   19.9735,
+   22.6705
+  ],
+  [
+   23.0179,
+   23.9351
+  ],
+  [
+   24.3492,
+   25.2474
+  ],
+  [
+   25.6415,
+   26.5874
+  ],
+  [
+   27.1635,
+   27.97
+  ],
+  [
+   28.1765,
+   29.2191
+  ],
+  [
+   29.5295,
+   30.8248
+  ],
+  [
+   31.3056,
+   32.9812
+  ],
+  [
+   33.203,
+   34.4802
+  ],
+  [
+   34.8989,
+   38.5812
+  ],
+  [
+   39.0369,
+   41.6491
+  ],
+  [
+   41.8535,
+   44.2405
+  ],
+  [
+   44.7218,
+   47.8421
+  ],
+  [
+   48.3486,
+   48.4968
+  ],
+  [
+   48.6254,
+   50.1773
+  ],
+  [
+   50.8353,
+   51.862
+  ],
+  [
+   52.3712,
+   53.7597
+  ],
+  [
+   53.9984,
+   54.6974
+  ],
+  [
+   55.0364,
+   56.0496
+  ],
+  [
+   56.3185,
+   56.868
+  ],
+  [
+   57.0723,
+   58.0361
+  ],
+  [
+   58.433,
+   59.3345
+  ],
+  [
+   59.8844,
+   60.5558
+  ],
+  [
+   61.011,
+   64.2232
+  ],
+  [
+   64.6503,
+   65.6807
+  ]
+ ],
+ "phrases": [
+  {
+   "text": "In London,",
+   "s": 0.0,
+   "e": 0.759
+  },
+  {
+   "text": "a street once drowned.",
+   "s": 0.941,
+   "e": 2.354
+  },
+  {
+   "text": "In beer.",
+   "s": 2.835,
+   "e": 3.529
+  },
+  {
+   "text": "It's October,",
+   "s": 4.223,
+   "e": 4.94
+  },
+  {
+   "text": "eighteen fourteen.",
+   "s": 5.192,
+   "e": 6.21
+  },
+  {
+   "text": "At the Horse Shoe Brewery, giant wooden vats tower over the workers.",
+   "s": 6.737,
+   "e": 10.753
+  },
+  {
+   "text": "The biggest is twenty-two feet tall,",
+   "s": 11.132,
+   "e": 13.221
+  },
+  {
+   "text": "packed with dark porter.",
+   "s": 13.506,
+   "e": 14.806
+  },
+  {
+   "text": "Iron hoops hold each vat together,",
+   "s": 15.251,
+   "e": 17.179
+  },
+  {
+   "text": "like belts on a very fat barrel.",
+   "s": 17.414,
+   "e": 19.478
+  },
+  {
+   "text": "One afternoon, a clerk notices a hoop has slipped.",
+   "s": 19.974,
+   "e": 22.671
+  },
+  {
+   "text": "Just a few inches.",
+   "s": 23.018,
+   "e": 23.935
+  },
+  {
+   "text": "His boss shrugs.",
+   "s": 24.349,
+   "e": 25.247
+  },
+  {
+   "text": "\"They slip all the time.\"",
+   "s": 25.642,
+   "e": 26.587
+  },
+  {
+   "text": "An hour later,",
+   "s": 27.163,
+   "e": 27.97
+  },
+  {
+   "text": "the hoop snaps.",
+   "s": 28.177,
+   "e": 29.219
+  },
+  {
+   "text": "The vat bursts open.",
+   "s": 29.529,
+   "e": 30.825
+  },
+  {
+   "text": "The wave smashes the next vat,",
+   "s": 31.306,
+   "e": 32.981
+  },
+  {
+   "text": "and that one gives way too.",
+   "s": 33.203,
+   "e": 34.48
+  },
+  {
+   "text": "Hundreds of thousands of gallons roar straight through the back wall.",
+   "s": 34.899,
+   "e": 38.581
+  },
+  {
+   "text": "The beer floods the poor streets of St Giles,",
+   "s": 39.037,
+   "e": 41.649
+  },
+  {
+   "text": "pouring into cellars where whole families live.",
+   "s": 41.853,
+   "e": 44.24
+  },
+  {
+   "text": "Rescuers wade in up to their waists, digging through the rubble.",
+   "s": 44.722,
+   "e": 47.842
+  },
+  {
+   "text": "Eight people lose their lives that day.",
+   "s": 48.349,
+   "e": 50.177
+  },
+  {
+   "text": "So who pays?",
+   "s": 50.835,
+   "e": 51.862
+  },
+  {
+   "text": "The court looks at the brewery,",
+   "s": 52.371,
+   "e": 53.76
+  },
+  {
+   "text": "the broken hoop,",
+   "s": 53.998,
+   "e": 54.697
+  },
+  {
+   "text": "the shrugging boss,",
+   "s": 55.036,
+   "e": 56.05
+  },
+  {
+   "text": "and calls it an act of God.",
+   "s": 56.319,
+   "e": 58.036
+  },
+  {
+   "text": "Nobody is to blame.",
+   "s": 58.433,
+   "e": 59.334
+  },
+  {
+   "text": "And the brewery?",
+   "s": 59.884,
+   "e": 60.556
+  },
+  {
+   "text": "It asks the government for the tax it paid on all that lost beer.",
+   "s": 61.011,
+   "e": 64.223
+  },
+  {
+   "text": "And gets it back.",
+   "s": 64.65,
+   "e": 65.681
+  }
+ ]
+}
