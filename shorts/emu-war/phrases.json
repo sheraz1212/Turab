@@ -1,0 +1,336 @@
+{
+ "duration": 65.880813,
+ "frames30": 1976,
+ "source": "silence-align (cost 1.83)",
+ "segments": [
+  [
+   0.0,
+   1.42426
+  ],
+  [
+   1.67184,
+   3.43719
+  ],
+  [
+   3.96764,
+   5.07041
+  ],
+  [
+   5.64825,
+   6.88265
+  ],
+  [
+   7.1088,
+   9.97059
+  ],
+  [
+   10.1226,
+   10.268
+  ],
+  [
+   10.4705,
+   11.1493
+  ],
+  [
+   11.661,
+   12.2636
+  ],
+  [
+   12.3929,
+   12.9642
+  ],
+  [
+   13.5663,
+   15.2116
+  ],
+  [
+   15.4438,
+   16.182
+  ],
+  [
+   16.3375,
+   17.4683
+  ],
+  [
+   17.9607,
+   18.9845
+  ],
+  [
+   19.2312,
+   20.1489
+  ],
+  [
+   20.4695,
+   21.8759
+  ],
+  [
+   22.4668,
+   23.8524
+  ],
+  [
+   24.3187,
+   26.5394
+  ],
+  [
+   27.1065,
+   28.7087
+  ],
+  [
+   29.1837,
+   32.5673
+  ],
+  [
+   32.9702,
+   33.9734
+  ],
+  [
+   34.5776,
+   36.423
+  ],
+  [
+   36.9707,
+   39.2082
+  ],
+  [
+   39.7072,
+   40.8804
+  ],
+  [
+   41.282,
+   42.4332
+  ],
+  [
+   43.0319,
+   43.8174
+  ],
+  [
+   44.0315,
+   46.5143
+  ],
+  [
+   46.8917,
+   49.0581
+  ],
+  [
+   49.5932,
+   49.9739
+  ],
+  [
+   50.1743,
+   51.4257
+  ],
+  [
+   51.6848,
+   52.0453
+  ],
+  [
+   52.3239,
+   54.2309
+  ],
+  [
+   54.7549,
+   55.9652
+  ],
+  [
+   56.4395,
+   57.1802
+  ],
+  [
+   57.3563,
+   60.1183
+  ],
+  [
+   60.4093,
+   60.9141
+  ],
+  [
+   61.0965,
+   62.5703
+  ],
+  [
+   63.1962,
+   64.027
+  ],
+  [
+   64.5762,
+   65.5822
+  ]
+ ],
+ "phrases": [
+  {
+   "text": "In nineteen thirty-two,",
+   "s": 0.0,
+   "e": 1.424
+  },
+  {
+   "text": "the Australian army went to war...",
+   "s": 1.672,
+   "e": 3.437
+  },
+  {
+   "text": "against birds.",
+   "s": 3.968,
+   "e": 5.07
+  },
+  {
+   "text": "Out in Western Australia,",
+   "s": 5.648,
+   "e": 6.883
+  },
+  {
+   "text": "twenty thousand emus march onto the farms,",
+   "s": 7.109,
+   "e": 9.971
+  },
+  {
+   "text": "and eat all the wheat.",
+   "s": 10.123,
+   "e": 11.149
+  },
+  {
+   "text": "The farmers beg for help.",
+   "s": 11.661,
+   "e": 12.964
+  },
+  {
+   "text": "So the army sends a major,",
+   "s": 13.566,
+   "e": 15.212
+  },
+  {
+   "text": "two soldiers,",
+   "s": 15.444,
+   "e": 16.182
+  },
+  {
+   "text": "and two machine guns.",
+   "s": 16.337,
+   "e": 17.468
+  },
+  {
+   "text": "Everyone laughs.",
+   "s": 17.961,
+   "e": 18.985
+  },
+  {
+   "text": "Machine guns?",
+   "s": 19.231,
+   "e": 20.149
+  },
+  {
+   "text": "Against giant chickens?",
+   "s": 20.47,
+   "e": 21.876
+  },
+  {
+   "text": "But the emus have a plan.",
+   "s": 22.467,
+   "e": 23.852
+  },
+  {
+   "text": "They split into tiny groups, and scatter.",
+   "s": 24.319,
+   "e": 26.539
+  },
+  {
+   "text": "The soldiers chase them in a truck.",
+   "s": 27.107,
+   "e": 28.709
+  },
+  {
+   "text": "The emus run fifty kilometres an hour, straight through the bushes.",
+   "s": 29.184,
+   "e": 32.567
+  },
+  {
+   "text": "The truck can't keep up.",
+   "s": 32.97,
+   "e": 33.973
+  },
+  {
+   "text": "So they set an ambush at a dam.",
+   "s": 34.578,
+   "e": 36.423
+  },
+  {
+   "text": "A thousand emus walk right into it.",
+   "s": 36.971,
+   "e": 39.208
+  },
+  {
+   "text": "The gunner opens fire,",
+   "s": 39.707,
+   "e": 40.88
+  },
+  {
+   "text": "and the gun jams.",
+   "s": 41.282,
+   "e": 42.433
+  },
+  {
+   "text": "After a month,",
+   "s": 43.032,
+   "e": 43.817
+  },
+  {
+   "text": "the army has fired ten thousand bullets.",
+   "s": 44.032,
+   "e": 46.514
+  },
+  {
+   "text": "About ten bullets for every bird they hit.",
+   "s": 46.892,
+   "e": 49.058
+  },
+  {
+   "text": "You see,",
+   "s": 49.593,
+   "e": 49.974
+  },
+  {
+   "text": "an emu is fast,",
+   "s": 50.174,
+   "e": 51.426
+  },
+  {
+   "text": "tough,",
+   "s": 51.685,
+   "e": 52.045
+  },
+  {
+   "text": "and it never stays in one big crowd.",
+   "s": 52.324,
+   "e": 54.231
+  },
+  {
+   "text": "And here's the crazy part.",
+   "s": 54.755,
+   "e": 55.965
+  },
+  {
+   "text": "The major said,",
+   "s": 56.44,
+   "e": 57.18
+  },
+  {
+   "text": "if he had soldiers who could take bullets like those birds,",
+   "s": 57.356,
+   "e": 60.118
+  },
+  {
+   "text": "he could beat any army in the world.",
+   "s": 60.409,
+   "e": 62.57
+  },
+  {
+   "text": "The army went home.",
+   "s": 63.196,
+   "e": 64.027
+  },
+  {
+   "text": "The emus won.",
+   "s": 64.576,
+   "e": 65.582
+  }
+ ]
+}
