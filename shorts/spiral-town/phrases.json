@@ -1,0 +1,336 @@
+{
+ "duration": 69.407313,
+ "frames30": 2082,
+ "source": "silence-align (cost 3.84)",
+ "segments": [
+  [
+   0.120023,
+   1.35497
+  ],
+  [
+   1.51916,
+   2.63982
+  ],
+  [
+   2.96633,
+   4.77252
+  ],
+  [
+   5.38735,
+   8.25231
+  ],
+  [
+   8.81528,
+   9.80159
+  ],
+  [
+   10.2028,
+   10.8425
+  ],
+  [
+   11.1877,
+   11.5732
+  ],
+  [
+   11.7665,
+   12.118
+  ],
+  [
+   12.6334,
+   14.3608
+  ],
+  [
+   14.9886,
+   16.5857
+  ],
+  [
+   17.0025,
+   18.7466
+  ],
+  [
+   18.8831,
+   20.2347
+  ],
+  [
+   20.9022,
+   22.4526
+  ],
+  [
+   22.7738,
+   23.6347
+  ],
+  [
+   24.0971,
+   26.5619
+  ],
+  [
+   27.1911,
+   28.0122
+  ],
+  [
+   28.5032,
+   29.7802
+  ],
+  [
+   30.3988,
+   31.6554
+  ],
+  [
+   31.8447,
+   33.8543
+  ],
+  [
+   34.4061,
+   36.4973
+  ],
+  [
+   37.1062,
+   39.7411
+  ],
+  [
+   40.2214,
+   41.1673
+  ],
+  [
+   41.5529,
+   42.7552
+  ],
+  [
+   42.9337,
+   43.9995
+  ],
+  [
+   44.1299,
+   45.0942
+  ],
+  [
+   45.6825,
+   48.9825
+  ],
+  [
+   49.4485,
+   53.4832
+  ],
+  [
+   53.7598,
+   55.1333
+  ],
+  [
+   55.6896,
+   57.3355
+  ],
+  [
+   57.8687,
+   58.2463
+  ],
+  [
+   58.4565,
+   60.1481
+  ],
+  [
+   60.6195,
+   62.3106
+  ],
+  [
+   62.8215,
+   63.9133
+  ],
+  [
+   64.3219,
+   65.6872
+  ],
+  [
+   65.8296,
+   66.1985
+  ],
+  [
+   66.604,
+   67.0151
+  ],
+  [
+   67.189,
+   67.9458
+  ],
+  [
+   68.1946,
+   69.1913
+  ]
+ ],
+ "phrases": [
+  {
+   "text": "In the middle of Oakvale,",
+   "s": 0.12,
+   "e": 1.355
+  },
+  {
+   "text": "there's a rusty lever,",
+   "s": 1.519,
+   "e": 2.64
+  },
+  {
+   "text": "and the whole town is built around it.",
+   "s": 2.966,
+   "e": 4.773
+  },
+  {
+   "text": "Every street curls toward it in a giant spiral.",
+   "s": 5.387,
+   "e": 8.252
+  },
+  {
+   "text": "And there's one rule.",
+   "s": 8.815,
+   "e": 9.802
+  },
+  {
+   "text": "Never,",
+   "s": 10.203,
+   "e": 10.842
+  },
+  {
+   "text": "ever pull it.",
+   "s": 11.188,
+   "e": 12.118
+  },
+  {
+   "text": "Guards watch it day and night.",
+   "s": 12.633,
+   "e": 14.361
+  },
+  {
+   "text": "But Nora thinks it's ridiculous.",
+   "s": 14.989,
+   "e": 16.586
+  },
+  {
+   "text": "So she digs through her grandpa's attic,",
+   "s": 17.003,
+   "e": 18.747
+  },
+  {
+   "text": "and finds the founders' map.",
+   "s": 18.883,
+   "e": 20.235
+  },
+  {
+   "text": "The streets aren't streets.",
+   "s": 20.902,
+   "e": 22.453
+  },
+  {
+   "text": "They're drains.",
+   "s": 22.774,
+   "e": 23.635
+  },
+  {
+   "text": "Oakvale sits right on top of a dried-up river.",
+   "s": 24.097,
+   "e": 26.562
+  },
+  {
+   "text": "She shows the mayor.",
+   "s": 27.191,
+   "e": 28.012
+  },
+  {
+   "text": "He laughs her out of the room.",
+   "s": 28.503,
+   "e": 29.78
+  },
+  {
+   "text": "Then one spring,",
+   "s": 30.399,
+   "e": 31.655
+  },
+  {
+   "text": "it rains for nine days straight.",
+   "s": 31.845,
+   "e": 33.854
+  },
+  {
+   "text": "Up in the hills, the old river wakes up.",
+   "s": 34.406,
+   "e": 36.497
+  },
+  {
+   "text": "A wall of water roars straight at the town.",
+   "s": 37.106,
+   "e": 39.741
+  },
+  {
+   "text": "Everyone runs.",
+   "s": 40.221,
+   "e": 41.167
+  },
+  {
+   "text": "Nora runs the other way,",
+   "s": 41.553,
+   "e": 42.755
+  },
+  {
+   "text": "right past the guards,",
+   "s": 42.934,
+   "e": 43.999
+  },
+  {
+   "text": "and yanks the lever.",
+   "s": 44.13,
+   "e": 45.094
+  },
+  {
+   "text": "Deep underground, giant stone gates grind open.",
+   "s": 45.682,
+   "e": 48.983
+  },
+  {
+   "text": "The flood hits the spiral, spins around every house like water down a sink,",
+   "s": 49.449,
+   "e": 53.483
+  },
+  {
+   "text": "and vanishes under the square.",
+   "s": 53.76,
+   "e": 55.133
+  },
+  {
+   "text": "Not one house floods.",
+   "s": 55.69,
+   "e": 57.336
+  },
+  {
+   "text": "You see,",
+   "s": 57.869,
+   "e": 58.246
+  },
+  {
+   "text": "the founders never fought the river.",
+   "s": 58.456,
+   "e": 60.148
+  },
+  {
+   "text": "They built the town to swallow it.",
+   "s": 60.62,
+   "e": 62.311
+  },
+  {
+   "text": "And here's the crazy part.",
+   "s": 62.822,
+   "e": 63.913
+  },
+  {
+   "text": "The rule was never \"don't pull it.\"",
+   "s": 64.322,
+   "e": 66.198
+  },
+  {
+   "text": "It was \"don't pull it,",
+   "s": 66.604,
+   "e": 67.946
+  },
+  {
+   "text": "until you need it.\"",
+   "s": 68.195,
+   "e": 69.191
+  }
+ ]
+}
