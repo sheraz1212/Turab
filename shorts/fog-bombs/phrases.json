@@ -1,0 +1,354 @@
+{
+ "duration": 62.746063,
+ "frames30": 1882,
+ "source": "silence-align (cost 3.01)",
+ "segments": [
+  [
+   0.0,
+   1.24508
+  ],
+  [
+   1.50605,
+   3.83467
+  ],
+  [
+   3.96145,
+   5.71426
+  ],
+  [
+   6.37088,
+   6.99401
+  ],
+  [
+   7.21578,
+   8.28703
+  ],
+  [
+   8.73796,
+   9.51429
+  ],
+  [
+   9.68476,
+   11.7234
+  ],
+  [
+   11.8576,
+   12.7351
+  ],
+  [
+   13.362,
+   14.572
+  ],
+  [
+   14.7904,
+   16.3367
+  ],
+  [
+   16.8263,
+   17.7212
+  ],
+  [
+   17.8617,
+   18.5948
+  ],
+  [
+   18.9508,
+   20.7447
+  ],
+  [
+   21.3996,
+   21.7708
+  ],
+  [
+   21.9057,
+   23.5923
+  ],
+  [
+   24.2001,
+   25.0679
+  ],
+  [
+   25.262,
+   26.1142
+  ],
+  [
+   26.7854,
+   28.5546
+  ],
+  [
+   28.9647,
+   29.8926
+  ],
+  [
+   30.1085,
+   30.8712
+  ],
+  [
+   31.1307,
+   32.4066
+  ],
+  [
+   32.9977,
+   34.3533
+  ],
+  [
+   34.6065,
+   35.2189
+  ],
+  [
+   35.9356,
+   36.7232
+  ],
+  [
+   36.845,
+   38.3769
+  ],
+  [
+   38.8202,
+   39.9709
+  ],
+  [
+   40.0984,
+   40.3293
+  ],
+  [
+   40.5031,
+   40.9362
+  ],
+  [
+   41.5349,
+   42.8436
+  ],
+  [
+   43.0198,
+   44.5268
+  ],
+  [
+   44.9713,
+   47.5236
+  ],
+  [
+   48.1503,
+   48.5052
+  ],
+  [
+   48.753,
+   50.8373
+  ],
+  [
+   51.3721,
+   52.5345
+  ],
+  [
+   52.8434,
+   54.1137
+  ],
+  [
+   54.6275,
+   55.7125
+  ],
+  [
+   56.133,
+   57.5089
+  ],
+  [
+   58.0239,
+   60.0926
+  ],
+  [
+   60.3327,
+   60.8952
+  ],
+  [
+   61.1599,
+   62.5192
+  ]
+ ],
+ "phrases": [
+  {
+   "text": "Every foggy night,",
+   "s": 0.0,
+   "e": 1.245
+  },
+  {
+   "text": "this railwayman walks out onto the tracks,",
+   "s": 1.506,
+   "e": 3.835
+  },
+  {
+   "text": "and straps bombs to the rails.",
+   "s": 3.961,
+   "e": 5.714
+  },
+  {
+   "text": "It's England,",
+   "s": 6.371,
+   "e": 6.994
+  },
+  {
+   "text": "in the eighteen-forties.",
+   "s": 7.216,
+   "e": 8.287
+  },
+  {
+   "text": "Steam trains thunder through the countryside,",
+   "s": 8.738,
+   "e": 11.723
+  },
+  {
+   "text": "faster than anything on earth.",
+   "s": 11.858,
+   "e": 12.735
+  },
+  {
+   "text": "But when the fog rolls in,",
+   "s": 13.362,
+   "e": 14.572
+  },
+  {
+   "text": "the drivers can't see a thing.",
+   "s": 14.79,
+   "e": 16.337
+  },
+  {
+   "text": "Not the signals.",
+   "s": 16.826,
+   "e": 17.721
+  },
+  {
+   "text": "Not the lamps.",
+   "s": 17.862,
+   "e": 18.595
+  },
+  {
+   "text": "Not even a train stopped right ahead.",
+   "s": 18.951,
+   "e": 20.745
+  },
+  {
+   "text": "So a young engineer has an idea.",
+   "s": 21.4,
+   "e": 23.592
+  },
+  {
+   "text": "Little bombs,",
+   "s": 24.2,
+   "e": 25.068
+  },
+  {
+   "text": "the size of a coin.",
+   "s": 25.262,
+   "e": 26.114
+  },
+  {
+   "text": "His bosses think he's lost his mind.",
+   "s": 26.785,
+   "e": 28.555
+  },
+  {
+   "text": "Explosives?",
+   "s": 28.965,
+   "e": 29.893
+  },
+  {
+   "text": "On the track?",
+   "s": 30.108,
+   "e": 30.871
+  },
+  {
+   "text": "Under a moving train?",
+   "s": 31.131,
+   "e": 32.407
+  },
+  {
+   "text": "But he clips one to the rail,",
+   "s": 32.998,
+   "e": 34.353
+  },
+  {
+   "text": "and waits.",
+   "s": 34.606,
+   "e": 35.219
+  },
+  {
+   "text": "Out of the fog,",
+   "s": 35.936,
+   "e": 36.723
+  },
+  {
+   "text": "a train comes roaring in.",
+   "s": 36.845,
+   "e": 38.377
+  },
+  {
+   "text": "The wheel rolls over it,",
+   "s": 38.82,
+   "e": 40.329
+  },
+  {
+   "text": "and bang!",
+   "s": 40.503,
+   "e": 40.936
+  },
+  {
+   "text": "The driver can't see a thing,",
+   "s": 41.535,
+   "e": 42.844
+  },
+  {
+   "text": "but he definitely hears that.",
+   "s": 43.02,
+   "e": 44.527
+  },
+  {
+   "text": "He slams on the brakes, and stops just in time.",
+   "s": 44.971,
+   "e": 47.524
+  },
+  {
+   "text": "You see,",
+   "s": 48.15,
+   "e": 48.505
+  },
+  {
+   "text": "a bang travels where light can't.",
+   "s": 48.753,
+   "e": 50.837
+  },
+  {
+   "text": "Fog can hide a lamp,",
+   "s": 51.372,
+   "e": 52.535
+  },
+  {
+   "text": "but it can't hide a bang.",
+   "s": 52.843,
+   "e": 54.114
+  },
+  {
+   "text": "And here's the crazy part.",
+   "s": 54.627,
+   "e": 55.712
+  },
+  {
+   "text": "They still use them today.",
+   "s": 56.133,
+   "e": 57.509
+  },
+  {
+   "text": "Modern trains, computer signals,",
+   "s": 58.024,
+   "e": 60.093
+  },
+  {
+   "text": "and still,",
+   "s": 60.333,
+   "e": 60.895
+  },
+  {
+   "text": "a tiny bomb on the track.",
+   "s": 61.16,
+   "e": 62.519
+  }
+ ]
+}
