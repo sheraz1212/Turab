@@ -1,0 +1,318 @@
+{
+ "duration": 65.306063,
+ "frames30": 1959,
+ "source": "silence-align (cost 2.36)",
+ "segments": [
+  [
+   0.151995,
+   1.42669
+  ],
+  [
+   1.67,
+   3.94655
+  ],
+  [
+   4.36159,
+   5.0788
+  ],
+  [
+   5.50349,
+   6.63551
+  ],
+  [
+   6.79308,
+   7.95909
+  ],
+  [
+   8.08249,
+   8.42603
+  ],
+  [
+   8.83834,
+   10.4475
+  ],
+  [
+   10.7602,
+   11.4357
+  ],
+  [
+   11.6661,
+   12.4995
+  ],
+  [
+   12.965,
+   14.0745
+  ],
+  [
+   14.2249,
+   15.1549
+  ],
+  [
+   15.4647,
+   16.2126
+  ],
+  [
+   16.509,
+   17.4347
+  ],
+  [
+   17.6612,
+   19.6593
+  ],
+  [
+   20.1993,
+   22.4408
+  ],
+  [
+   22.839,
+   23.8663
+  ],
+  [
+   24.2609,
+   25.8969
+  ],
+  [
+   26.4835,
+   27.7208
+  ],
+  [
+   28.0972,
+   30.3625
+  ],
+  [
+   30.6694,
+   32.3493
+  ],
+  [
+   33.1889,
+   33.8279
+  ],
+  [
+   34.3192,
+   36.4882
+  ],
+  [
+   36.8776,
+   39.2409
+  ],
+  [
+   39.5929,
+   41.6699
+  ],
+  [
+   41.9157,
+   42.8464
+  ],
+  [
+   43.3114,
+   45.3824
+  ],
+  [
+   45.5214,
+   47.5708
+  ],
+  [
+   47.9987,
+   50.3465
+  ],
+  [
+   50.8368,
+   51.2137
+  ],
+  [
+   51.4163,
+   53.4332
+  ],
+  [
+   53.8018,
+   54.7971
+  ],
+  [
+   55.2691,
+   56.5235
+  ],
+  [
+   56.9153,
+   59.4126
+  ],
+  [
+   59.7954,
+   61.551
+  ],
+  [
+   61.6853,
+   62.9132
+  ],
+  [
+   63.1949,
+   65.1329
+  ]
+ ],
+ "phrases": [
+  {
+   "text": "Every thirty-nine feet,",
+   "s": 0.152,
+   "e": 1.427
+  },
+  {
+   "text": "this railroad worker cuts a gap in the track.",
+   "s": 1.67,
+   "e": 3.947
+  },
+  {
+   "text": "On purpose.",
+   "s": 4.362,
+   "e": 5.079
+  },
+  {
+   "text": "It's the eighteen-hundreds,",
+   "s": 5.503,
+   "e": 6.636
+  },
+  {
+   "text": "and his rival thinks he's an idiot.",
+   "s": 6.793,
+   "e": 8.426
+  },
+  {
+   "text": "Gaps make trains bounce.",
+   "s": 8.838,
+   "e": 10.447
+  },
+  {
+   "text": "Clickety-clack,",
+   "s": 10.76,
+   "e": 11.436
+  },
+  {
+   "text": "all day long.",
+   "s": 11.666,
+   "e": 12.499
+  },
+  {
+   "text": "So the rival builds the perfect railroad.",
+   "s": 12.965,
+   "e": 15.155
+  },
+  {
+   "text": "No gaps.",
+   "s": 15.465,
+   "e": 16.213
+  },
+  {
+   "text": "Smooth steel,",
+   "s": 16.509,
+   "e": 17.435
+  },
+  {
+   "text": "end to end, straight across the desert.",
+   "s": 17.661,
+   "e": 19.659
+  },
+  {
+   "text": "His trains glide in total silence.",
+   "s": 20.199,
+   "e": 22.441
+  },
+  {
+   "text": "Passengers love it.",
+   "s": 22.839,
+   "e": 23.866
+  },
+  {
+   "text": "The newspapers call it the future.",
+   "s": 24.261,
+   "e": 25.897
+  },
+  {
+   "text": "Then summer arrives.",
+   "s": 26.483,
+   "e": 27.721
+  },
+  {
+   "text": "The sun bakes the rails all afternoon,",
+   "s": 28.097,
+   "e": 30.363
+  },
+  {
+   "text": "and steel does something sneaky.",
+   "s": 30.669,
+   "e": 32.349
+  },
+  {
+   "text": "It grows.",
+   "s": 33.189,
+   "e": 33.828
+  },
+  {
+   "text": "One short rail only grows a tiny bit.",
+   "s": 34.319,
+   "e": 36.488
+  },
+  {
+   "text": "But a whole mile of steel with no gaps?",
+   "s": 36.878,
+   "e": 39.241
+  },
+  {
+   "text": "It needs almost two feet of extra room,",
+   "s": 39.593,
+   "e": 41.67
+  },
+  {
+   "text": "and there's nowhere to go.",
+   "s": 41.916,
+   "e": 42.846
+  },
+  {
+   "text": "So the track shoves itself sideways,",
+   "s": 43.311,
+   "e": 45.382
+  },
+  {
+   "text": "into a giant snake-shaped bend.",
+   "s": 45.521,
+   "e": 47.571
+  },
+  {
+   "text": "And the afternoon train is heading right for it.",
+   "s": 47.999,
+   "e": 50.346
+  },
+  {
+   "text": "You see,",
+   "s": 50.837,
+   "e": 51.214
+  },
+  {
+   "text": "those little gaps were never mistakes.",
+   "s": 51.416,
+   "e": 53.433
+  },
+  {
+   "text": "They were breathing room.",
+   "s": 53.802,
+   "e": 54.797
+  },
+  {
+   "text": "And here's the crazy part.",
+   "s": 55.269,
+   "e": 56.523
+  },
+  {
+   "text": "Most railroads today really have no gaps.",
+   "s": 56.915,
+   "e": 59.413
+  },
+  {
+   "text": "Engineers stretch the steel tight and lay it on a hot day,",
+   "s": 59.795,
+   "e": 62.913
+  },
+  {
+   "text": "so summer has nothing left to push.",
+   "s": 63.195,
+   "e": 65.133
+  }
+ ]
+}
