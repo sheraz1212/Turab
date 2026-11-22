@@ -1,0 +1,328 @@
+{
+ "duration": 61.727313,
+ "frames30": 1852,
+ "source": "silence-align (cost 5.52)",
+ "segments": [
+  [
+   0.140204,
+   1.34197
+  ],
+  [
+   1.63027,
+   4.03762
+  ],
+  [
+   4.68626,
+   6.03007
+  ],
+  [
+   6.53587,
+   7.49129
+  ],
+  [
+   8.00596,
+   8.59367
+  ],
+  [
+   8.82995,
+   10.3707
+  ],
+  [
+   10.8848,
+   12.7761
+  ],
+  [
+   13.3067,
+   14.9025
+  ],
+  [
+   15.0838,
+   16.1629
+  ],
+  [
+   16.3997,
+   18.0701
+  ],
+  [
+   18.5998,
+   20.1373
+  ],
+  [
+   20.3935,
+   21.132
+  ],
+  [
+   21.2985,
+   22.6544
+  ],
+  [
+   23.287,
+   24.2103
+  ],
+  [
+   24.5543,
+   25.9899
+  ],
+  [
+   26.6515,
+   27.7879
+  ],
+  [
+   28.223,
+   28.883
+  ],
+  [
+   29.3997,
+   30.0509
+  ],
+  [
+   30.5109,
+   31.1494
+  ],
+  [
+   31.7376,
+   32.663
+  ],
+  [
+   32.8837,
+   34.3072
+  ],
+  [
+   34.5873,
+   35.5092
+  ],
+  [
+   35.9742,
+   39.3868
+  ],
+  [
+   39.7632,
+   40.8758
+  ],
+  [
+   41.4953,
+   42.2279
+  ],
+  [
+   42.4041,
+   43.7818
+  ],
+  [
+   44.3997,
+   44.805
+  ],
+  [
+   45.0452,
+   46.4171
+  ],
+  [
+   46.6527,
+   48.0005
+  ],
+  [
+   48.4308,
+   48.9792
+  ],
+  [
+   49.5426,
+   51.0306
+  ],
+  [
+   51.6917,
+   52.8867
+  ],
+  [
+   53.3454,
+   55.4543
+  ],
+  [
+   55.873,
+   57.0688
+  ],
+  [
+   57.1948,
+   58.7966
+  ],
+  [
+   59.2969,
+   61.5076
+  ]
+ ],
+ "phrases": [
+  {
+   "text": "In the eighteen-nineties,",
+   "s": 0.14,
+   "e": 1.342
+  },
+  {
+   "text": "people were so scared of being buried alive,",
+   "s": 1.63,
+   "e": 4.038
+  },
+  {
+   "text": "they put bells on their graves.",
+   "s": 4.686,
+   "e": 6.03
+  },
+  {
+   "text": "A string ran from the coffin,",
+   "s": 6.536,
+   "e": 7.491
+  },
+  {
+   "text": "up through the dirt,",
+   "s": 8.006,
+   "e": 8.594
+  },
+  {
+   "text": "to a little bell on top.",
+   "s": 8.83,
+   "e": 10.371
+  },
+  {
+   "text": "So when Edgar Pratt was buried,",
+   "s": 10.885,
+   "e": 12.776
+  },
+  {
+   "text": "his bell came with him.",
+   "s": 13.307,
+   "e": 14.902
+  },
+  {
+   "text": "Two nights later,",
+   "s": 15.084,
+   "e": 16.163
+  },
+  {
+   "text": "at three in the morning, it rings.",
+   "s": 16.4,
+   "e": 18.07
+  },
+  {
+   "text": "The neighbor rolls over.",
+   "s": 18.6,
+   "e": 20.137
+  },
+  {
+   "text": "Probably the wind.",
+   "s": 20.393,
+   "e": 21.132
+  },
+  {
+   "text": "Then it rings again.",
+   "s": 21.299,
+   "e": 22.654
+  },
+  {
+   "text": "Harder.",
+   "s": 23.287,
+   "e": 24.21
+  },
+  {
+   "text": "Soon the whole street is out on their porches.",
+   "s": 24.554,
+   "e": 25.99
+  },
+  {
+   "text": "You go. No, you go.",
+   "s": 26.651,
+   "e": 27.788
+  },
+  {
+   "text": "Somebody drags the doctor out of bed.",
+   "s": 28.223,
+   "e": 30.051
+  },
+  {
+   "text": "Relax, he says.",
+   "s": 30.511,
+   "e": 31.149
+  },
+  {
+   "text": "Dead bodies move.",
+   "s": 31.738,
+   "e": 32.663
+  },
+  {
+   "text": "I signed the paper myself.",
+   "s": 32.884,
+   "e": 34.307
+  },
+  {
+   "text": "But one porch stays dark.",
+   "s": 34.587,
+   "e": 35.509
+  },
+  {
+   "text": "Edgar's wife is sitting by the door, with a shovel in her lap.",
+   "s": 35.974,
+   "e": 39.387
+  },
+  {
+   "text": "Because she knows that ring.",
+   "s": 39.763,
+   "e": 40.876
+  },
+  {
+   "text": "Two short, two long.",
+   "s": 41.495,
+   "e": 42.228
+  },
+  {
+   "text": "The signal they practiced.",
+   "s": 42.404,
+   "e": 43.782
+  },
+  {
+   "text": "You see,",
+   "s": 44.4,
+   "e": 44.805
+  },
+  {
+   "text": "Edgar wasn't dead.",
+   "s": 45.045,
+   "e": 46.417
+  },
+  {
+   "text": "He owed money to half the town,",
+   "s": 46.653,
+   "e": 48.001
+  },
+  {
+   "text": "so he faked it.",
+   "s": 48.431,
+   "e": 48.979
+  },
+  {
+   "text": "She was supposed to dig him up,",
+   "s": 49.543,
+   "e": 51.031
+  },
+  {
+   "text": "and they'd run.",
+   "s": 51.692,
+   "e": 52.887
+  },
+  {
+   "text": "Instead, she just sits there. All night. Until sunrise,",
+   "s": 53.345,
+   "e": 55.454
+  },
+  {
+   "text": "when the bell finally stops.",
+   "s": 55.873,
+   "e": 57.069
+  },
+  {
+   "text": "And here's the crazy part.",
+   "s": 57.195,
+   "e": 58.797
+  },
+  {
+   "text": "Edgar's debts got buried with him. And the house? All hers.",
+   "s": 59.297,
+   "e": 61.508
+  }
+ ]
+}
