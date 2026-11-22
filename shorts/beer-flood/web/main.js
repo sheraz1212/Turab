@@ -17,7 +17,8 @@ const rx = (a) => a * Math.PI / 180;
 
 // ---------- materials ----------
 const grad = (() => { const d = new Uint8Array([90, 90, 90, 255, 255, 255, 255, 255]); const t = new THREE.DataTexture(d, 2, 1); t.minFilter = t.magFilter = THREE.NearestFilter; t.needsUpdate = true; return t; })();
-const toon = (opts) => new THREE.MeshToonMaterial({ gradientMap: grad, ...opts });
+const GLOSS = { roughness: 0.42, metalness: 0.0, envMapIntensity: 1.0 };
+const toon = (opts) => new THREE.MeshStandardMaterial({ ...GLOSS, ...opts });
 const texM = (c, rx_ = 1, ry_ = 1, color = '#ffffff') => toon({ map: P.tex(c, rx_, ry_), color });
 const M = {
   plank: texM(P.planks(1), 1, 6), beam: texM(P.beam(2), 1, 2), beamDark: texM(P.beam(3, [28, 36, 30]), 1, 2),
@@ -27,7 +28,7 @@ const M = {
   roof: texM(P.roof(9), 2, 2), marble: texM(P.marble(10), 1, 1), marbleTop: toon({ color: '#ece2cf' }),
   trunk: toon({ color: '#6a4a32' }), cypress: toon({ color: '#3f6b36' }), pine: toon({ color: '#5c8a3c' }), bush: toon({ color: '#6c9a42' }),
   hill: toon({ color: '#7aa64c' }), hillFar: toon({ color: '#86ad60' }), mount: toon({ color: '#8fa7b8' }), snow: toon({ color: '#f4f6fa' }),
-  iron: toon({ color: '#5c5a57' }), bronze: toon({ color: '#b08a4a' }), wood: toon({ color: '#7a5434' }), door: toon({ color: '#5a3a24' }),
+  iron: toon({ color: '#6a6862', metalness: 0.75, roughness: 0.28 }), bronze: toon({ color: '#b08a4a' }), wood: toon({ color: '#7a5434' }), door: toon({ color: '#5a3a24' }),
   window: toon({ color: '#2b2430' }), red: toon({ color: '#b8282b' }),
 };
 M.banner = new THREE.MeshToonMaterial({ gradientMap: grad, map: P.tex(P.banner()), alphaTest: 0.5, side: THREE.DoubleSide });
@@ -86,6 +87,12 @@ const sun = new THREE.DirectionalLight('#ffffff', 2); sun.castShadow = true;
 sun.shadow.mapSize.set(2048, 2048); sun.shadow.bias = -0.0006; sun.shadow.normalBias = 0.03; sun.shadow.radius = 2;
 scene.add(sun); scene.add(sun.target);
 scene.fog = new THREE.Fog('#ffffff', 40, 600);
+const pmrem = new THREE.PMREMGenerator(renderer);
+const envFor = (top, hor, ground) => { const c = document.createElement('canvas'); c.width = 512; c.height = 256; const g = c.getContext('2d');
+  const gr = g.createLinearGradient(0, 0, 0, 256); gr.addColorStop(0, top); gr.addColorStop(0.48, hor); gr.addColorStop(0.52, ground); gr.addColorStop(1, ground);
+  g.fillStyle = gr; g.fillRect(0, 0, 512, 256); g.fillStyle = 'rgba(255,250,235,0.95)'; g.beginPath(); g.ellipse(150, 60, 26, 18, 0, 0, 7); g.fill();
+  const t = new THREE.CanvasTexture(c); t.mapping = THREE.EquirectangularReflectionMapping; t.colorSpace = THREE.SRGBColorSpace; return pmrem.fromEquirectangular(t).texture; };
+const envCache = {};
 
 // ---------- world ----------
 // The Beer Flood, London 1814. Ground is y = 0 everywhere.
@@ -260,6 +267,41 @@ const bag = new THREE.Group(); world.add(bag);
   add(new THREE.CylinderGeometry(0.12, 0.2, 0.26, 12), toon({ color: '#b89a64' }), 0, 0.82, 0, bag); add(new THREE.TorusGeometry(0.13, 0.04, 6, 16), toon({ color: '#6a4a2a' }), 0, 0.72, 0, bag).rotation.x = Math.PI / 2;
   const coin = add(new THREE.CylinderGeometry(0.16, 0.16, 0.04, 16), toon({ color: '#e2b84a' }), 0, 0.8, 0.3, bag); coin.rotation.x = 1.2; }
 
+
+// ---------- set dressing (clutter, like a game-engine set) ----------
+const LANTERN = toon({ color: '#2e2a26', metalness: 0.5, roughness: 0.4 }), GLOW = new THREE.MeshBasicMaterial({ color: '#ffd27a' });
+const CRATE = texM(P.planks(41), 1, 1), SACK = toon({ color: '#cdb68a', roughness: 0.9 }), ROPE = toon({ color: '#a8875a', roughness: 0.9 });
+const lantern = (x, y, z, parent = world) => { const g = new THREE.Group(); g.position.set(x, y, z); parent.add(g); add(box(0.32, 0.42, 0.32), LANTERN, 0, 0, 0, g); add(box(0.24, 0.3, 0.24), GLOW, 0, 0, 0, g, { cast: false }); add(new THREE.ConeGeometry(0.26, 0.2, 4), LANTERN, 0, 0.3, 0, g).rotation.y = Math.PI / 4; return g; };
+const crate = (x, z, s = 1, parent = world, y = 0, ry = 0) => { const c = add(tbox(0.9 * s, 0.9 * s, 0.9 * s, 0.9 * s), CRATE, x, y + 0.45 * s, z, parent); c.rotation.y = ry; return c; };
+const sack = (x, z, parent = world, y = 0) => { const s = add(new THREE.SphereGeometry(0.42, 12, 8), SACK, x, y + 0.32, z, parent); s.scale.set(1, 0.78, 0.82); return s; };
+const lamppost = (x, z) => { add(new THREE.CylinderGeometry(0.07, 0.1, 3.6, 8), LANTERN, x, 1.8, z, world); lantern(x, 3.8, z); };
+{ const r = P.rng(501);
+  // hall: crates, sacks, stacked barrels, hanging lanterns, ropes, a cart, buckets
+  for (let i = 0; i < 14; i++) { const x = (r() < 0.5 ? -1 : 1) * (9.5 + r() * 3.6), z = -6 + r() * 11; if (r() < 0.5) crate(x, z, 0.8 + r() * 0.5, hall, 0, r() * 3); else sack(x, z, hall); }
+  for (let i = 0; i < 6; i++) { const b = barrel(-12.6 + (i % 3) * 0.9, 4.6 + Math.floor(i / 3) * 0.95, 1, hall); if (i > 2) b.position.y = 0; }
+  for (let i = 0; i < 3; i++) { const b = barrel(-12.15 + i * 0.9, 4.6, 1, hall); b.position.y = 1.0; }
+  for (const x of [-9, -3, 3, 9]) { lantern(x, 7.6, 2.5, hall); add(new THREE.CylinderGeometry(0.015, 0.015, 1.6, 4), ROPE, x, 8.6, 2.5, hall); }
+  for (let i = 0; i < 6; i++) add(new THREE.CylinderGeometry(0.18, 0.15, 0.32, 12), STAVE, 7.5 + i * 0.5, 0.16, 4.2 + (i % 2) * 0.4, hall);
+  const cart = new THREE.Group(); cart.position.set(-6.5, 0, 4.3); hall.add(cart); add(tbox(2.2, 0.5, 1.2, 1), CRATE, 0, 0.75, 0, cart);
+  for (const s of [-1, 1]) { const w = add(new THREE.CylinderGeometry(0.5, 0.5, 0.12, 16), M.wood, s * 0.7, 0.5, 0.66, cart); w.rotation.x = Math.PI / 2; }
+  barrel(-6.9, 4.3, 0.8, cart).position.y = 1.0; barrel(-6.1, 4.3, 0.8, cart).position.y = 1.0;
+  // street: lamp posts, crates, barrels, carts, hanging shop signs, flower boxes
+  for (let x = -28; x <= 28; x += 8) lamppost(x, -19.6);
+  for (let i = 0; i < 18; i++) { const x = -30 + r() * 60, z = -19.2 - r() * 0.6; if (Math.abs(x - 2.94) < 1.4) continue; if (r() < 0.45) crate(x, z, 0.7 + r() * 0.4, world, 0, r()); else if (r() < 0.7) barrel(x, z, 0.9, world); else sack(x, z); }
+  for (let i = 0; i < 8; i++) { const x = -26 + i * 7.5 + r() * 2; const sg = add(box(1.2, 0.7, 0.08), toon({ color: ['#a63a2a', '#2f5a7a', '#c9962e', '#3f6a3a'][i % 4] }), x, 3.6, -20.2, world); add(box(0.06, 0.06, 0.9), LANTERN, x, 4.05, -20.6, world); }
+  for (let i = 0; i < 12; i++) { const x = -30 + i * 5.3 + r(); add(box(1.1, 0.25, 0.3), M.wood, x, 4.0, -20.8, world); for (let k = 0; k < 4; k++) add(new THREE.SphereGeometry(0.14, 8, 6), toon({ color: ['#e04a5a', '#f2c94a', '#ffffff', '#c84ad0'][(i + k) % 4] }), x - 0.4 + k * 0.27, 4.22, -20.75, world); }
+  // court: rows of benches, papers, quills, candles, books
+  for (let i = 0; i < 8; i++) add(box(0.5, 0.02, 0.36), toon({ color: '#f1e6c8' }), COURT.x - 2 + (i % 4) * 0.6, 2.58, -4.3 + Math.floor(i / 4) * 0.5, world).rotation.y = r() * 0.5;
+  for (let i = 0; i < 5; i++) add(box(0.6, 0.12, 0.4), toon({ color: ['#7a2a24', '#2a4a6a', '#3e5a2a'][i % 3] }), COURT.x + 2.4, 2.64 + i * 0.12, -4.4, world);
+  for (const x of [-6, 6]) lantern(COURT.x + x, 6.5, -5.8);
+  // office: plants, globe, stacks of papers and coins
+  const plant = (x, z) => { add(new THREE.CylinderGeometry(0.3, 0.24, 0.5, 12), toon({ color: '#b5653a' }), x, 0.25, z, world); for (let k = 0; k < 5; k++) { const l = add(new THREE.SphereGeometry(0.35, 10, 8), toon({ color: '#3f8a3a' }), x + Math.cos(k) * 0.2, 0.75 + k * 0.12, z + Math.sin(k) * 0.2, world); l.scale.set(0.6, 1.2, 0.6); } };
+  plant(OFFICE.x - 5.5, -4.2); plant(OFFICE.x + 5.5, -4.2);
+  add(new THREE.SphereGeometry(0.32, 20, 14), toon({ color: '#3f7ab8', roughness: 0.3 }), OFFICE.x - 1.7, 1.55, -1.6, world);
+  for (let i = 0; i < 6; i++) add(box(0.5, 0.04, 0.36), toon({ color: '#f1e6c8' }), OFFICE.x + 1.3, 1.18 + i * 0.045, -1.5, world).rotation.y = r() * 0.4;
+  for (let i = 0; i < 5; i++) add(new THREE.CylinderGeometry(0.1, 0.1, 0.03, 14), toon({ color: '#e2b84a', metalness: 0.8, roughness: 0.25 }), OFFICE.x - 1.0 + i * 0.05, 1.17 + i * 0.03, -1.7, world);
+}
+
 // clouds: painted billboards far away (no fog, no ink)
 const clouds = [];
 { const r = P.rng(90);
@@ -299,11 +341,22 @@ const rtColor = new THREE.WebGLRenderTarget(W, H, { samples: 4, type: THREE.Half
 const rtNd = new THREE.WebGLRenderTarget(W, H, { type: THREE.HalfFloatType, minFilter: THREE.NearestFilter, magFilter: THREE.NearestFilter });
 const rtInk = new THREE.WebGLRenderTarget(W, H, { type: THREE.HalfFloatType });
 const fsCam = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1), fsGeo = new THREE.PlaneGeometry(2, 2);
+const rtB1 = new THREE.WebGLRenderTarget(W / 4, H / 4, { type: THREE.HalfFloatType }), rtB2 = new THREE.WebGLRenderTarget(W / 4, H / 4, { type: THREE.HalfFloatType });
 const fs = (mat) => { const s = new THREE.Scene(); s.add(new THREE.Mesh(fsGeo, mat)); return s; };
-const inkU = { col: { value: rtColor.texture }, nd: { value: rtNd.texture }, res: { value: new THREE.Vector2(W, H) }, px: { value: 1.6 }, fogCol: { value: new THREE.Color() },
+const brightU = { src: { value: rtColor.texture }, thr: { value: 0.92 } };
+const blurU = { src: { value: null }, dir: { value: new THREE.Vector2() } };
+const fsv = `varying vec2 vUv; void main(){ vUv=uv; gl_Position=vec4(position.xy,0.,1.); }`;
+let brightScene, blurScene;
+const inkU = { sunUV: { value: new THREE.Vector2(0.5, 1.2) }, raysK: { value: 0 }, bloom: { value: rtB1.texture }, bloomK: { value: 0.4 }, expo: { value: 1.12 }, worldInk: { value: 0.32 }, col: { value: rtColor.texture }, nd: { value: rtNd.texture }, res: { value: new THREE.Vector2(W, H) }, px: { value: 1.6 }, fogCol: { value: new THREE.Color() },
   sat: { value: 1.08 }, lift: { value: new THREE.Color(0, 0, 0) }, gain: { value: new THREE.Color(1, 1, 1) }, vig: { value: 0.22 }, flash: { value: 0 } };
+brightScene = fs(new THREE.ShaderMaterial({ uniforms: brightU, vertexShader: fsv,
+  fragmentShader: `uniform sampler2D src; uniform float thr; varying vec2 vUv; void main(){ vec3 c = texture2D(src, vUv).rgb; float l = max(c.r, max(c.g, c.b)); gl_FragColor = vec4(c * smoothstep(thr, thr + .35, l), 1.); }` }));
+blurScene = fs(new THREE.ShaderMaterial({ uniforms: blurU, vertexShader: fsv,
+  fragmentShader: `uniform sampler2D src; uniform vec2 dir; varying vec2 vUv; void main(){ vec3 a = vec3(0.); float w[5]; w[0]=.227; w[1]=.194; w[2]=.121; w[3]=.054; w[4]=.016;
+    a += texture2D(src, vUv).rgb*w[0]; for(int i=1;i<5;i++){ a += texture2D(src, vUv+dir*float(i)*1.6).rgb*w[i]; a += texture2D(src, vUv-dir*float(i)*1.6).rgb*w[i]; } gl_FragColor = vec4(a,1.); }` }));
 const inkScene = fs(new THREE.ShaderMaterial({ uniforms: inkU, vertexShader: `varying vec2 vUv; void main(){ vUv=uv; gl_Position=vec4(position.xy,0.,1.); }`,
-  fragmentShader: `uniform sampler2D col, nd; uniform vec2 res; uniform float px, sat, vig, flash; uniform vec3 fogCol, lift, gain; varying vec2 vUv;
+  fragmentShader: `uniform sampler2D col, nd, bloom; uniform vec2 res, sunUV; uniform float px, sat, vig, flash, bloomK, expo, worldInk, raysK; uniform vec3 fogCol, lift, gain; varying vec2 vUv;
+  vec3 aces(vec3 x){ return clamp((x*(2.51*x+.03))/(x*(2.43*x+.59)+.14), 0., 1.); }
   float edgeAt(vec2 uv, float r){
     vec4 c = texture2D(nd, uv); if (dot(c.rgb,c.rgb) < .01) return 0.; float d = c.a; vec3 n = c.rgb*2.-1.;
     float e = 0.; float rr = r * clamp(7./d, .62, 1.25);
@@ -321,7 +374,12 @@ const inkScene = fs(new THREE.ShaderMaterial({ uniforms: inkU, vertexShader: `va
   void main(){
     vec3 c = texture2D(col, vUv).rgb;
     float e = edgeAt(vUv, px);
-    c = mix(c, vec3(.012,.01,.014), e);
+    c += texture2D(bloom, vUv).rgb * bloomK;
+    if (raysK > 0.) { vec2 d = (sunUV - vUv) / 28.; vec2 uv = vUv; float dec = 1.; vec3 r = vec3(0.);
+      for (int i=0;i<28;i++){ uv += d; r += texture2D(bloom, clamp(uv, 0., 1.)).rgb * dec; dec *= .955; }
+      c += r / 28. * raysK; }
+    c = aces(c * expo);
+    c = mix(c, vec3(.012,.01,.014), e * worldInk);
     if (flash < -0.5) c = vec3(e);
     float l = dot(c, vec3(.299,.587,.114)); c = mix(vec3(l), c, sat);
     c = c*gain + lift;
@@ -347,6 +405,7 @@ dofScene.children[0].material.toneMapped = false;
 // ---------- per-frame state ----------
 const tmpV = new THREE.Vector3();
 function applyLight(L, f) {
+  const ek = L.skyTop + L.skyHor + L.ground; if (!envCache[ek]) envCache[ek] = envFor(L.skyTop, L.skyHor, L.ground); scene.environment = envCache[ek];
   hemi.color.set(L.sky); hemi.groundColor.set(L.ground); hemi.intensity = L.hemi;
   sun.color.set(L.sun); sun.intensity = L.sunI;
   scene.fog.color.set(L.fog); scene.fog.near = L.fogNear; scene.fog.far = L.fogFar;
@@ -453,7 +512,14 @@ window.renderFrame = (f) => {
   if (window.DEBUG_ND) { const dm = new THREE.MeshBasicMaterial({ map: rtNd.texture }); const ds = fs(dm); renderer.setRenderTarget(null); renderer.render(ds, fsCam); return true; }
   // ink + grade
   const D = dofAt(f);
+  { const sv = skyU.sunDir.value.clone().multiplyScalar(500).add(camera.position).project(camera);
+    const vis = sv.z < 1 ? 1 : 0; inkU.sunUV.value.set(sv.x * 0.5 + 0.5, sv.y * 0.5 + 0.5); inkU.raysK.value = (L.rays ?? 0) * vis; }
   inkU.px.value = 2.5; inkU.flash.value = window.DEBUG_E ? -1 : (C.flash || 0); inkU.vig.value = L.vig ?? 0.22;
+  renderer.setRenderTarget(rtB1); renderer.render(brightScene, fsCam);
+  for (let k = 0; k < 2; k++) {
+    blurU.src.value = rtB1.texture; blurU.dir.value.set(1 / (W / 4), 0); renderer.setRenderTarget(rtB2); renderer.render(blurScene, fsCam);
+    blurU.src.value = rtB2.texture; blurU.dir.value.set(0, 1 / (H / 4)); renderer.setRenderTarget(rtB1); renderer.render(blurScene, fsCam);
+  }
   renderer.setRenderTarget(rtInk); renderer.render(inkScene, fsCam);
   // lens
   dofU.focus.value = D.focus; dofU.cinf.value = D.cinf; dofU.near.value = D.near ?? 1;

@@ -136,6 +136,7 @@ Footage sources: US National Archives, Wikimedia (public domain).
 - Pick the channel name.
 
 ## Changelog
+- 2026-11-22: User wants the **Ricks Clips look** (shine, strong colours, 3D world + 2D characters). Engine changed in `shorts/beer-flood/web/main.js`: PBR glossy materials + sky env reflections, ACES grade, bloom, god rays, faint world ink (characters keep outlines), more set dressing; captions at 70% height via `captions.py`. Beer Flood v2 rendered (2.9 s/frame, ~95 min) and sent. Still less detailed than Ricks' game-engine sets.
 - 2026-11-21: First short with the cartoon-audio-short skill: **The London Beer Flood** (66 s, 1976 frames, 1.9 s/frame, ~65 min render, QA clean, -15.7 LUFS). Code + stills in `shorts/beer-flood/`; video sent via chat.
 - 2026-11-21: User asked to clear old work data (cloud scratch only, repo kept) and switch to their `cartoon-short-kit` (added to the repo), then added their skill `cartoon-audio-short` with the kit inside it.
 - 2026-11-17: Channel plan made; reference long video analysed.

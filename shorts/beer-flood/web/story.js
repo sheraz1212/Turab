@@ -35,15 +35,15 @@ const CANDLE = [2.94, 3.85, -20.85], CELLAR = [2.94, 0.2, -20.15];
 // ---------- lights ----------
 export const LIGHTS = {
   day: { az: 130, el: 44, sky: '#c8d4e4', ground: '#857a68', hemi: 1.15, sun: '#fff1dc', sunI: 2.4, fog: '#cdd6e2', fogNear: 60, fogFar: 520,
-    skyTop: '#5f86be', skyHor: '#d2dbe6', sat: 1.08, waterDeep: '#3a1f10', waterShal: '#6b3a1c', glint: '#e8cfa0', vig: 0.2, shadowExt: 22 },
+    skyTop: '#2f78d8', skyHor: '#ffe3b8', sunDisc: '#fff6dc', sunSize: 0.004, rays: 0.55, sat: 1.22, waterDeep: '#3a1f10', waterShal: '#6b3a1c', glint: '#e8cfa0', vig: 0.2, shadowExt: 22 },
   golden: { az: 60, el: 16, sky: '#a49ac4', ground: '#6a4c40', hemi: 1.0, sun: '#ffbe7a', sunI: 2.8, fog: '#e9bf98', fogNear: 50, fogFar: 460,
-    skyTop: '#6f6eb0', skyHor: '#ffc78a', sunDisc: '#fff0c8', sunSize: 0.003, sat: 1.12, gain: '#fff2e2', waterDeep: '#3a1d0e', waterShal: '#7a4320', glint: '#f2d6a6', vig: 0.26, shadowExt: 22 },
+    skyTop: '#5a4fb0', skyHor: '#ff9e5e', sunDisc: '#fff0c8', sunSize: 0.006, rays: 0.9, sat: 1.25, gain: '#fff2e2', waterDeep: '#3a1d0e', waterShal: '#7a4320', glint: '#f2d6a6', vig: 0.26, shadowExt: 22 },
   dusk: { az: 200, el: 14, sky: '#7a88b8', ground: '#3e3a4a', hemi: 1.15, sun: '#b4c2ff', sunI: 1.5, fog: '#4a5680', fogNear: 30, fogFar: 300,
-    skyTop: '#1d2550', skyHor: '#6a76a8', sat: 1.0, gain: '#dfe6ff', waterDeep: '#20140e', waterShal: '#3f2818', glint: '#9a8a78', vig: 0.34, shadowExt: 14 },
+    skyTop: '#1d2550', skyHor: '#c48ab8', rays: 0.3, sunDisc: '#ffe0d0', sunSize: 0.004, sat: 1.12, gain: '#dfe6ff', waterDeep: '#20140e', waterShal: '#3f2818', glint: '#9a8a78', vig: 0.34, shadowExt: 14 },
   court: { az: 150, el: 62, sky: '#e8d6b8', ground: '#6a4a30', hemi: 1.25, sun: '#fff0d6', sunI: 1.9, fog: '#d8c8b0', fogNear: 60, fogFar: 400,
-    skyTop: '#7a90b8', skyHor: '#e2d2b8', sat: 1.06, waterDeep: '#3a1f10', waterShal: '#6b3a1c', glint: '#e8cfa0', vig: 0.24, shadowExt: 12 },
+    skyTop: '#7a90b8', skyHor: '#e2d2b8', sat: 1.2, waterDeep: '#3a1f10', waterShal: '#6b3a1c', glint: '#e8cfa0', vig: 0.24, shadowExt: 12 },
   office: { az: 110, el: 58, sky: '#efe0c4', ground: '#6a5038', hemi: 1.3, sun: '#ffe8c4', sunI: 1.8, fog: '#e0d0b4', fogNear: 60, fogFar: 400,
-    skyTop: '#7a90b8', skyHor: '#e6d6bc', sat: 1.08, gain: '#fff6ea', waterDeep: '#3a1f10', waterShal: '#6b3a1c', glint: '#e8cfa0', vig: 0.24, shadowExt: 12 },
+    skyTop: '#7a90b8', skyHor: '#e6d6bc', sat: 1.22, gain: '#fff6ea', waterDeep: '#3a1f10', waterShal: '#6b3a1c', glint: '#e8cfa0', vig: 0.24, shadowExt: 12 },
 };
 export const lightFor = (S, f) => ({ ...LIGHTS[S.light] });
 
