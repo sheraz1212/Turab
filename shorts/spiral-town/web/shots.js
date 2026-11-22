@@ -38,7 +38,7 @@ shot(5.3, (t, d) => { const th = lerp(9.5, 7.6, t / d); const p = SP(th, 0, 1.9)
 // 5 "in a giant spiral."  straight down: the spiral, turning
 shot(6.9, (t, d) => ({ preset: 'day', cam: [0.01, 105, 0.02], look: [0, 0, 0], fov: 48, roll: t * 18, focus: 100, cinf: 0, shadowExt: 80 }));
 // 6 "And there's one rule."  the sign by the lever
-shot(8.75, (t, d) => ({ preset: 'day', cam: L3([0.5, 1.6, 5.8], [0.3, 1.55, 5.2], ez(t / d)), look: [0, 1.4, 2.25], fov: 44, focus: 3, cinf: 3, signK: 0 }));
+shot(8.75, (t, d) => ({ preset: 'day', cam: L3([0.5, 1.65, 7.0], [0.3, 1.6, 6.4], ez(t / d)), look: [0, 1.45, 2.25], fov: 50, focus: 3, cinf: 3, signK: 0 }));
 // 7 "Never,"  a guard, stern, wagging a finger
 shot(10.1, (t, d) => ({ preset: 'day', cam: L3([2.3, 1.8, 4.2], [2.2, 1.8, 3.9], eo(t / 0.4)), look: [1.7, 1.72, 1.6], fov: 42, focus: 2.5, cinf: 4,
   actors: [act('tguard', 1.7, 0, 1.6, { expr: 'stern', L: 'hang', R: { a: 150 + wig(t, 14, 16), e: 20, finger: true }, facing: 0.1 })] }));
