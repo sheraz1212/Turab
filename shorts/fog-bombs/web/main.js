@@ -114,7 +114,7 @@ put('wooden_lantern_01', -1.8, 0.33, 2.2, 0, 1.2);
 for (let z = 6; z > -60; z -= 2.2) { add(cyl(0.05, 0.06, 1.1, 6), std({ color: '#4a3a2a' }), -2.6, 0.55, z); }
 add(box(0.04, 0.06, 70), std({ color: '#5a4a3a' }), -2.6, 0.95, -27); add(box(0.04, 0.06, 70), std({ color: '#5a4a3a' }), -2.6, 0.6, -27);
 for (let z = 4; z > -120; z -= 14) { add(cyl(0.12, 0.15, 7, 8), std({ color: '#3a2a20' }), -4.2, 3.5, z); add(box(1.6, 0.1, 0.1), std({ color: '#3a2a20' }), -4.2, 6.6, z); for (const s of [-0.6, 0, 0.6]) add(cyl(0.04, 0.04, 0.12, 6), std({ color: '#d8e0e8' }), -4.2 + s, 6.72, z); }
-for (let i = 0; i < 70; i++) { const r = P.rng(100 + i); const x = -3 - r() * 10, z = 6 - r() * 70; put(i % 3 ? 'shrub_01' : 'shrub_02', x, 0, z, r() * 6, 0.8 + r() * 0.8); }
+const SHRUBS = []; for (let i = 0; i < 30; i++) { const r = P.rng(100 + i); const x = -3 - r() * 10, z = 6 - r() * 70; SHRUBS.push(put('shrub_02', x, 0, z, r() * 6, 0.9 + r() * 0.9)); }
 for (let i = 0; i < 40; i++) { const r = P.rng(300 + i); const x = (i % 2 ? -1 : 1) * (14 + r() * 30), z = -10 - r() * 90; const h = 8 + r() * 8; add(new THREE.ConeGeometry(2 + r() * 1.5, h, 7), std({ color: '#1e2a26', roughness: 1 }), x, h / 2, z, scene, false); }
 put('tree_stump_01', -2.0, 0, 3.0, 0, 1); put('dead_tree_trunk', -8, 0, -14, 1, 1.2); put('rock_07', -1.9, 0, 0.5, 0, 0.6);
 // signal post with a red lamp, further up the line
@@ -328,6 +328,7 @@ const tmp = new THREE.Vector3();
 const rnd = (i, k) => { const x = Math.sin(i * 127.1 + k * 311.7) * 43758.5453; return x - Math.floor(x); };
 
 window.renderFrame = (f) => {
+  const PROF = location.hash.includes('prof'), gl = renderer.getContext(), tt = [performance.now()], mark = () => { if (PROF) { gl.finish(); tt.push(performance.now()); } };
   const S = stateAt(f, { TABLE_TOP, RAILTOP });
   const L = PRESET[S.preset || 'night'];
   // ---- lights / atmosphere
@@ -339,6 +340,9 @@ window.renderFrame = (f) => {
   DAYSET.visible = !!L.day; for (const t of NIGHTTREES) t.visible = !L.day;
   const zone = S.zone || 'rail';
   for (const l of pLights) { l.visible = L.lamps > 0 && l.userData.zone === zone; l.intensity = l.userData.I0 * (S.lampK ?? 1); }
+  if (location.hash.includes('cull')) { const cp = new THREE.Vector3(...S.cam); const rl = pLights.filter((l) => l.visible).sort((a, b) => a.position.distanceTo(cp) - b.position.distanceTo(cp)); rl.forEach((l, i) => { if (i >= 4) l.visible = false; }); }
+  if (location.hash.includes('nosh')) renderer.shadowMap.enabled = false; if (location.hash.includes('noshrub')) SHRUBS.forEach((o) => (o.visible = false));
+  if (location.hash.includes('nofc')) S.fogCards = 0; if (location.hash.includes('noink')) inkU.px.value = 0.0;
   for (const g of glows) g.visible = L.lamps > 0 && (g.userData.zone === zone || g.userData.zone === 'fx');
   if (zone === 'rail') { SIGL.intensity = 4 * (S.sigK ?? 1); SIGG.forEach((g) => (g.userData.kMul = S.sigK ?? 1)); PLAT.forEach((p) => { const k = S.platK && S.platK.z === p.z ? S.platK.k : 1; p.l.intensity = 8 * k * (S.lampK ?? 1); p.g.forEach((g) => (g.userData.kMul = k)); }); }
   // ---- camera (+ shake)
@@ -383,18 +387,21 @@ window.renderFrame = (f) => {
   for (const m of fogs) { m.quaternion.copy(camera.quaternion); m.visible = !L.day && S.fogCards !== 0; m.material.opacity = (m.userData.o0 ??= m.material.opacity) * (S.fogCards ?? 1); if (S.fogRoll != null) m.position.z = m.userData.z0 + S.fogRoll; }
   if (bang.userData.g) { bang.userData.g.quaternion.copy(camera.quaternion); bang.userData.g.scale.setScalar(1.6); }
   for (const o of NIGHTTREES) o.material.color.set(TREE_NIGHT);
+  mark();
   // ---- cards
   cards.forEach((c) => { c.mesh.visible = c.blob.visible = false; });
   (S.actors || []).forEach((a, i) => { const c = getCard(i); c.draw(a.draw); c.mesh.visible = true; c.mesh.position.set(a.x, a.y, a.z); const s = a.s || 1; c.mesh.scale.set(s * (a.flip ? -1 : 1), s, s);
     c.mesh.rotation.set(0, Math.atan2(camera.position.x - a.x, camera.position.z - a.z), a.roll || 0); c.mat.color.set(a.tint || S.tint || '#ffffff'); c.mat.opacity = a.alpha ?? 1; c.mesh.renderOrder = a.order || 2; c.mesh.castShadow = !a.fx;
     c.blob.visible = !a.fx && a.blob !== false; c.blob.position.set(a.x, (a.ground ?? a.y) + 0.015, a.z); c.blob.scale.set(1.0 * s, 0.55 * s, 1); });
+  mark();
   // ---- render passes
-  renderer.setRenderTarget(rtColor); renderer.setClearColor(0, 1); renderer.clear(); renderer.render(scene, camera);
-  const fog = scene.fog; scene.fog = null; renderer.shadowMap.autoUpdate = false; swapForNd(true); renderer.setRenderTarget(rtNd); renderer.setClearColor(0, 0); renderer.clear(); renderer.render(scene, camera); swapForNd(false); scene.fog = fog; renderer.shadowMap.autoUpdate = true;
+  renderer.setRenderTarget(rtColor); renderer.setClearColor(0, 1); renderer.clear(); renderer.render(scene, camera); mark();
+  const fog = scene.fog; scene.fog = null; renderer.shadowMap.autoUpdate = false; swapForNd(true); renderer.setRenderTarget(rtNd); renderer.setClearColor(0, 0); renderer.clear(); renderer.render(scene, camera); swapForNd(false); scene.fog = fog; renderer.shadowMap.autoUpdate = true; mark();
   renderer.setRenderTarget(rtB1); renderer.render(brightScene, fsCam);
   for (let k = 0; k < 3; k++) { blurU.src.value = rtB1.texture; blurU.dir.value.set(1 / (W / 4), 0); renderer.setRenderTarget(rtB2); renderer.render(blurScene, fsCam); blurU.src.value = rtB2.texture; blurU.dir.value.set(0, 1 / (H / 4)); renderer.setRenderTarget(rtB1); renderer.render(blurScene, fsCam); }
-  renderer.setRenderTarget(rtInk); renderer.render(inkScene, fsCam);
-  dofU.focus.value = S.focus || 5; dofU.cinf.value = S.cinf ?? 3; renderer.setRenderTarget(null); renderer.render(dofScene, fsCam);
+  renderer.setRenderTarget(rtInk); renderer.render(inkScene, fsCam); mark();
+  dofU.focus.value = S.focus || 5; dofU.cinf.value = S.cinf ?? 3; if (location.hash.includes('nodof')) dofU.cinf.value = 0; renderer.setRenderTarget(null); renderer.render(dofScene, fsCam); mark();
+  if (PROF) console.log('PROF state ' + (tt[1]-tt[0]).toFixed(0) + ' cards ' + (tt[2]-tt[1]).toFixed(0) + ' color ' + (tt[3]-tt[2]).toFixed(0) + ' nd ' + (tt[4]-tt[3]).toFixed(0) + ' post ' + (tt[5]-tt[4]).toFixed(0) + ' dof ' + (tt[6]-tt[5]).toFixed(0));
   return true;
 };
 window.TOTAL = TOTAL;

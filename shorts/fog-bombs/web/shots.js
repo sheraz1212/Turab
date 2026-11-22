@@ -150,9 +150,9 @@ shot(46.2, (t, d) => { const k = eo(cl(t / (d - 0.4))), z = lerp(-62, -40.9, k),
     sparks: sl > 0.05 ? { at: [[0.72, 0.55, z + 0.4], [0.72, 0.55, z - 2.2], [0.72, 0.55, z - 4.3]], dir: -1 } : null, shake: 0.04 * sl,
     actors: [act('driver', 1.55, 1.75, z - 5.2, { expr: k > 0.97 ? 'relief' : 'pained', L: k > 0.97 ? 'temple' : 'hang', R: 'hang', facing: 0.6, sweat: 3 }, [], { s: 0.85 })] }; });
 // S27 48.05 "You see, a bang travels where light can't."  the lamp's glow dies in the fog, the bang's rings sail through it
-shot(48.05, (t, d) => ({ preset: 'night', cam: L3([3.4, 3.4, 7.5], [3.0, 3.0, 6.5], ez(t / d)), look: [0, 0.9, -6], fov: 48, focus: 9, cinf: 1.5, fog: 0.09, fogCards: 2.5, glowFade: 0.12,
+shot(48.05, (t, d) => ({ preset: 'night', cam: L3([-0.2, 2.5, 7.4], [-0.3, 2.3, 6.6], ez(t / d)), look: [0.4, 1.0, -6], fov: 50, focus: 5, cinf: 1.5, fog: 0.09, fogCards: 2.5, glowFade: 0.12,
   rings: { p: [DET, 0.9, 0], dz: -14, size: 7, rate: 1.1, k: 0.9 }, dets: [{ p: [DET, 0.565, 0], s: 1.6 }],
-  actors: [act('engineer', -1.55, 0, 2.0, { expr: 'smile', L: 'point', R: 'hang', facing: -0.4, look: -0.6, blink: blink(t, 4) }, [{ hand: 1, kind: 'lantern' }])] }));
+  actors: [act('engineer', -1.45, 0, 3.2, { expr: 'smile', L: 'hang', R: 'point', facing: 0.4, look: 0.6, blink: blink(t, 4) }, [{ hand: 0, kind: 'lantern' }])] }));
 // S28 51.3 "Fog can hide a lamp,"  close on a lantern, fog swallows it
 shot(51.3, (t, d) => { const k = ez(t / d);
   return { preset: 'night', cam: [0.6, 3.6, -0.8], look: [2.6, 4.0, -4], fov: 40, focus: 4, cinf: 2, fog: lerp(0.06, 0.2, k), fogCards: 3, platK: { z: -4, k: lerp(1, 0.03, k) }, glowFade: 0.1, actors: [] }; });
