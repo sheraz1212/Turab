@@ -35,8 +35,8 @@ const SH = []; const shot = (t0, fn) => SH.push({ t0, fn });
 // 1  "In fifteen ninety-three,"  the fort on its green hill, banners in the wind, crane up
 shot(0.0, (t, d) => { const k = ez(t / d); return { preset: 'day', cam: L3([26, -6, -48], [22, 2, -44], k), look: [0, 4, -14], fov: 46, focus: 30, cinf: 0, tag: '1593', shadowExt: 50, motes: false }; });
 // 2  "a Korean craftsman spends all night"  night workshop, lantern light, he drills
-shot(1.6, (t, d) => ({ preset: 'night', cam: L3([17.6, 1.75, 14.2], [17.0, 1.7, 13.4], ez(t / d)), look: [16.0, 1.45, 10.0], fov: 46, focus: 3.6, cinf: 4, holes: 3 + Math.floor(t * 1.5), chips: [16.05, 1.45, 10.35],
-  actors: [act('craftsman', 16.0, 0, 9.3, { expr: 'stubborn', L: 'hang', R: { a: 40 + wig(t, 18, 6), e: 95 }, facing: 0, blink: blink(t, 1), tilt: wig(t, 18, 2) }, [{ hand: 1, kind: 'drill' }], {}, t)] }));
+shot(1.6, (t, d) => ({ preset: 'night', cam: L3([16.9, 1.75, 14.0], [16.5, 1.7, 13.2], ez(t / d)), look: [15.6, 1.45, 10.0], fov: 46, focus: 3.6, cinf: 4, holes: 3 + Math.floor(t * 1.5), chips: [16.05, 1.45, 10.35],
+  actors: [act('craftsman', 15.2, 0, 9.75, { expr: 'stubborn', L: 'hang', R: { a: 55 + wig(t, 18, 6), e: 70 }, facing: 0.4, blink: blink(t, 1), tilt: wig(t, 18, 2) }, [{ hand: 1, kind: 'drill' }], {}, t)] }));
 // 3  "...drilling holes into a block of wood."  macro on the block, holes appear, chips fly
 shot(3.7, (t, d) => ({ preset: 'night', cam: L3([16.3, 1.52, 10.95], [16.18, 1.5, 10.8], ez(t / d)), look: [16.0, 1.44, 10.33], fov: 40, focus: 0.6, cinf: 6, holes: 6 + Math.floor(t * 3), chips: [15.95, 1.5, 10.35], near: 0.02,
   actors: [act('craftsman', 16.05, 0, 9.3, { expr: 'stubborn', L: 'hang', R: { a: 40 + wig(t, 18, 6), e: 95 }, facing: 0 }, [{ hand: 1, kind: 'drill' }], {}, t)] }));
@@ -59,8 +59,8 @@ shot(11.9, (t, d) => { const k = ez(t / d); return { preset: 'day', cam: L3([30,
 shot(13.8, (t, d) => ({ preset: 'day', cam: L3([-3.5, 4.75, -10.6], [-4.8, 4.7, -10.8], ez(t / d)), look: [-11, 4.3, -13.2], fov: 46, focus: 3.6, cinf: 3, tag: '3,000',
   actors: [act('kdef1', -6.2, 3, -12.8, { expr: 'nervous', L: 'hang', R: 'hang', facing: 0.5, sweat: 2, blink: blink(t, 1) }), act('kdef2', -8.6, 3, -12.9, { expr: 'pained', L: 'cross', R: 'cross', facing: 0.3, blink: blink(t, 2) }), act('kdef1', -11.2, 3, -12.8, { expr: 'shock', L: 'cheek', R: 'cheek', facing: 0.4 }), act('kdef2', -14.0, 3, -12.9, { expr: 'nervous', L: 'hang', R: 'hang', facing: 0.4, sweat: 1 })] }));
 // 10 "But he keeps drilling."  back in the workshop, close, sweating, determined
-shot(16.4, (t, d) => ({ preset: 'night', cam: L3([16.35, 1.78, 12.0], [16.2, 1.78, 11.4], ez(t / d)), look: [16.0, 1.72, 9.3], fov: 42, focus: 2.2, cinf: 6, holes: 60 + Math.floor(t * 12), chips: [16.05, 1.45, 10.35],
-  actors: [act('craftsman', 16.0, 0, 9.3, { expr: 'stubborn', L: 'hang', R: { a: 40 + wig(t, 18, 6), e: 95 }, facing: 0, sweat: 2, tilt: wig(t, 18, 2) }, [{ hand: 1, kind: 'drill' }], {}, t)] }));
+shot(16.4, (t, d) => ({ preset: 'night', cam: L3([15.7, 1.8, 11.5], [15.6, 1.8, 11.2], ez(t / d)), look: [15.35, 1.62, 9.75], fov: 42, focus: 2.2, cinf: 6, holes: 60 + Math.floor(t * 12), chips: [16.05, 1.45, 10.35],
+  actors: [act('craftsman', 15.2, 0, 9.75, { expr: 'stubborn', L: 'hang', R: { a: 55 + wig(t, 18, 6), e: 70 }, facing: 0.4, sweat: 2, tilt: wig(t, 18, 2) }, [{ hand: 1, kind: 'drill' }], {}, t)] }));
 // 11 "One hundred holes,"  macro on the finished face, pull back
 shot(18.0, (t, d) => ({ preset: 'night', cam: L3([16.0, 1.46, 10.75], [16.0, 1.5, 11.6], ez(t / d)), look: [16.0, 1.44, 10.33], fov: 42, focus: 0.8, cinf: 5, holes: 100, tag: '100', near: 0.02,
   actors: [fx(burst(t), 16.0, 1.0, 10.4, 0.5)] }));

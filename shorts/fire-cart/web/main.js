@@ -317,6 +317,7 @@ window.renderFrame = (f) => {
   { const sv = sd.clone().multiplyScalar(500).add(camera.position).project(camera); inkU.sunUV.value.set(sv.x * 0.5 + 0.5, sv.y * 0.5 + 0.5); inkU.raysK.value = sv.z < 1 ? (S.rays ?? L.rays) : 0; }
   // waving banners
   for (const m of FLAGS) { const pa = m.geometry.attributes.position, b = m.userData.base; for (let i = 0; i < pa.count; i++) { const x = b[i * 3]; pa.setZ(i, Math.sin(x * 3 - t * 5 + m.userData.ph) * 0.12 * x); } pa.needsUpdate = true; }
+  HW[0].visible = t >= 19.4;
   // drilled block
   drawHoles(S.holes ?? 0); BLOCK.visible = S.block !== false;
   // hero hwacha loading: arrows visible up to S.loaded, arrow i slides in (S.slide {i, k})
