@@ -1,0 +1,319 @@
+{
+ "duration": 63.4775,
+ "frames30": 1904,
+ "source": "silence-align (cost 0.92)",
+ "segments": [
+  [
+   0.0,
+   1.43692
+  ],
+  [
+   1.62964,
+   4.16698
+  ],
+  [
+   4.54912,
+   6.47519
+  ],
+  [
+   7.09989,
+   9.40077
+  ],
+  [
+   9.5905,
+   10.5254
+  ],
+  [
+   11.0234,
+   12.4206
+  ],
+  [
+   12.691,
+   13.1386
+  ],
+  [
+   13.4262,
+   14.5593
+  ],
+  [
+   14.7908,
+   15.7163
+  ],
+  [
+   15.9094,
+   17.6747
+  ],
+  [
+   18.0388,
+   19.9829
+  ],
+  [
+   20.425,
+   23.4567
+  ],
+  [
+   23.9665,
+   25.0755
+  ],
+  [
+   25.5405,
+   26.081
+  ],
+  [
+   26.3395,
+   28.159
+  ],
+  [
+   28.3248,
+   30.4308
+  ],
+  [
+   30.8369,
+   32.2968
+  ],
+  [
+   32.7121,
+   34.1041
+  ],
+  [
+   34.3887,
+   35.2745
+  ],
+  [
+   35.6954,
+   36.6712
+  ],
+  [
+   36.809,
+   38.979
+  ],
+  [
+   39.1571,
+   40.7609
+  ],
+  [
+   41.2041,
+   41.6132
+  ],
+  [
+   41.8125,
+   42.9028
+  ],
+  [
+   43.1928,
+   45.953
+  ],
+  [
+   46.3818,
+   47.7146
+  ],
+  [
+   47.8558,
+   48.6406
+  ],
+  [
+   49.1104,
+   49.639
+  ],
+  [
+   49.9518,
+   51.2515
+  ],
+  [
+   51.8062,
+   52.7947
+  ],
+  [
+   52.9609,
+   55.0593
+  ],
+  [
+   55.4716,
+   56.1568
+  ],
+  [
+   56.3394,
+   58.6218
+  ],
+  [
+   59.1409,
+   61.2182
+  ],
+  [
+   61.6927,
+   63.2721
+  ]
+ ],
+ "phrases": [
+  {
+   "text": "In twelve seventy-four,",
+   "s": 0.0,
+   "e": 1.437
+  },
+  {
+   "text": "samurai rode out to fight an invading army.",
+   "s": 1.63,
+   "e": 4.167
+  },
+  {
+   "text": "And the army threw thunder at them.",
+   "s": 4.549,
+   "e": 6.475
+  },
+  {
+   "text": "The Mongol fleet had landed at Hakata Bay,",
+   "s": 7.1,
+   "e": 9.401
+  },
+  {
+   "text": "in southern Japan.",
+   "s": 9.591,
+   "e": 10.525
+  },
+  {
+   "text": "A samurai rode forward,",
+   "s": 11.023,
+   "e": 12.421
+  },
+  {
+   "text": "alone,",
+   "s": 12.691,
+   "e": 13.139
+  },
+  {
+   "text": "and shouted his name,",
+   "s": 13.426,
+   "e": 14.559
+  },
+  {
+   "text": "his father's name,",
+   "s": 14.791,
+   "e": 15.716
+  },
+  {
+   "text": "and all his greatest victories.",
+   "s": 15.909,
+   "e": 17.675
+  },
+  {
+   "text": "That's how battles started in Japan.",
+   "s": 18.039,
+   "e": 19.983
+  },
+  {
+   "text": "Then one brave enemy would step out for a duel.",
+   "s": 20.425,
+   "e": 23.457
+  },
+  {
+   "text": "Nobody stepped out.",
+   "s": 23.966,
+   "e": 25.076
+  },
+  {
+   "text": "Instead,",
+   "s": 25.541,
+   "e": 26.081
+  },
+  {
+   "text": "the whole Mongol line laughed,",
+   "s": 26.34,
+   "e": 28.159
+  },
+  {
+   "text": "and fired a thousand arrows at once.",
+   "s": 28.325,
+   "e": 30.431
+  },
+  {
+   "text": "Then they threw something new.",
+   "s": 30.837,
+   "e": 32.297
+  },
+  {
+   "text": "A heavy iron ball,",
+   "s": 32.712,
+   "e": 34.104
+  },
+  {
+   "text": "hissing smoke.",
+   "s": 34.389,
+   "e": 35.275
+  },
+  {
+   "text": "It bounced once,",
+   "s": 35.695,
+   "e": 36.671
+  },
+  {
+   "text": "and exploded with a bang so loud,",
+   "s": 36.809,
+   "e": 38.979
+  },
+  {
+   "text": "horses threw their riders.",
+   "s": 39.157,
+   "e": 40.761
+  },
+  {
+   "text": "You see,",
+   "s": 41.204,
+   "e": 41.613
+  },
+  {
+   "text": "the balls were hollow,",
+   "s": 41.812,
+   "e": 42.903
+  },
+  {
+   "text": "packed with gunpowder, and lit with a burning fuse.",
+   "s": 43.193,
+   "e": 45.953
+  },
+  {
+   "text": "Japan had never seen anything like it.",
+   "s": 46.382,
+   "e": 48.641
+  },
+  {
+   "text": "That night,",
+   "s": 49.11,
+   "e": 49.639
+  },
+  {
+   "text": "the invaders sailed away.",
+   "s": 49.952,
+   "e": 51.252
+  },
+  {
+   "text": "Seven years later,",
+   "s": 51.806,
+   "e": 52.795
+  },
+  {
+   "text": "they came back with a far bigger fleet.",
+   "s": 52.961,
+   "e": 55.059
+  },
+  {
+   "text": "But this time,",
+   "s": 55.472,
+   "e": 56.157
+  },
+  {
+   "text": "a typhoon smashed their ships in the bay.",
+   "s": 56.339,
+   "e": 58.622
+  },
+  {
+   "text": "The samurai had no answer to thunder.",
+   "s": 59.141,
+   "e": 61.218
+  },
+  {
+   "text": "So the sky sent its own.",
+   "s": 61.693,
+   "e": 63.272
+  }
+ ]
+}
