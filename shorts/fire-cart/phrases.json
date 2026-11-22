@@ -1,0 +1,331 @@
+{
+ "duration": 63.555875,
+ "frames30": 1907,
+ "source": "silence-align (cost 2.60)",
+ "segments": [
+  [
+   0.0,
+   1.49297
+  ],
+  [
+   1.64639,
+   3.06351
+  ],
+  [
+   3.19057,
+   5.55621
+  ],
+  [
+   6.03381,
+   7.39671
+  ],
+  [
+   7.72358,
+   8.30782
+  ],
+  [
+   8.55766,
+   9.56102
+  ],
+  [
+   10.1513,
+   13.568
+  ],
+  [
+   13.8462,
+   15.9555
+  ],
+  [
+   16.4371,
+   17.5425
+  ],
+  [
+   18.1077,
+   19.302
+  ],
+  [
+   19.539,
+   20.6069
+  ],
+  [
+   21.1779,
+   23.0293
+  ],
+  [
+   23.2212,
+   25.7171
+  ],
+  [
+   26.197,
+   28.3679
+  ],
+  [
+   28.5294,
+   29.928
+  ],
+  [
+   30.5938,
+   31.2903
+  ],
+  [
+   31.5329,
+   32.8063
+  ],
+  [
+   33.3834,
+   33.815
+  ],
+  [
+   34.3913,
+   35.0308
+  ],
+  [
+   35.5538,
+   36.6468
+  ],
+  [
+   37.368,
+   38.6308
+  ],
+  [
+   39.0927,
+   40.8437
+  ],
+  [
+   41.0176,
+   42.611
+  ],
+  [
+   42.7849,
+   44.6926
+  ],
+  [
+   45.2157,
+   45.5536
+  ],
+  [
+   45.8198,
+   47.6092
+  ],
+  [
+   48.0366,
+   48.6917
+  ],
+  [
+   48.877,
+   49.6601
+  ],
+  [
+   49.8539,
+   51.1326
+  ],
+  [
+   51.6569,
+   52.572
+  ],
+  [
+   52.7923,
+   53.3473
+  ],
+  [
+   53.8122,
+   54.6258
+  ],
+  [
+   55.0668,
+   55.7151
+  ],
+  [
+   55.9044,
+   56.7516
+  ],
+  [
+   57.3222,
+   58.4496
+  ],
+  [
+   58.861,
+   61.2719
+  ],
+  [
+   61.4493,
+   62.2263
+  ],
+  [
+   62.3541,
+   63.2826
+  ]
+ ],
+ "phrases": [
+  {
+   "text": "In fifteen ninety-three,",
+   "s": 0.0,
+   "e": 1.493
+  },
+  {
+   "text": "a Korean craftsman spends all night drilling holes into a block of wood.",
+   "s": 1.646,
+   "e": 5.556
+  },
+  {
+   "text": "His friends think he's lost it.",
+   "s": 6.034,
+   "e": 7.397
+  },
+  {
+   "text": "Holes?",
+   "s": 7.724,
+   "e": 8.308
+  },
+  {
+   "text": "We need swords!",
+   "s": 8.558,
+   "e": 9.561
+  },
+  {
+   "text": "Thirty thousand soldiers are marching on their tiny hilltop fort,",
+   "s": 10.151,
+   "e": 13.568
+  },
+  {
+   "text": "and there are barely three thousand defenders.",
+   "s": 13.846,
+   "e": 15.956
+  },
+  {
+   "text": "But he keeps drilling.",
+   "s": 16.437,
+   "e": 17.543
+  },
+  {
+   "text": "One hundred holes,",
+   "s": 18.108,
+   "e": 19.302
+  },
+  {
+   "text": "on top of a little cart.",
+   "s": 19.539,
+   "e": 20.607
+  },
+  {
+   "text": "Into each hole, he slides an arrow,",
+   "s": 21.178,
+   "e": 23.029
+  },
+  {
+   "text": "with a tiny tube of gunpowder tied to its side.",
+   "s": 23.221,
+   "e": 25.717
+  },
+  {
+   "text": "Then he twists every fuse together,",
+   "s": 26.197,
+   "e": 28.368
+  },
+  {
+   "text": "into one single string.",
+   "s": 28.529,
+   "e": 29.928
+  },
+  {
+   "text": "The next morning,",
+   "s": 30.594,
+   "e": 31.29
+  },
+  {
+   "text": "the enemy climbs the hill.",
+   "s": 31.533,
+   "e": 32.806
+  },
+  {
+   "text": "Closer.",
+   "s": 33.383,
+   "e": 33.815
+  },
+  {
+   "text": "And closer.",
+   "s": 34.391,
+   "e": 35.031
+  },
+  {
+   "text": "Shoulder to shoulder.",
+   "s": 35.554,
+   "e": 36.647
+  },
+  {
+   "text": "He lights one fuse.",
+   "s": 37.368,
+   "e": 38.631
+  },
+  {
+   "text": "The spark races down the string,",
+   "s": 39.093,
+   "e": 40.844
+  },
+  {
+   "text": "splits into a hundred sparks,",
+   "s": 41.018,
+   "e": 42.611
+  },
+  {
+   "text": "and every arrow takes off at once.",
+   "s": 42.785,
+   "e": 44.693
+  },
+  {
+   "text": "You see,",
+   "s": 45.216,
+   "e": 45.554
+  },
+  {
+   "text": "each arrow is a tiny rocket.",
+   "s": 45.82,
+   "e": 47.609
+  },
+  {
+   "text": "One man,",
+   "s": 48.037,
+   "e": 48.692
+  },
+  {
+   "text": "one spark,",
+   "s": 48.877,
+   "e": 49.66
+  },
+  {
+   "text": "one hundred shots.",
+   "s": 49.854,
+   "e": 51.133
+  },
+  {
+   "text": "The Koreans called it the hwacha.",
+   "s": 51.657,
+   "e": 53.347
+  },
+  {
+   "text": "The fire cart.",
+   "s": 53.812,
+   "e": 54.626
+  },
+  {
+   "text": "And this fort had forty of them.",
+   "s": 55.067,
+   "e": 56.752
+  },
+  {
+   "text": "And here's the crazy part.",
+   "s": 57.322,
+   "e": 58.45
+  },
+  {
+   "text": "The army of thirty thousand turned around,",
+   "s": 58.861,
+   "e": 61.272
+  },
+  {
+   "text": "and the little fort was never taken.",
+   "s": 61.449,
+   "e": 63.283
+  }
+ ]
+}
