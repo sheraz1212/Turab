@@ -1,0 +1,367 @@
+{
+ "duration": 72.90775,
+ "frames30": 2187,
+ "source": "silence-align (cost 2.78)",
+ "segments": [
+  [
+   0.0,
+   1.30615
+  ],
+  [
+   1.71685,
+   3.3629
+  ],
+  [
+   3.61862,
+   3.88834
+  ],
+  [
+   4.03871,
+   5.54027
+  ],
+  [
+   5.94907,
+   8.23467
+  ],
+  [
+   8.64476,
+   9.82299
+  ],
+  [
+   9.97615,
+   10.4279
+  ],
+  [
+   10.9508,
+   11.7434
+  ],
+  [
+   11.907,
+   13.5495
+  ],
+  [
+   14.1843,
+   15.0042
+  ],
+  [
+   15.1381,
+   18.4137
+  ],
+  [
+   18.7921,
+   19.6951
+  ],
+  [
+   19.9202,
+   20.6279
+  ],
+  [
+   21.1589,
+   22.218
+  ],
+  [
+   22.5625,
+   24.0885
+  ],
+  [
+   24.7473,
+   25.1054
+  ],
+  [
+   25.2763,
+   26.4225
+  ],
+  [
+   26.5466,
+   27.2551
+  ],
+  [
+   27.6312,
+   29.0332
+  ],
+  [
+   29.4479,
+   31.5593
+  ],
+  [
+   32.1544,
+   33.382
+  ],
+  [
+   33.7859,
+   34.1618
+  ],
+  [
+   34.6365,
+   35.2548
+  ],
+  [
+   35.8129,
+   38.7209
+  ],
+  [
+   39.1078,
+   41.2216
+  ],
+  [
+   41.6285,
+   42.4679
+  ],
+  [
+   43.0489,
+   43.582
+  ],
+  [
+   43.7275,
+   45.4358
+  ],
+  [
+   45.9441,
+   47.2661
+  ],
+  [
+   47.5311,
+   48.206
+  ],
+  [
+   48.3469,
+   49.1815
+  ],
+  [
+   49.6653,
+   50.1776
+  ],
+  [
+   50.6239,
+   50.8773
+  ],
+  [
+   50.9999,
+   53.3172
+  ],
+  [
+   53.7524,
+   55.8473
+  ],
+  [
+   56.5625,
+   59.073
+  ],
+  [
+   59.4583,
+   62.7271
+  ],
+  [
+   63.1524,
+   64.8788
+  ],
+  [
+   65.0196,
+   66.2049
+  ],
+  [
+   66.8145,
+   68.5285
+  ],
+  [
+   68.995,
+   70.9102
+  ],
+  [
+   71.1756,
+   72.6955
+  ]
+ ],
+ "phrases": [
+  {
+   "text": "Nineteen forty-two.",
+   "s": 0.0,
+   "e": 1.306
+  },
+  {
+   "text": "Germany rolls out the Tiger,",
+   "s": 1.717,
+   "e": 3.363
+  },
+  {
+   "text": "the most powerful tank in the world.",
+   "s": 3.619,
+   "e": 5.54
+  },
+  {
+   "text": "It can hit an enemy tank from a mile away.",
+   "s": 5.949,
+   "e": 8.235
+  },
+  {
+   "text": "Shells bounce off it like peas.",
+   "s": 8.645,
+   "e": 10.428
+  },
+  {
+   "text": "For every kill,",
+   "s": 10.951,
+   "e": 11.743
+  },
+  {
+   "text": "the crew paints a ring on the barrel.",
+   "s": 11.907,
+   "e": 13.55
+  },
+  {
+   "text": "On the other side,",
+   "s": 14.184,
+   "e": 15.004
+  },
+  {
+   "text": "the Soviets are building their T-34s in a tractor factory.",
+   "s": 15.138,
+   "e": 18.414
+  },
+  {
+   "text": "Crude welds.",
+   "s": 18.792,
+   "e": 19.695
+  },
+  {
+   "text": "Rough edges.",
+   "s": 19.92,
+   "e": 20.628
+  },
+  {
+   "text": "The Germans laugh.",
+   "s": 21.159,
+   "e": 22.218
+  },
+  {
+   "text": "You're fighting us with tractors?",
+   "s": 22.562,
+   "e": 24.088
+  },
+  {
+   "text": "You see,",
+   "s": 24.747,
+   "e": 25.105
+  },
+  {
+   "text": "the Tiger was built like a pocket watch.",
+   "s": 25.276,
+   "e": 27.255
+  },
+  {
+   "text": "Every gear hand-fitted.",
+   "s": 27.631,
+   "e": 29.033
+  },
+  {
+   "text": "Every part made for that one tank.",
+   "s": 29.448,
+   "e": 31.559
+  },
+  {
+   "text": "Then autumn comes.",
+   "s": 32.154,
+   "e": 33.382
+  },
+  {
+   "text": "Mud.",
+   "s": 33.786,
+   "e": 34.162
+  },
+  {
+   "text": "Then winter.",
+   "s": 34.636,
+   "e": 35.255
+  },
+  {
+   "text": "One frozen morning, a Tiger's gearbox cracks.",
+   "s": 35.813,
+   "e": 38.721
+  },
+  {
+   "text": "A new one has to come all the way from Germany.",
+   "s": 39.108,
+   "e": 41.222
+  },
+  {
+   "text": "That takes weeks.",
+   "s": 41.629,
+   "e": 42.468
+  },
+  {
+   "text": "Meanwhile,",
+   "s": 43.049,
+   "e": 43.582
+  },
+  {
+   "text": "a T-34 loses a wheel.",
+   "s": 43.727,
+   "e": 45.436
+  },
+  {
+   "text": "The driver walks to a wreck,",
+   "s": 45.944,
+   "e": 47.266
+  },
+  {
+   "text": "pulls one off,",
+   "s": 47.531,
+   "e": 48.206
+  },
+  {
+   "text": "and hammers it on.",
+   "s": 48.347,
+   "e": 49.181
+  },
+  {
+   "text": "It fits.",
+   "s": 49.665,
+   "e": 50.178
+  },
+  {
+   "text": "Because every T-34 is the same underneath.",
+   "s": 50.624,
+   "e": 53.317
+  },
+  {
+   "text": "So every broken tank is a parts shop.",
+   "s": 53.752,
+   "e": 55.847
+  },
+  {
+   "text": "Germany built about thirteen hundred Tigers.",
+   "s": 56.562,
+   "e": 59.073
+  },
+  {
+   "text": "The Soviets built over fifty thousand T-34s.",
+   "s": 59.458,
+   "e": 62.727
+  },
+  {
+   "text": "So the Tiger kept winning fights,",
+   "s": 63.152,
+   "e": 64.879
+  },
+  {
+   "text": "and kept losing the war.",
+   "s": 65.02,
+   "e": 66.205
+  },
+  {
+   "text": "And that Tiger with the cracked gearbox?",
+   "s": 66.814,
+   "e": 68.528
+  },
+  {
+   "text": "Its crew is still waiting in the snow,",
+   "s": 68.995,
+   "e": 70.91
+  },
+  {
+   "text": "watching the tractors roll past.",
+   "s": 71.176,
+   "e": 72.695
+  }
+ ]
+}

@@ -1,0 +1,310 @@
+{
+ "duration": 58.749375,
+ "frames30": 1762,
+ "source": "silence-align (cost 2.38)",
+ "segments": [
+  [
+   0.0,
+   1.13549
+  ],
+  [
+   1.2624,
+   2.58755
+  ],
+  [
+   2.72438,
+   3.68678
+  ],
+  [
+   4.27077,
+   6.13032
+  ],
+  [
+   6.6239,
+   7.72519
+  ],
+  [
+   8.24252,
+   11.5769
+  ],
+  [
+   12.0892,
+   13.3689
+  ],
+  [
+   14.0135,
+   14.9212
+  ],
+  [
+   15.3649,
+   15.9138
+  ],
+  [
+   16.1929,
+   16.8949
+  ],
+  [
+   17.4797,
+   20.659
+  ],
+  [
+   21.0289,
+   22.2261
+  ],
+  [
+   22.6987,
+   24.5908
+  ],
+  [
+   24.7887,
+   25.9724
+  ],
+  [
+   26.139,
+   26.899
+  ],
+  [
+   27.4031,
+   28.5167
+  ],
+  [
+   28.8276,
+   29.4791
+  ],
+  [
+   30.0006,
+   30.3515
+  ],
+  [
+   30.5002,
+   32.7146
+  ],
+  [
+   33.0766,
+   34.4533
+  ],
+  [
+   34.9998,
+   37.1953
+  ],
+  [
+   37.4253,
+   37.9108
+  ],
+  [
+   38.3133,
+   40.1993
+  ],
+  [
+   40.4535,
+   42.3226
+  ],
+  [
+   42.8664,
+   44.2851
+  ],
+  [
+   44.7819,
+   46.0852
+  ],
+  [
+   46.3569,
+   48.5836
+  ],
+  [
+   48.7867,
+   49.462
+  ],
+  [
+   49.9643,
+   50.5129
+  ],
+  [
+   51.191,
+   52.1908
+  ],
+  [
+   52.4376,
+   53.139
+  ],
+  [
+   53.509,
+   54.7623
+  ],
+  [
+   54.9663,
+   55.6993
+  ],
+  [
+   56.1716,
+   58.55
+  ]
+ ],
+ "phrases": [
+  {
+   "text": "For three years,",
+   "s": 0.0,
+   "e": 1.135
+  },
+  {
+   "text": "Jake dug for gold,",
+   "s": 1.262,
+   "e": 2.588
+  },
+  {
+   "text": "and found nothing.",
+   "s": 2.724,
+   "e": 3.687
+  },
+  {
+   "text": "So he did what desperate miners did.",
+   "s": 4.271,
+   "e": 6.13
+  },
+  {
+   "text": "He salted the mine.",
+   "s": 6.624,
+   "e": 7.725
+  },
+  {
+   "text": "He loaded a shotgun with gold dust, and blasted it into the rock.",
+   "s": 8.243,
+   "e": 11.577
+  },
+  {
+   "text": "Now the walls sparkle.",
+   "s": 12.089,
+   "e": 13.369
+  },
+  {
+   "text": "He nails up a sign.",
+   "s": 14.014,
+   "e": 14.921
+  },
+  {
+   "text": "For sale.",
+   "s": 15.365,
+   "e": 15.914
+  },
+  {
+   "text": "Rich vein.",
+   "s": 16.193,
+   "e": 16.895
+  },
+  {
+   "text": "The next morning, a millionaire rolls up in a shiny new car.",
+   "s": 17.48,
+   "e": 20.659
+  },
+  {
+   "text": "And he brought an expert.",
+   "s": 21.029,
+   "e": 22.226
+  },
+  {
+   "text": "The expert smashes a chunk of rock,",
+   "s": 22.699,
+   "e": 24.591
+  },
+  {
+   "text": "swirls it in a pan,",
+   "s": 24.789,
+   "e": 25.972
+  },
+  {
+   "text": "and squints.",
+   "s": 26.139,
+   "e": 26.899
+  },
+  {
+   "text": "Gold flakes.",
+   "s": 27.403,
+   "e": 28.517
+  },
+  {
+   "text": "Everywhere.",
+   "s": 28.828,
+   "e": 29.479
+  },
+  {
+   "text": "You see,",
+   "s": 30.001,
+   "e": 30.352
+  },
+  {
+   "text": "salting worked because the gold was real.",
+   "s": 30.5,
+   "e": 32.715
+  },
+  {
+   "text": "It just didn't come from that mine.",
+   "s": 33.077,
+   "e": 34.453
+  },
+  {
+   "text": "The millionaire pays ten thousand dollars,",
+   "s": 35.0,
+   "e": 37.195
+  },
+  {
+   "text": "cash.",
+   "s": 37.425,
+   "e": 37.911
+  },
+  {
+   "text": "Jake and his partner run off laughing.",
+   "s": 38.313,
+   "e": 40.199
+  },
+  {
+   "text": "They can't believe somebody fell for it.",
+   "s": 40.453,
+   "e": 42.323
+  },
+  {
+   "text": "But the millionaire doesn't leave.",
+   "s": 42.866,
+   "e": 44.285
+  },
+  {
+   "text": "He lights a stick of dynamite,",
+   "s": 44.782,
+   "e": 46.085
+  },
+  {
+   "text": "tosses it at the back wall like a firecracker,",
+   "s": 46.357,
+   "e": 48.584
+  },
+  {
+   "text": "and runs.",
+   "s": 48.787,
+   "e": 49.462
+  },
+  {
+   "text": "Boom.",
+   "s": 49.964,
+   "e": 50.513
+  },
+  {
+   "text": "When the dust clears,",
+   "s": 51.191,
+   "e": 52.191
+  },
+  {
+   "text": "there it is.",
+   "s": 52.438,
+   "e": 53.139
+  },
+  {
+   "text": "A vein of gold as thick as your arm.",
+   "s": 53.509,
+   "e": 55.699
+  },
+  {
+   "text": "Jake had stopped digging ten feet too early.",
+   "s": 56.172,
+   "e": 58.55
+  }
+ ]
+}
