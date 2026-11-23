@@ -1,0 +1,305 @@
+{
+ "duration": 67.160813,
+ "frames30": 2015,
+ "source": "silence-align (cost 1.59)",
+ "segments": [
+  [
+   0.0,
+   1.4795
+  ],
+  [
+   1.63732,
+   4.40887
+  ],
+  [
+   4.94127,
+   5.29574
+  ],
+  [
+   5.43485,
+   6.80299
+  ],
+  [
+   7.23828,
+   7.86415
+  ],
+  [
+   8.03102,
+   8.4929
+  ],
+  [
+   9.0919,
+   10.9606
+  ],
+  [
+   11.281,
+   12.0126
+  ],
+  [
+   12.5641,
+   13.7533
+  ],
+  [
+   13.9136,
+   15.7559
+  ],
+  [
+   16.0406,
+   17.1286
+  ],
+  [
+   17.756,
+   19.2308
+  ],
+  [
+   19.7149,
+   24.2134
+  ],
+  [
+   24.7621,
+   25.7281
+  ],
+  [
+   26.1785,
+   26.7336
+  ],
+  [
+   27.2544,
+   28.3674
+  ],
+  [
+   28.6845,
+   33.3232
+  ],
+  [
+   34.0068,
+   34.6565
+  ],
+  [
+   35.1425,
+   36.5389
+  ],
+  [
+   36.9676,
+   38.1669
+  ],
+  [
+   38.3271,
+   39.809
+  ],
+  [
+   40.3282,
+   40.8285
+  ],
+  [
+   41.4516,
+   41.809
+  ],
+  [
+   41.9937,
+   44.7804
+  ],
+  [
+   45.1685,
+   46.1359
+  ],
+  [
+   46.2934,
+   47.0007
+  ],
+  [
+   47.5041,
+   50.068
+  ],
+  [
+   50.2914,
+   51.4523
+  ],
+  [
+   51.991,
+   55.3755
+  ],
+  [
+   55.7995,
+   58.5805
+  ],
+  [
+   59.0748,
+   60.3724
+  ],
+  [
+   60.8863,
+   62.7327
+  ],
+  [
+   63.1935,
+   64.0426
+  ],
+  [
+   64.1673,
+   66.8795
+  ]
+ ],
+ "phrases": [
+  {
+   "text": "Back in the 1890s,",
+   "s": 0.0,
+   "e": 1.48
+  },
+  {
+   "text": "a builder makes a roller coaster that goes upside down.",
+   "s": 1.637,
+   "e": 4.409
+  },
+  {
+   "text": "One perfect circle of a loop.",
+   "s": 4.941,
+   "e": 6.803
+  },
+  {
+   "text": "It costs him everything.",
+   "s": 7.238,
+   "e": 8.493
+  },
+  {
+   "text": "And of course, his rival copies it,",
+   "s": 9.092,
+   "e": 10.961
+  },
+  {
+   "text": "bolt for bolt.",
+   "s": 11.281,
+   "e": 12.013
+  },
+  {
+   "text": "But the night before opening,",
+   "s": 12.564,
+   "e": 13.753
+  },
+  {
+   "text": "his test dummy comes back crushed.",
+   "s": 13.914,
+   "e": 15.756
+  },
+  {
+   "text": "Flat as a soda can.",
+   "s": 16.041,
+   "e": 17.129
+  },
+  {
+   "text": "He can't miss opening day.",
+   "s": 17.756,
+   "e": 19.231
+  },
+  {
+   "text": "So he grabs a hammer, and bends the bottom of the loop into a long, lazy curve.",
+   "s": 19.715,
+   "e": 24.213
+  },
+  {
+   "text": "Does he know what he's doing?",
+   "s": 24.762,
+   "e": 25.728
+  },
+  {
+   "text": "Not really.",
+   "s": 26.178,
+   "e": 26.734
+  },
+  {
+   "text": "His rival laughs.",
+   "s": 27.254,
+   "e": 28.367
+  },
+  {
+   "text": "Then sneaks in that night, and cranks the sides together, until the loop is tall and skinny.",
+   "s": 28.684,
+   "e": 33.323
+  },
+  {
+   "text": "Opening day.",
+   "s": 34.007,
+   "e": 34.657
+  },
+  {
+   "text": "He climbs into the first cart.",
+   "s": 35.142,
+   "e": 36.539
+  },
+  {
+   "text": "As it tips over the hill,",
+   "s": 36.968,
+   "e": 38.167
+  },
+  {
+   "text": "he finally sees the loop.",
+   "s": 38.327,
+   "e": 39.809
+  },
+  {
+   "text": "Too late.",
+   "s": 40.328,
+   "e": 40.828
+  },
+  {
+   "text": "You see,",
+   "s": 41.452,
+   "e": 41.809
+  },
+  {
+   "text": "a car can take a hairpin turn at five miles an hour.",
+   "s": 41.994,
+   "e": 44.78
+  },
+  {
+   "text": "Take it at sixty,",
+   "s": 45.169,
+   "e": 46.136
+  },
+  {
+   "text": "and it flips.",
+   "s": 46.293,
+   "e": 47.001
+  },
+  {
+   "text": "A coaster cart is fastest at the bottom of a loop,",
+   "s": 47.504,
+   "e": 50.068
+  },
+  {
+   "text": "and slowest at the top.",
+   "s": 50.291,
+   "e": 51.452
+  },
+  {
+   "text": "A perfect circle puts the same sharp turn in both places.",
+   "s": 51.991,
+   "e": 55.376
+  },
+  {
+   "text": "But his lazy curve at the bottom, and that squeeze at the top?",
+   "s": 55.8,
+   "e": 58.581
+  },
+  {
+   "text": "Exactly the right shape.",
+   "s": 59.075,
+   "e": 60.372
+  },
+  {
+   "text": "He sails over without a scratch.",
+   "s": 60.886,
+   "e": 62.733
+  },
+  {
+   "text": "Across town,",
+   "s": 63.194,
+   "e": 64.043
+  },
+  {
+   "text": "the rival's cart hits the bottom of his perfect circle.",
+   "s": 64.167,
+   "e": 66.879
+  }
+ ]
+}
