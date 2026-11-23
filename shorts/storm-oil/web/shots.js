@@ -40,18 +40,18 @@ const bolt = (seed) => (p) => { const g = p.g; g.save(); g.lineJoin = 'round'; c
 const SH = []; const shot = (t0, fn) => SH.push({ t0, fn });
 
 // 1 "The pirates are getting closer,"  low over the water: the black pirate ship bearing down astern
-shot(0.0, (t, d) => ({ preset: 'day', islands: true, ships: CALM(lerp(40, 34, t / d)), cam: L3([-7, 2.2, 52], [-6.5, 2.4, 49], ez(t / d)), look: [4, 6, 30], fov: 50, amp: 0.4 }));
+shot(0.0, (t, d) => { const pz = lerp(44, 30, t / d); return { preset: 'day', ships: CALM(pz), cam: L3([-5, 11, 70], [-4, 10, 56], ez(t / d)), look: [4.5, 3, lerp(16, 10, t / d)], fov: 54, amp: 0.4, spray: { p: [9, 0.4, pz - 15], w: 2.5, h: 2.2, rate: 2.2, s: 0.7, k: 0.5 } }; });
 // 2 "and the ship's cook is pouring oil into the sea."  from the water: the cook at the rail, golden stream
-shot(1.7, (t, d) => ({ preset: 'day', ships: CALM(33), amp: 0.4, camShip: 'H', cam: L3([7.6, 5.0, 3.4], [7.2, 5.0, 2.8], ez(t / d)), look: [3.0, 4.0, 0.4], fov: 48, oil: OIL(0.3, 5), pour: { ship: 'H', from: [3.9, 4.0, 0.34], w: 1.2 },
+shot(1.7, (t, d) => ({ preset: 'day', ships: CALM(33), amp: 0.4, camShip: 'H', cam: L3([8.6, 4.6, -6.5], [8.2, 4.7, -6.0], ez(t / d)), look: [3.8, 3.2, 0.4], fov: 48, oil: OIL(0.3, 5), pour: { ship: 'H', from: [3.75, 3.95, 0.3], w: 1.2, dx: 0.8 },
   actors: [act('cook', 3.25, 2.9, 0.5, { expr: 'squint', L: 'belly', R: 'belly', facing: 0.5 }, [{ kind: 'pot', c: [330, 540] }], { ship: 'H' }, t)] }));
 // 3 "The captain grabs him by the apron."  the captain storms in and grabs a fistful of apron
 shot(4.55, (t, d) => ({ preset: 'day', ships: CALM(31), amp: 0.4, camShip: 'H', cam: L3([0.6, 3.9, -2.6], [0.9, 3.8, -2.2], ez(t / d)), look: [2.3, 3.4, 0.8], fov: 46, oil: OIL(0.4, 6),
-  actors: [H('cook', 2.9, 0.6, { expr: 'squint', L: 'belly', R: 'belly', facing: 0.3, tilt: t > 0.5 ? -6 : 0 }, [{ kind: 'pot', c: [330, 540] }], {}, t), H('captain', lerp(0.6, 1.9, eo(t / 0.5)), 1.1, { expr: 'stern', L: 'hang', R: { a: 90, e: 10 }, facing: 0.4, ...walk(t, 2.4, 20), step: t < 0.5 ? (t * 2.4) % 1 : 0 })] }));
+  actors: [H('cook', 2.9, 0.6, { expr: 'squint', L: 'belly', R: 'belly', facing: 0.3, tilt: t > 0.5 ? -6 : 0 }, [{ kind: 'pot', c: [330, 540], pour: false }], {}, t), H('captain', lerp(0.6, 1.9, eo(t / 0.5)), 1.1, { expr: 'stern', L: 'hang', R: { a: 90, e: 10 }, facing: 0.4, ...walk(t, 2.4, 20), step: t < 0.5 ? (t * 2.4) % 1 : 0 })] }));
 // 4 "They're about to board us, and you're cooking?"  captain in his face; pirates over his shoulder
 shot(6.75, (t, d) => ({ preset: 'day', ships: CALM(29), amp: 0.4, camShip: 'H', cam: L3([0.2, 4.0, -0.6], [0.4, 4.0, -0.2], ez(t / d)), look: [1.9, 3.8, 1.4], fov: 46, oil: OIL(0.5, 7),
-  actors: [H('captain', 1.9, 1.3, { expr: 'stern', talk: true, L: 'hang', R: { a: 140 + wig(t, 9, 10), e: 30, finger: true }, facing: 0.5, shake: 1 }, [], {}, t), H('cook', 3.0, 0.4, { expr: 'squint', L: 'belly', R: 'belly', facing: 0.3 }, [{ kind: 'pot', c: [330, 540] }], {}, t), bubble('COOKING?!', 1.75, 4.55, 1.3, 0.34, { ship: 'H' })] }));
+  actors: [H('captain', 1.9, 1.3, { expr: 'stern', talk: true, L: 'hang', R: { a: 140 + wig(t, 9, 10), e: 30, finger: true }, facing: 0.5, shake: 1 }, [], {}, t), H('cook', 3.0, 0.4, { expr: 'squint', L: 'belly', R: 'belly', facing: 0.3 }, [{ kind: 'pot', c: [330, 540], pour: false }], {}, t), bubble('COOKING?!', 1.75, 4.55, 1.3, 0.34, { ship: 'H' })] }));
 // 5 "He doesn't look up."  close on the cook: eyes on the pot
-shot(9.35, (t, d) => ({ preset: 'day', ships: CALM(28), amp: 0.4, camShip: 'H', cam: [1.2, 4.1, -0.5], look: [2.9, 3.9, 0.5], fov: 40, oil: OIL(0.55, 7), actors: [H('cook', 3.15, 0.5, { expr: 'squint', L: 'belly', R: 'belly', facing: 0.4, look: 0.5 }, [{ kind: 'pot', c: [330, 540] }], {}, t)] }));
+shot(9.35, (t, d) => ({ preset: 'day', ships: CALM(28), amp: 0.4, camShip: 'H', cam: [1.2, 4.1, -0.5], look: [2.9, 3.9, 0.5], fov: 40, oil: OIL(0.55, 7), actors: [H('cook', 3.15, 0.5, { expr: 'squint', L: 'belly', R: 'belly', facing: 0.4, look: 0.5 }, [{ kind: 'pot', c: [330, 540], pour: false }], {}, t)] }));
 // 6 "He just points."
 shot(10.6, (t, d) => ({ preset: 'day', ships: CALM(27), amp: 0.45, camShip: 'H', cam: L3([0.0, 3.9, -2.6], [0.2, 3.9, -2.3], ez(t / d)), look: [2.0, 3.8, 0.9], fov: 50, oil: OIL(0.6, 7),
   actors: [H('cook', 3.15, 0.5, { expr: 'squint', L: { a: lerp(60, 170, eo(t / 0.3)), e: 0, finger: true }, R: { a: 60, e: 40 }, facing: 0.3 }, [{ kind: 'pot', c: [330, 560], pour: false }], {}, t), H('captain', 1.6, 1.3, { expr: 'stern', L: 'hang', R: 'hang', facing: 0.5, look: 0.6 })] }));
@@ -64,7 +64,7 @@ shot(14.2, (t, d) => ({ preset: 'dusk', ships: CALM(25), amp: 0.9, chop: 0.6, ca
   actors: [H('captain', 1.7, 1.4, { expr: 'shock', L: 'cheek', R: 'cheek', facing: 0.4, sweat: 3, tilt: wig(t, 28, 1.5) }, [], {}, t), bubble('Doomed!', 1.55, 4.8, 1.35, 0.36, { ship: 'H' })] }));
 // 10 "Trust the oil, says the cook."  the cook, calm, a tiny smile
 shot(16.6, (t, d) => ({ preset: 'dusk', ships: CALM(24), amp: 1.0, chop: 0.6, camShip: 'H', cam: L3([1.3, 4.15, -0.7], [1.4, 4.1, -0.3], ez(t / d)), look: [2.9, 3.9, 0.5], fov: 42, oil: OIL(0.7, 8),
-  actors: [H('cook', 3.15, 0.5, { expr: 'smile', talk: t > 0.1 && t < 1.0, L: 'belly', R: 'belly', facing: 0.4 }, [{ kind: 'pot', c: [330, 540] }], {}, t), bubble('Trust the oil.', 2.75, 4.8, 0.45, 0.36, { ship: 'H' })] }));
+  actors: [H('cook', 3.15, 0.5, { expr: 'smile', talk: t > 0.1 && t < 1.0, L: 'belly', R: 'belly', facing: 0.4 }, [{ kind: 'pot', c: [330, 540], pour: false }], {}, t), bubble('Trust the oil.', 2.75, 4.8, 0.45, 0.36, { ship: 'H' })] }));
 // 11 "A grappling hook bangs off the rail."  the hook flies in from the pirate ship and clangs
 shot(18.95, (t, d) => ({ preset: 'dusk', ships: { H: { x: 0, z: 0 }, P: { x: 12, z: 16 } }, amp: 1.1, chop: 0.7, camShip: 'H', cam: [1.0, 3.6, 3.8], look: [3.6, 3.5, 2.0], fov: 48, oil: OIL(0.7, 8),
   hook: { ship: 'P', from: [-3.6, 4.0, -6], toShip: 'H', to: [3.75, 3.55, 2.2], k: cl(t / 0.6) }, shake: t > 0.6 && t < 0.9 ? 0.05 : 0,
@@ -90,11 +90,11 @@ shot(28.85, (t, d) => ({ ...STORM(1), amp: 3.0, ships: { H: { x: 0, z: 0, rock: 
 shot(31.15, (t, d) => ({ ...STORM(1), ships: { H: { x: 0, z: 0, rock: 1.3 }, P: { x: 14, z: 18 } }, camShip: 'H', cam: L3([-2.4, 3.8, -0.9], [-2.2, 3.9, -0.4], ez(t / d)), look: [-0.1, 3.5, 2.4], fov: 52, oil: OIL(0.6, 9),
   actors: [H('sailorA', -0.6, 2.2, { expr: 'shock', L: 'hang', R: 'hang', tilt: wig(t, 7, 5), sweat: 2 }, [{ kind: 'tied' }], {}, t), H('sailorB', 0.7, 2.3, { expr: 'nervous', L: 'hang', R: 'hang', tilt: wig(t + 1, 7, 5) }, [{ kind: 'tied' }], {}, t), bubble('Hold on!', 0.75, 4.75, 2.3, 0.34, { ship: 'H' })] }));
 // 19 "But the cook keeps pouring."  in the rain, calm, pouring
-shot(34.15, (t, d) => ({ ...STORM(1), ships: { H: { x: 0, z: 0, rock: 1.2 }, P: { x: 14, z: 18 } }, camShip: 'H', cam: L3([7.6, 5.0, 2.6], [7.2, 5.1, 2.0], ez(t / d)), look: [3.0, 4.0, 0.4], fov: 50, oil: OIL(0.8, 10), pour: { ship: 'H', from: [3.9, 4.0, 0.34], w: 1.2 },
+shot(34.15, (t, d) => ({ ...STORM(1), ships: { H: { x: 0, z: 0, rock: 1.2 }, P: { x: 14, z: 18 } }, camShip: 'H', cam: L3([8.6, 4.8, -6.5], [8.2, 4.9, -6.0], ez(t / d)), look: [3.8, 3.2, 0.4], fov: 50, oil: OIL(0.8, 10), pour: { ship: 'H', from: [3.75, 3.95, 0.3], w: 1.2, dx: 0.8 },
   actors: [act('cook', 3.25, 2.9, 0.5, { expr: 'squint', L: 'belly', R: 'belly', facing: 0.5 }, [{ kind: 'pot', c: [330, 540] }], { ship: 'H' }, t)] }));
 // 20 "Always on the windy side."  over his shoulder: white wind arrows blow onto the oil
-shot(36.0, (t, d) => ({ ...STORM(1), ships: { H: { x: 0, z: 0, rock: 1.1 }, P: { x: 14, z: 18 } }, camShip: 'H', cam: L3([1.0, 4.4, 1.6], [1.2, 4.6, 1.2], ez(t / d)), look: [6.5, 2.0, 0], fov: 52, oil: OIL(0.85, 10),
-  actors: [H('cook', 3.25, 0.5, { expr: 'squint', L: 'belly', R: 'belly', facing: 0.5 }, [{ kind: 'pot', c: [330, 540] }], {}, t), fx(windArrows(t), 7.5, 2.0, -0.2, 1.4, { ship: 'H', yaw: undefined })] }));
+shot(36.0, (t, d) => ({ ...STORM(1), ships: { H: { x: 0, z: 0, rock: 1.1 }, P: { x: 14, z: 18 } }, camShip: 'H', cam: L3([1.0, 4.4, 1.6], [1.2, 4.6, 1.2], ez(t / d)), look: [6.5, 2.0, 0], fov: 52, oil: OIL(0.85, 10), pour: { ship: 'H', from: [3.75, 3.6, 1.0], w: 1.2, dx: 0.8 },
+  actors: [H('cook', 3.25, 0.5, { expr: 'squint', L: 'belly', R: 'belly', facing: 0.5 }, [{ kind: 'pot', c: [330, 540], pour: false }], {}, t), fx(windArrows(t), 7.5, 2.0, -0.2, 1.4, { ship: 'H', yaw: undefined })] }));
 // 21 "The pirates swing in to board."  pirates on ropes swinging across
 shot(37.95, (t, d) => { const k = ez(t / d); const sw = (i) => { const a = lerp(-0.9, 0.5, cl(k * 1.2 - i * 0.12)); return [12 - 3.6 - 7 * Math.sin(a + 0.9) * 0.9, 2.5 + 11 - 9 * Math.cos(a), 13 - 4 - i * 2.5]; };
   return { ...STORM(1), ships: { H: { x: 0, z: 0, rock: 1 }, P: { x: 12, z: 13, rock: 1 } }, cam: L3([-2, 6.2, 14.5], [-1.4, 6.4, 13.5], k), look: [5.5, 7, 6], fov: 50, oil: OIL(0.85, 10),
