@@ -1,0 +1,350 @@
+{
+ "duration": 69.250563,
+ "frames30": 2078,
+ "source": "silence-align (cost 1.77)",
+ "segments": [
+  [
+   0.0,
+   1.58893
+  ],
+  [
+   1.77975,
+   4.17621
+  ],
+  [
+   4.66934,
+   6.35016
+  ],
+  [
+   6.7978,
+   8.86517
+  ],
+  [
+   9.43293,
+   10.1169
+  ],
+  [
+   10.6683,
+   10.9176
+  ],
+  [
+   11.0441,
+   11.4926
+  ],
+  [
+   11.9704,
+   12.9532
+  ],
+  [
+   13.2814,
+   13.9635
+  ],
+  [
+   14.2749,
+   16.1373
+  ],
+  [
+   16.6662,
+   17.6217
+  ],
+  [
+   17.8653,
+   18.4829
+  ],
+  [
+   19.0133,
+   20.8924
+  ],
+  [
+   21.2323,
+   22.6554
+  ],
+  [
+   23.1517,
+   23.8926
+  ],
+  [
+   24.1975,
+   25.085
+  ],
+  [
+   25.4362,
+   28.3453
+  ],
+  [
+   28.8872,
+   30.8659
+  ],
+  [
+   31.1949,
+   33.706
+  ],
+  [
+   34.1859,
+   34.6445
+  ],
+  [
+   34.8391,
+   35.6079
+  ],
+  [
+   36.0382,
+   37.4918
+  ],
+  [
+   37.9983,
+   39.5805
+  ],
+  [
+   39.9435,
+   40.8599
+  ],
+  [
+   41.0808,
+   44.6755
+  ],
+  [
+   45.1697,
+   45.5802
+  ],
+  [
+   45.7958,
+   47.9491
+  ],
+  [
+   48.3315,
+   49.5973
+  ],
+  [
+   50.2361,
+   51.1393
+  ],
+  [
+   51.7141,
+   52.7982
+  ],
+  [
+   52.9337,
+   54.5157
+  ],
+  [
+   54.9739,
+   56.2371
+  ],
+  [
+   56.687,
+   57.4212
+  ],
+  [
+   57.8001,
+   58.2264
+  ],
+  [
+   58.6121,
+   59.5438
+  ],
+  [
+   59.9713,
+   62.9891
+  ],
+  [
+   63.2427,
+   64.2101
+  ],
+  [
+   64.6165,
+   65.7407
+  ],
+  [
+   65.8873,
+   69.0438
+  ]
+ ],
+ "phrases": [
+  {
+   "text": "The pirates are getting closer,",
+   "s": 0.0,
+   "e": 1.589
+  },
+  {
+   "text": "and the ship's cook is pouring oil into the sea.",
+   "s": 1.78,
+   "e": 4.176
+  },
+  {
+   "text": "The captain grabs him by the apron.",
+   "s": 4.669,
+   "e": 6.35
+  },
+  {
+   "text": "They're about to board us, and you're cooking?",
+   "s": 6.798,
+   "e": 8.865
+  },
+  {
+   "text": "He doesn't look up.",
+   "s": 9.433,
+   "e": 10.117
+  },
+  {
+   "text": "He just points.",
+   "s": 10.668,
+   "e": 11.493
+  },
+  {
+   "text": "Black clouds.",
+   "s": 11.97,
+   "e": 12.953
+  },
+  {
+   "text": "A storm.",
+   "s": 13.281,
+   "e": 13.963
+  },
+  {
+   "text": "Nobody survives a storm like that.",
+   "s": 14.275,
+   "e": 16.137
+  },
+  {
+   "text": "Trust the oil,",
+   "s": 16.666,
+   "e": 17.622
+  },
+  {
+   "text": "says the cook.",
+   "s": 17.865,
+   "e": 18.483
+  },
+  {
+   "text": "A grappling hook bangs off the rail.",
+   "s": 19.013,
+   "e": 20.892
+  },
+  {
+   "text": "The captain spins the wheel.",
+   "s": 21.232,
+   "e": 22.655
+  },
+  {
+   "text": "And the pirates?",
+   "s": 23.152,
+   "e": 23.893
+  },
+  {
+   "text": "They're thrilled.",
+   "s": 24.198,
+   "e": 25.085
+  },
+  {
+   "text": "Why waste cannonballs, when the storm will sink them for free?",
+   "s": 25.436,
+   "e": 28.345
+  },
+  {
+   "text": "The waves grow taller than the mast.",
+   "s": 28.887,
+   "e": 30.866
+  },
+  {
+   "text": "The crew ties themselves to anything nailed down.",
+   "s": 31.195,
+   "e": 33.706
+  },
+  {
+   "text": "But the cook keeps pouring.",
+   "s": 34.186,
+   "e": 35.608
+  },
+  {
+   "text": "Always on the windy side.",
+   "s": 36.038,
+   "e": 37.492
+  },
+  {
+   "text": "The pirates swing in to board.",
+   "s": 37.998,
+   "e": 39.581
+  },
+  {
+   "text": "And straight ahead,",
+   "s": 39.944,
+   "e": 40.86
+  },
+  {
+   "text": "a wave big enough to swallow both ships rises out of the dark.",
+   "s": 41.081,
+   "e": 44.675
+  },
+  {
+   "text": "You see,",
+   "s": 45.17,
+   "e": 45.58
+  },
+  {
+   "text": "sailors really did carry oil for this.",
+   "s": 45.796,
+   "e": 47.949
+  },
+  {
+   "text": "They called it storm oil.",
+   "s": 48.331,
+   "e": 49.597
+  },
+  {
+   "text": "Blow on soup.",
+   "s": 50.236,
+   "e": 51.139
+  },
+  {
+   "text": "The broth ripples,",
+   "s": 51.714,
+   "e": 52.798
+  },
+  {
+   "text": "but the oily spots stay flat.",
+   "s": 52.934,
+   "e": 54.516
+  },
+  {
+   "text": "Your breath can't grip them.",
+   "s": 54.974,
+   "e": 56.237
+  },
+  {
+   "text": "Same with the sea.",
+   "s": 56.687,
+   "e": 57.421
+  },
+  {
+   "text": "No grip,",
+   "s": 57.8,
+   "e": 58.226
+  },
+  {
+   "text": "no breaking wave.",
+   "s": 58.612,
+   "e": 59.544
+  },
+  {
+   "text": "So when the wave hits their oily patch, it just lifts the ship,",
+   "s": 59.971,
+   "e": 62.989
+  },
+  {
+   "text": "and puts it back down.",
+   "s": 63.243,
+   "e": 64.21
+  },
+  {
+   "text": "Fifty yards behind,",
+   "s": 64.617,
+   "e": 65.741
+  },
+  {
+   "text": "it curls over, and crashes right onto the pirates' deck.",
+   "s": 65.887,
+   "e": 69.044
+  }
+ ]
+}
