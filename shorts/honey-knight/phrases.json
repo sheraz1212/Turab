@@ -1,0 +1,349 @@
+{
+ "duration": 71.392625,
+ "frames30": 2142,
+ "source": "silence-align (cost 4.36)",
+ "segments": [
+  [
+   0.0,
+   2.44129
+  ],
+  [
+   2.58859,
+   3.83302
+  ],
+  [
+   4.18136,
+   5.72971
+  ],
+  [
+   6.09583,
+   7.39474
+  ],
+  [
+   7.7205,
+   8.83594
+  ],
+  [
+   9.30694,
+   10.938
+  ],
+  [
+   11.2866,
+   12.1702
+  ],
+  [
+   12.4691,
+   12.6088
+  ],
+  [
+   12.7489,
+   15.1491
+  ],
+  [
+   15.7424,
+   17.0995
+  ],
+  [
+   17.2724,
+   18.1277
+  ],
+  [
+   18.5764,
+   20.6752
+  ],
+  [
+   21.1179,
+   22.0895
+  ],
+  [
+   22.6871,
+   23.2293
+  ],
+  [
+   23.5379,
+   26.871
+  ],
+  [
+   27.3142,
+   28.7912
+  ],
+  [
+   29.1635,
+   32.871
+  ],
+  [
+   33.2035,
+   34.2959
+  ],
+  [
+   34.6268,
+   35.811
+  ],
+  [
+   36.2517,
+   38.1466
+  ],
+  [
+   38.2719,
+   38.7022
+  ],
+  [
+   39.0409,
+   42.6951
+  ],
+  [
+   43.0495,
+   44.4808
+  ],
+  [
+   44.6394,
+   45.2551
+  ],
+  [
+   45.6312,
+   46.7877
+  ],
+  [
+   47.034,
+   48.2375
+  ],
+  [
+   48.5761,
+   49.2088
+  ],
+  [
+   49.658,
+   54.3576
+  ],
+  [
+   54.8303,
+   55.8345
+  ],
+  [
+   56.1958,
+   58.2337
+  ],
+  [
+   58.6416,
+   59.126
+  ],
+  [
+   59.3596,
+   59.7061
+  ],
+  [
+   59.9905,
+   60.5234
+  ],
+  [
+   60.7562,
+   61.1164
+  ],
+  [
+   61.6797,
+   62.0943
+  ],
+  [
+   62.2612,
+   62.8804
+  ],
+  [
+   63.5321,
+   63.9387
+  ],
+  [
+   64.1575,
+   67.0465
+  ],
+  [
+   67.3059,
+   68.6753
+  ],
+  [
+   69.1093,
+   71.149
+  ]
+ ],
+ "phrases": [
+  {
+   "text": "Every morning, this prisoner pours honey all over his shoulders.",
+   "s": 0.0,
+   "e": 2.441
+  },
+  {
+   "text": "The guards beg him to stop.",
+   "s": 2.589,
+   "e": 3.833
+  },
+  {
+   "text": "The whole cell gets sticky,",
+   "s": 4.181,
+   "e": 5.73
+  },
+  {
+   "text": "and he just smiles.",
+   "s": 6.096,
+   "e": 7.395
+  },
+  {
+   "text": "Then he kneels and waits,",
+   "s": 7.721,
+   "e": 8.836
+  },
+  {
+   "text": "perfectly still,",
+   "s": 9.307,
+   "e": 10.938
+  },
+  {
+   "text": "while every fly in the castle shows up for breakfast.",
+   "s": 11.287,
+   "e": 15.149
+  },
+  {
+   "text": "\"Why your shoulders?\"",
+   "s": 15.742,
+   "e": 17.099
+  },
+  {
+   "text": "a guard moans.",
+   "s": 17.272,
+   "e": 18.128
+  },
+  {
+   "text": "A fly walks right across his nose.",
+   "s": 18.576,
+   "e": 20.675
+  },
+  {
+   "text": "He doesn't even blink.",
+   "s": 21.118,
+   "e": 22.09
+  },
+  {
+   "text": "That's it.",
+   "s": 22.687,
+   "e": 23.229
+  },
+  {
+   "text": "The captain rips the honey jar out of his hands and storms off with it.",
+   "s": 23.538,
+   "e": 26.871
+  },
+  {
+   "text": "But the flies follow the honey.",
+   "s": 27.314,
+   "e": 28.791
+  },
+  {
+   "text": "Up the stairs, down the hall, and straight into the royal feast.",
+   "s": 29.163,
+   "e": 32.871
+  },
+  {
+   "text": "Into the king's soup.",
+   "s": 33.203,
+   "e": 34.296
+  },
+  {
+   "text": "Into the queen's hair.",
+   "s": 34.627,
+   "e": 35.811
+  },
+  {
+   "text": "And the king hates flies more than anything.",
+   "s": 36.252,
+   "e": 38.702
+  },
+  {
+   "text": "He swings his sword so wildly he chops his own dinner in half.",
+   "s": 39.041,
+   "e": 42.695
+  },
+  {
+   "text": "\"Who brought these flies?\"",
+   "s": 43.05,
+   "e": 44.481
+  },
+  {
+   "text": "he roars.",
+   "s": 44.639,
+   "e": 45.255
+  },
+  {
+   "text": "Everyone points down,",
+   "s": 45.631,
+   "e": 46.788
+  },
+  {
+   "text": "through the grate in the floor,",
+   "s": 47.034,
+   "e": 48.237
+  },
+  {
+   "text": "at the prisoner.",
+   "s": 48.576,
+   "e": 49.209
+  },
+  {
+   "text": "The king storms into the dungeon, and everyone is sure that man is about to lose his head.",
+   "s": 49.658,
+   "e": 54.358
+  },
+  {
+   "text": "The prisoner kneels.",
+   "s": 54.83,
+   "e": 55.834
+  },
+  {
+   "text": "One fat fly on each shoulder.",
+   "s": 56.196,
+   "e": 58.234
+  },
+  {
+   "text": "Smack,",
+   "s": 58.642,
+   "e": 59.126
+  },
+  {
+   "text": "left.",
+   "s": 59.36,
+   "e": 59.706
+  },
+  {
+   "text": "Smack, right.",
+   "s": 59.99,
+   "e": 60.523
+  },
+  {
+   "text": "\"Thank you,",
+   "s": 60.756,
+   "e": 61.116
+  },
+  {
+   "text": "Your Majesty.\"",
+   "s": 61.68,
+   "e": 62.88
+  },
+  {
+   "text": "You see,",
+   "s": 63.532,
+   "e": 63.939
+  },
+  {
+   "text": "when a king touches a man on both shoulders with his sword,",
+   "s": 64.157,
+   "e": 67.046
+  },
+  {
+   "text": "that man becomes a knight.",
+   "s": 67.306,
+   "e": 68.675
+  },
+  {
+   "text": "And nobody keeps a knight in chains.",
+   "s": 69.109,
+   "e": 71.149
+  }
+ ]
+}
