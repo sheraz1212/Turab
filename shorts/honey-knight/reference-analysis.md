@@ -36,3 +36,16 @@ Story: a prisoner smears honey on his shoulders every morning, which attracts fl
 
 ## Motion
 Mouths talk, eyebrows react, the body bobs. A shake and a flash on every hit, plus a pop on each text reveal. Light flicker and dust motes in every shot.
+
+## Camera rules for our version (user, 2026-11-25: "same speed and angles as the reference")
+- A cut every 1.5–2.5 s, and the camera never stays still.
+- About 60% of shots are close-ups: the face fills the frame, with the guards' faces visible behind the head.
+- Each shot uses one of these moves:
+  1. **Push-in:** a slow zoom in on the face, 10–15% over the shot.
+  2. **Pull-out reveal:** starts on a detail (honey jar, fly, sword), then zooms out to show the room.
+  3. **Snap zoom:** on a hit or a shout, punch in 20% in 4–5 frames, with a small shake.
+  4. **Over-the-shoulder:** from behind the prisoner toward the guards or the king.
+  5. **Low angle up** at the king or the warden; a Dutch tilt (±8°) on shouting lines.
+- Macro shots: the fly on the nose, flies on the shoulders, the sword touching each shoulder.
+- Wide shots only for scene changes: the dungeon with the skylight, the throne room, the stairs.
+- Test fixes: peach skin with freckles and blush (not white), no haze or fog, toon textures with ink lines on every brick/tile, thin light rays + golden specks from the skylight, flies only on the shoulders (one on the nose in the reference; the user asked to remove the face fly).
