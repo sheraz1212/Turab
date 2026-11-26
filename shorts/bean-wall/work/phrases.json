@@ -1,0 +1,340 @@
+{
+ "duration": 73.87425,
+ "frames30": 2216,
+ "source": "silence-align (cost 3.12)",
+ "segments": [
+  [
+   0.0,
+   0.737029
+  ],
+  [
+   0.953107,
+   2.09175
+  ],
+  [
+   2.22367,
+   3.82633
+  ],
+  [
+   4.45211,
+   6.12435
+  ],
+  [
+   6.33796,
+   8.18218
+  ],
+  [
+   8.76238,
+   11.0246
+  ],
+  [
+   11.5134,
+   11.8105
+  ],
+  [
+   11.9442,
+   12.3478
+  ],
+  [
+   13.0803,
+   15.024
+  ],
+  [
+   15.5055,
+   16.6625
+  ],
+  [
+   16.9314,
+   19.4094
+  ],
+  [
+   20.0188,
+   21.4279
+  ],
+  [
+   21.599,
+   23.3779
+  ],
+  [
+   24.0968,
+   25.3136
+  ],
+  [
+   25.5165,
+   27.5281
+  ],
+  [
+   27.9679,
+   29.4543
+  ],
+  [
+   29.6025,
+   30.179
+  ],
+  [
+   30.4176,
+   31.677
+  ],
+  [
+   32.2565,
+   33.8093
+  ],
+  [
+   34.2123,
+   34.8055
+  ],
+  [
+   34.96,
+   35.6208
+  ],
+  [
+   36.2279,
+   37.1108
+  ],
+  [
+   37.543,
+   39.2108
+  ],
+  [
+   39.4073,
+   40.9351
+  ],
+  [
+   41.3372,
+   43.0343
+  ],
+  [
+   43.553,
+   46.6314
+  ],
+  [
+   47.2328,
+   48.2438
+  ],
+  [
+   48.5648,
+   49.9088
+  ],
+  [
+   50.427,
+   53.3501
+  ],
+  [
+   54.0054,
+   54.4826
+  ],
+  [
+   54.8987,
+   55.8712
+  ],
+  [
+   56.2799,
+   57.772
+  ],
+  [
+   58.5671,
+   58.9706
+  ],
+  [
+   59.1785,
+   62.6408
+  ],
+  [
+   63.0564,
+   64.2876
+  ],
+  [
+   64.544,
+   67.3596
+  ],
+  [
+   67.8019,
+   69.3491
+  ],
+  [
+   69.6288,
+   70.9287
+  ],
+  [
+   71.2079,
+   73.6278
+  ]
+ ],
+ "phrases": [
+  {
+   "text": "Every night,",
+   "s": 0.0,
+   "e": 0.737
+  },
+  {
+   "text": "this skinny prisoner pushes his dinner into the wall.",
+   "s": 0.953,
+   "e": 3.826
+  },
+  {
+   "text": "One dry bean at a time,",
+   "s": 4.452,
+   "e": 6.124
+  },
+  {
+   "text": "he packs them into a tiny crack.",
+   "s": 6.338,
+   "e": 8.182
+  },
+  {
+   "text": "Then he pours in his water and whispers,",
+   "s": 8.762,
+   "e": 11.025
+  },
+  {
+   "text": "\"Grow big.\"",
+   "s": 11.513,
+   "e": 12.348
+  },
+  {
+   "text": "The guards think he has lost his mind.",
+   "s": 13.08,
+   "e": 15.024
+  },
+  {
+   "text": "\"Feeding the wall?\"",
+   "s": 15.505,
+   "e": 16.663
+  },
+  {
+   "text": "one laughs, waving a sausage under his nose.",
+   "s": 16.931,
+   "e": 19.409
+  },
+  {
+   "text": "The prisoner just smiles and gives the wall his last bean.",
+   "s": 20.019,
+   "e": 23.378
+  },
+  {
+   "text": "When the warden hears about it,",
+   "s": 24.097,
+   "e": 25.314
+  },
+  {
+   "text": "he laughs so hard his buttons pop.",
+   "s": 25.517,
+   "e": 27.528
+  },
+  {
+   "text": "\"Give him double beans!\"",
+   "s": 27.968,
+   "e": 29.454
+  },
+  {
+   "text": "he shouts.",
+   "s": 29.602,
+   "e": 30.179
+  },
+  {
+   "text": "\"The wall looks hungry!\"",
+   "s": 30.418,
+   "e": 31.677
+  },
+  {
+   "text": "So the prisoner gets double.",
+   "s": 32.257,
+   "e": 33.809
+  },
+  {
+   "text": "And the crack gets fuller.",
+   "s": 34.212,
+   "e": 35.621
+  },
+  {
+   "text": "Weeks pass.",
+   "s": 36.228,
+   "e": 37.111
+  },
+  {
+   "text": "Ten thousand beans later,",
+   "s": 37.543,
+   "e": 39.211
+  },
+  {
+   "text": "the guards start selling tickets.",
+   "s": 39.407,
+   "e": 40.935
+  },
+  {
+   "text": "\"Come see the Bean Wall!\"",
+   "s": 41.337,
+   "e": 43.034
+  },
+  {
+   "text": "But one hungry guard keeps stealing beans for his soup.",
+   "s": 43.553,
+   "e": 46.631
+  },
+  {
+   "text": "So the prisoner shouts,",
+   "s": 47.233,
+   "e": 48.244
+  },
+  {
+   "text": "\"The wall is thirsty!\"",
+   "s": 48.565,
+   "e": 49.909
+  },
+  {
+   "text": "The warden grabs a bucket and soaks the crack himself.",
+   "s": 50.427,
+   "e": 53.35
+  },
+  {
+   "text": "That night,",
+   "s": 54.005,
+   "e": 54.483
+  },
+  {
+   "text": "everyone sleeps.",
+   "s": 54.899,
+   "e": 55.871
+  },
+  {
+   "text": "And the wall starts to creak.",
+   "s": 56.28,
+   "e": 57.772
+  },
+  {
+   "text": "You see,",
+   "s": 58.567,
+   "e": 58.971
+  },
+  {
+   "text": "dry beans soaked in water swell up with huge force.",
+   "s": 59.178,
+   "e": 62.641
+  },
+  {
+   "text": "Packed tight in a crack,",
+   "s": 63.056,
+   "e": 64.288
+  },
+  {
+   "text": "ten thousand of them push like a giant fist.",
+   "s": 64.544,
+   "e": 67.36
+  },
+  {
+   "text": "With one loud crack,",
+   "s": 67.802,
+   "e": 69.349
+  },
+  {
+   "text": "the wall splits open,",
+   "s": 69.629,
+   "e": 70.929
+  },
+  {
+   "text": "and the prisoner the warden fed walks right out.",
+   "s": 71.208,
+   "e": 73.628
+  }
+ ]
+}
