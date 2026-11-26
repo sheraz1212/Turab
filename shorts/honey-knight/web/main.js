@@ -175,7 +175,7 @@ for (const x of [-2.2, 0.2, 2.4]) { lamp(x, 2.4, -4.75, '#ff9a40', 7, 9, 1.4); c
 put('wooden_barrels_01', -2.5, 0, -4.4, 0.4, 1); put('wooden_crate_01', 2.4, 0, -4.4, 0.2, 1.1); put('wooden_crate_01', 2.6, 0.55, -4.5, 0.6, 0.8);
 // chains on the side walls
 { const lm = IRON; for (const s of [-1, 1]) for (let k = 0; k < 8; k++) { const t = add(new THREE.TorusGeometry(0.06, 0.018, 6, 10), lm, s * 3.15, 2.6 - k * 0.11, 1.6, DG); t.rotation.set(0, k % 2 ? Math.PI / 2 : 0, 0); } for (const s of [-1, 1]) add(cyl(0.1, 0.1, 0.06, 12), lm, s * 3.16, 2.68, 1.6, DG).rotation.z = Math.PI / 2; }
-put('wooden_bucket_01', 2.4, 0, 2.2, 0.3, 1.1); put('wooden_stool_01', -2.4, 0, 2.6, 0.5, 1);
+put('wooden_bucket_01', 2.4, 0, 2.2, 0.3, 1.1); lamp(0, 3.6, -1.9, '#ffb060', 4, 7, 0.01); put('wooden_stool_01', -2.4, 0, 2.6, 0.5, 1);
 // straw pile (instanced)
 const STRAW = (() => { const n = 9000; const im = new THREE.InstancedMesh(new THREE.BoxGeometry(0.012, 0.012, 0.36), std({ color: '#ffffff', roughness: 0.55, envMapIntensity: 0.8 }), n); const m4 = new THREE.Matrix4(), q = new THREE.Quaternion(), e = new THREE.Euler(), c = new THREE.Color(); const r = R(77);
   for (let i = 0; i < n; i++) { const a = r() * 6.283, rr = Math.sqrt(r()) * 2.2; const x = Math.cos(a) * rr * 1.2, z = -0.6 + Math.sin(a) * rr * 0.9; const h = Math.max(0, 0.32 * (1 - rr / 2.2)) * r();
@@ -248,6 +248,7 @@ ZONE = 'throne';
 const HALF = []; { const meat = std({ color: '#c8702a', roughness: 0.25, envMapIntensity: 1.4 }); for (const s of [-1, 1]) { const G = new THREE.Group(); TAB.add(G); const b = add(new THREE.SphereGeometry(0.29, 18, 12, s > 0 ? 0 : Math.PI, Math.PI), meat, 0, 0.22, 0, G); b.scale.set(1.2, 0.8, 1); b.rotation.y = Math.PI / 2;
     const cut = add(new THREE.CircleGeometry(0.29, 18), std({ color: '#fff0d8', roughness: 0.4 }), 0, 0.22, 0, G); cut.scale.set(1.0, 0.8, 1); cut.rotation.y = s > 0 ? -Math.PI / 2 : Math.PI / 2; G.position.set(0, 1.1, 0.1); G.visible = false; G.userData.s = s; HALF.push(G); } }
 ZONE = 'dungeon';
+const DROP = new THREE.Group(); scene.add(DROP); { const meat = std({ color: '#c8702a', roughness: 0.25, envMapIntensity: 1.4 }); const b = add(new THREE.SphereGeometry(0.26, 18, 12, 0, Math.PI), meat, 0, 0, 0, DROP); b.scale.set(1.2, 0.8, 1); b.rotation.y = Math.PI / 2; const c = add(new THREE.CircleGeometry(0.26, 18), std({ color: '#fff0d8', roughness: 0.4 }), 0, 0, 0, DROP); c.scale.set(1, 0.8, 1); c.rotation.y = -Math.PI / 2; const l = add(new THREE.CapsuleGeometry(0.06, 0.18, 4, 8), meat, 0.1, 0.05, 0.2, DROP); l.rotation.x = 0.9; } DROP.visible = false;
 const PUDDLE = add(new THREE.CircleGeometry(0.5, 32), std({ color: '#ffaa10', roughness: 0.05, metalness: 0.1, envMapIntensity: 2.0 }), 0.6, 0.02, -0.5, scene, false); PUDDLE.rotation.x = -Math.PI / 2; PUDDLE.scale.set(1.4, 0.8, 1); PUDDLE.visible = false;
 // grate hatch set (x = -50): the king glaring down through the floor grate, staged vertically
 { const HX = -50;
@@ -285,7 +286,8 @@ window.renderFrame = (f) => {
   for (const l of pLights) { l.visible = l.userData.zone === L.zone; l.intensity = l.userData.I0 * (1 + 0.08 * Math.sin(t * 13 + l.position.x * 7)); } for (const g of glows) g.visible = g.userData.zone === L.zone || g.userData.zone === 'fx';
   SHAFT.forEach((m, k) => { m.visible = L.zone === 'dungeon' && S.shaft !== false; m.material.opacity = 0.06 + 0.025 * Math.sin(t * 1.5 + k * 1.7); });
   SPECK.visible = L.zone === 'dungeon' && S.motes !== false; if (SPECK.visible) { const M4 = new THREE.Matrix4(); for (let i = 0; i < SPECK.count; i++) { const a = (t * 0.03 * (0.5 + rnd(i, 2)) + rnd(i, 1)) % 1; const p = new THREE.Vector3(-1.4 + rnd(i, 3) * 2.8 + Math.sin(t * 0.6 + i) * 0.08, 4.0 - a * 3.9, -1.2 + rnd(i, 5) * 3.6); const sc = p.distanceTo(camera.position) < 0.9 ? 0 : 0.006 + rnd(i, 6) * 0.007; M4.compose(p, camera.quaternion, new THREE.Vector3(sc, sc, sc)); SPECK.setMatrixAt(i, M4); } SPECK.instanceMatrix.needsUpdate = true; }
-  TAB.userData.roast.visible = !S.cutRoast; HALF.forEach((h) => { h.visible = !!S.cutRoast; if (S.cutRoast) { const k = Math.min(1, S.cutRoast); h.position.x = h.userData.s * 0.22 * k; h.rotation.z = -h.userData.s * 0.5 * k; h.position.y = 1.1 - 0.04 * k; } }); PUDDLE.visible = !!S.puddle; if (S.puddle) PUDDLE.scale.set(1.4 * S.puddle, 0.8 * S.puddle, 1);
+  TAB.userData.roast.visible = !S.cutRoast; HALF.forEach((h) => { h.visible = !!S.cutRoast; if (S.cutRoast) { const k = Math.min(1, S.cutRoast); h.position.x = h.userData.s * 0.22 * k; h.rotation.z = -h.userData.s * 0.5 * k; h.position.y = 1.1 - 0.04 * k; } }); DROP.visible = !!S.drop; if (S.drop) { DROP.position.set(...S.drop.p); DROP.rotation.set(S.drop.r || 0, 0.5, S.drop.r * 0.6 || 0); }
+  PUDDLE.visible = !!S.puddle; if (S.puddle) PUDDLE.scale.set(1.4 * S.puddle, 0.8 * S.puddle, 1);
   SWORD.visible = !!S.sword; if (S.sword) { SWORD.position.set(...S.sword.p); SWORD.rotation.set(S.sword.rx || 0, S.sword.ry || 0, S.sword.rz || 0); SWORD.scale.setScalar(S.sword.s || 1); }
   const sh = S.shake || 0, hh = S.handheld ?? 0.008; let look = new THREE.Vector3(...S.look), pos = new THREE.Vector3(...S.cam);
   pos.x += (Math.sin(f * 0.11) * 0.6 + Math.sin(f * 0.27) * 0.4) * hh + (rnd(f, 1) - 0.5) * sh; pos.y += (Math.sin(f * 0.13 + 1) * 0.6 + Math.sin(f * 0.31) * 0.4) * hh + (rnd(f, 2) - 0.5) * sh;

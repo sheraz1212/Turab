@@ -750,6 +750,8 @@ const mouth = (p, kind, mx, my, u, k = 1)=>{
                 p.stroke(s, 3 * u);
                 break;
             }
+        case "snarl": { p.poly([[mx - 17 * u * k, my - 6 * u], [mx + 17 * u * k, my - 6 * u], [mx + 15 * u * k, my + 6 * u], [mx - 15 * u * k, my + 6 * u]], WHITE, 3 * u); p.stroke([[mx - 16 * u * k, my], [mx + 16 * u * k, my]], 1.4 * u); for (const j of [-2, -1, 0, 1, 2]) p.stroke([[mx + j * 6 * u * k, my - 6 * u], [mx + j * 6 * u * k, my + 6 * u]], 1.4 * u); break; }
+        case "yell": { p.ell(mx, my + 2 * u, 12 * u * k, 9 * u, "#5a1e28", 3 * u); p.poly([[mx - 9 * u * k, my - 4 * u], [mx + 9 * u * k, my - 4 * u], [mx + 8 * u * k, my - 1 * u], [mx - 8 * u * k, my - 1 * u]], WHITE, 0); p.ell(mx, my + 7 * u, 6 * u * k, 3 * u, "#e86a6a", 0); break; }
         case "teeth":
             p.poly([
                 [
@@ -2448,6 +2450,13 @@ export const fxBlob = (p, col)=>{
 };
 FACE.snore = { eye: ["dash", "dash"], brow: [0, -1], mouth: "o" };
 FACE.stubborn = { eye: ["lid", "lid"], brow: [4, -3], mouth: "frown" };
+FACE.rage = { eye: ["lid", "lid"], brow: [8, -5], mouth: "snarl" };
+FACE.yell = { eye: ["lid", "lid"], brow: [8, -5], mouth: "yell" };
+FACE.terror = { eye: ["shock", "shock"], brow: [-8, -7], mouth: "snarl" };
+FACE.scream = { eye: ["shock", "shock"], brow: [-8, -7], mouth: "O" };
+FACE.wince = { eye: ["squeeze", "squeeze"], brow: [-4, 3], mouth: "snarl" };
+FACE.wink = { eye: ["dot", "happy"], brow: [2, -3], mouth: "smirk" };
+FACE.smug = { eye: ["slit", "slit"], brow: [-2, -3], mouth: "smirk" };
 FACE.squint = { eye: ["slit", "slit"], brow: [3, -2], mouth: "dash" };
 
 // ---------------- Roman-era cast (our own designs), built on the Pen / blob / face helpers above ----------------
@@ -2825,6 +2834,8 @@ export const romanFront = (p, key, opts = {}) => {
 
   if (O.chops) for (const sd of [-1, 1]) { const ch = [[cx + sd * 0.7 * H.a, hc - 0.35 * H.b], [cx + sd * 1.12 * H.a, hc - 0.2 * H.b], [cx + sd * 1.22 * H.a, hc + 0.35 * H.b], [cx + sd * 0.95 * H.a, hc + 0.75 * H.b], [cx + sd * 0.55 * H.a, hc + 0.55 * H.b], [cx + sd * 0.72 * H.a, hc + 0.1 * H.b]]; p.shadedFill(ch, O.chops, mul(O.chops, [0.82, 0.82, 0.9]), light, 0.4 * H.a, 0.3); p.inkRing(ch, ow * 0.7, thick); for (let k = 0; k < 4; k++) p.stroke([[cx + sd * (0.8 + k * 0.08) * H.a, hc - 0.1 * H.b], [cx + sd * (0.78 + k * 0.08) * H.a, hc + 0.45 * H.b]], 1 * u, "#c8c8d0"); }
   if (O.freckles) { for (const sd of [-1, 1]) { p.ell(cx + 7 * u * facing + sd * 27 * u, hc + 12 * u, 10 * u, 6 * u, "#ff7a6a55", 0); for (let k = 0; k < 7; k++) p.dot(cx + 7 * u * facing + sd * (18 + (k * 7) % 22) * u, hc + (16 + ((k * 5) % 11)) * u, 1.1 * u, "#a8502a99"); } for (let k = 0; k < 14; k++) p.dot(cx + 7 * u * facing + (((k * 0.618) % 1) - 0.5) * 50 * u, hc + (30 + ((k * 0.37) % 1) * 22) * u, 0.8 * u, "#8a402a66"); }
+  if (opts.flush) { const g = p.g; g.save(); g.globalAlpha = 0.45 * opts.flush; p.ell(cx, hc + 0.25 * H.b, 0.85 * H.a, 0.55 * H.b, "#ff2a2a", 0); g.restore(); const vx = cx + 0.55 * H.a, vy = hc - 0.6 * H.b; for (const a of [0, 1.57, 3.14, 4.71]) p.stroke([[vx + Math.cos(a) * 3 * u, vy + Math.sin(a) * 3 * u], [vx + Math.cos(a + 0.4) * 9 * u, vy + Math.sin(a + 0.4) * 9 * u]], 2.4 * u, "#d8222a"); }
+  if (opts.faceFlies) for (let i = 0; i < opts.faceFlies; i++) { const a = i * 2.39996 + (opts.flyT || 0) * 0.6; fxFly(p, cx + Math.cos(a) * (0.3 + (i % 3) * 0.22) * H.a, hc + Math.sin(a) * (0.25 + (i % 2) * 0.3) * H.b, 0.5 * u, (opts.flyT || 0) + i); }
   if (opts.noseFly) fxFly(p, cx + 8 * u * facing + (opts.noseX || 0) * u, hc - 4 * u, 0.45 * u, opts.flyT || 0);
   if (O.cuffs) for (const a of arms) { const [hx, hy] = a.pts[2]; p.poly(rrect(hx - 7 * u, hy - 12 * u, hx + 7 * u, hy - 4 * u, 2 * u), "#3a3a44", 1.6 * u); p.dot(hx + 3 * u, hy - 8 * u, 1.4 * u, "#c8ccd4"); }
   if (opts.flies) { const n = opts.flies === true ? 2 : opts.flies; for (let i = 0; i < n; i++) { const s = i % 2 ? 1 : -1, j = Math.floor(i / 2); const fx0 = tcx + s * (0.62 + (((j * 0.618) % 1) - 0.5) * 0.7) * T.a, fy0 = chin + (0.02 + ((j * 0.37) % 1) * 0.22) * HH; fxFly(p, fx0 + Math.sin(j * 2.3) * 6 * u, fy0 + (j % 3) * 8 * u, 0.58 * u * (opts.flyS || 1), (opts.flyT || 0) + i * 0.7); } }
