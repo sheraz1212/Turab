@@ -50,7 +50,7 @@ const BS = (x, z, o, props = [], t = 0, extra = {}) => J('tboss', x, extra.y || 
 const DRV = (who, tr, o = {}, t = 0) => { const c = Math.cos(tr.ry || 0), s = Math.sin(tr.ry || 0); return act(who, tr.x + 1.35 * c, (tr.y || 0) + 1.75, (tr.z || 0) - 1.35 * s - 0.35 * c, { L: { a: 60, e: 70 }, R: { a: 60, e: 70 }, ...(who === 'rival' ? { shades: true } : {}), ...o }, [], { s: 0.72, crop: true, blob: false }, t); };
 const TANKY = TR; // tank axis height (interior set)
 // a driver card sitting in a truck cab (truck front +x, driver on the left = -z)
-const DRV2 = (who, tr, o = {}, t = 0) => { const c = Math.cos(tr.ry || 0), sn = Math.sin(tr.ry || 0), lx = 1.45, lz = -0.45; return act(who, tr.x + lx * c + lz * sn, (tr.y || 0) + 2.05, (tr.z || 0) - lx * sn + lz * c, { L: { a: 60, e: 70 }, R: { a: 60, e: 70 }, ...(who === 'rival' ? { shades: true } : {}), ...o }, [], { s: 0.74, crop: true, blob: false }, t); };
+const DRV2 = (who, tr, o = {}, t = 0) => { const c = Math.cos(tr.ry || 0), sn = Math.sin(tr.ry || 0), lx = 1.45, lz = 0.45; return act(who, tr.x + lx * c + lz * sn, (tr.y || 0) + 2.05, (tr.z || 0) - lx * sn + lz * c, { L: { a: 60, e: 70 }, R: { a: 60, e: 70 }, ...(who === 'rival' ? { shades: true } : {}), ...o }, [], { s: 0.74, crop: true, blob: false }, t); };
 const front = (tr, dx, dy, dz) => { const c = Math.cos(tr.ry || 0), sn = Math.sin(tr.ry || 0); return [tr.x + dx * c + dz * sn, (tr.y || 0) + dy, (tr.z || 0) - dx * sn + dz * c]; };
 const HY = 2 * TR; // tank top
 // ======== 1 "This welder spent all night building walls inside an empty fuel tank." — ref: medium side shot, glowing ring at left, sparks
