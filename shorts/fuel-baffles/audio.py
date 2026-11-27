@@ -301,7 +301,8 @@ def screech(t0, d=1.6, g=0.35):
     n = int(d * SR); tt = np.arange(n) / SR; f = 1900 + 300 * np.sin(2 * np.pi * 7 * tt); s = np.sin(2 * np.pi * np.cumsum(f) / SR) * 0.4 + hp_fast(noise(d), 2500) * 0.3
     place(sfx, (s * np.minimum(1, tt / 0.05) * np.minimum(1, (d - tt) / 0.3).clip(0)).astype(np.float32), t0, g)
 # ---------------- sfx ----------------
-hiss(0.0, 3.2, 0.3); for_k = [place(sfx, click(), 0.2 + k * 0.35, 0.15) for k in range(8)]
+hiss(0.0, 3.2, 0.3)
+for k in range(8): place(sfx, click(), 0.2 + k * 0.35, 0.15)
 for k in range(5): place(sfx, pop(), 3.35 + k * 0.16, 0.3)
 place(sfx, whoosh(1.0), 4.3, 0.4); place(sfx, sting(), 6.1, 0.3); place(sfx, boing(), 6.7, 0.3)
 for k in range(5): place(sfx, thunk(160, 0.12), 7.5 + k * 0.3, 0.35); place(sfx, click(), 7.55 + k * 0.3, 0.3)
@@ -310,7 +311,8 @@ place(sfx, whoosh(0.8), 14.2, 0.35); place(sfx, ting(), 16.3, 0.3); place(sfx, t
 for k in range(6): place(sfx, thunk(220, 0.1), 18.6 + k * 0.15, 0.2)
 wind(21.1, 33.7, 0.25); engine(21.1, 25.2, 0.35); place(sfx, rumble(2.0), 23.9, 0.6); place(sfx, crash(1.2), 24.4, 0.4)
 screech(25.2, 1.8, 0.35); place(sfx, thunk(60, 0.5), 27.3, 0.5); place(sfx, creak(0.8, 70), 27.4, 0.35)
-screech(29.2, 2.4, 0.3); slosh(29.4, 2.0, 0.4); place(sfx, crash(0.8), 31.9, 0.4); for k in range(6): place(sfx, ting(), 32.0 + k * 0.1, 0.05)
+screech(29.2, 2.4, 0.3); slosh(29.4, 2.0, 0.4); place(sfx, crash(0.8), 31.9, 0.4)
+for k in range(6): place(sfx, ting(), 32.0 + k * 0.1, 0.05)
 place(sfx, whoosh(0.6), 33.8, 0.35); place(sfx, pop(), 34.5, 0.3)
 place(sfx, thunk(70, 0.4), 38.1, 0.5); slosh(38.2, 1.4, 0.5)
 slosh(39.6, 2.3, 0.6); place(sfx, rumble(1.2), 40.5, 0.4); place(sfx, crash(1.0), 42.4, 0.5); place(sfx, thunk(50, 0.5), 42.4, 0.6)
