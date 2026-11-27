@@ -53,7 +53,10 @@ const rock = (x, y, z, sx, sy, sz, seed) => { const g = new THREE.DodecahedronGe
 for (let i = 0; i < 14; i++) { const r = R(1000 + i); rock(-160 + i * 25 + r() * 10, 8 + r() * 10, -34 - r() * 20, 9 + r() * 8, 18 + r() * 16, 8 + r() * 6, 1000 + i); }
 { const mtn = toon('#5a6a8a'), cap = toon('#f4f8ff'); for (let i = 0; i < 12; i++) { const r = R(1100 + i), x = -260 + i * 48 + r() * 20, h = 60 + r() * 50; add(new THREE.ConeGeometry(40 + r() * 25, h, 7), mtn, x, h / 2 - 5, -150 - r() * 60, scene, false); add(new THREE.ConeGeometry(16 + r() * 6, h * 0.35, 7), cap, x, h * 0.84 - 5, -150 - r() * 60 + 0, scene, false); } }
 // rock slide on the road (the boulder that falls)
-const BOULDER = rock(0, -50, 0, 2.2, 2.0, 2.2, 77); BOULDER.castShadow = true;
+const BOULT = T2((() => { const [c, g] = cv(512, 256), r = R(91); g.fillStyle = '#6a4630'; g.fillRect(0, 0, 512, 256); for (let i = 0; i < 260; i++) { const x = r() * 512, y = r() * 256, s = 4 + r() * 22; g.fillStyle = ['#7e5638', '#5a3a26', '#8a6040', '#4e3222'][i % 4]; g.beginPath(); g.ellipse(x, y, s, s * (0.5 + r() * 0.5), r() * 3, 0, 7); g.fill(); } for (let i = 0; i < 40; i++) { g.strokeStyle = '#3a2418'; g.lineWidth = 2 + r() * 2; g.beginPath(); let x = r() * 512, y = r() * 256; g.moveTo(x, y); for (let k = 0; k < 4; k++) { x += (r() - 0.5) * 40; y += (r() - 0.5) * 30; g.lineTo(x, y); } g.stroke(); } return c; })(), 1, 1);
+const lump = (seed, n = 4) => { const g = new THREE.IcosahedronGeometry(1, n); const p = g.attributes.position, r = R(seed); const o = [r() * 9, r() * 9, r() * 9]; for (let i = 0; i < p.count; i++) { const v = new THREE.Vector3(p.getX(i), p.getY(i), p.getZ(i)); const k = 1 + 0.12 * Math.sin(v.x * 2.3 + o[0]) * Math.sin(v.y * 2.1 + o[1]) + 0.07 * Math.sin(v.z * 3.7 + o[2]) + 0.03 * Math.sin(v.x * 7 + v.y * 6); v.multiplyScalar(k); v.y *= 0.9; p.setXYZ(i, v.x, v.y, v.z); } g.computeVertexNormals(); return g; };
+const BOULDER = new THREE.Group(); scene.add(BOULDER); { const m = new THREE.Mesh(lump(77), toonMap(BOULT)); m.scale.set(2.0, 1.9, 2.0); m.castShadow = true; BOULDER.add(m); }
+const PEBS = Array.from({ length: 8 }, (_, i) => { const m = new THREE.Mesh(lump(200 + i, 2), toonMap(BOULT)); m.scale.setScalar(0.25 + (i % 3) * 0.12); m.castShadow = true; scene.add(m); m.position.y = -60; return m; });
 // ================= THE TRUCKS (detailed conventional semi + tanker trailer; front = +x) =================
 const PAINT = (c) => new THREE.MeshPhysicalMaterial({ color: c, roughness: 0.42, metalness: 0.0, clearcoat: 0.6, clearcoatRoughness: 0.15, envMapIntensity: 0.35 });
 const CHROME = new THREE.MeshStandardMaterial({ color: '#eef2f8', roughness: 0.12, metalness: 1, envMapIntensity: 1.8 });
@@ -153,7 +156,17 @@ const DX = 1200;
   for (const x of [-6, 0, 6]) { add(cyl(0.02, 0.02, 2.4, 6), toon('#1a1a22'), x, 4.8, 0.6, G, false); add(new THREE.ConeGeometry(0.6, 0.45, 20, 1, true), toon('#2aa8a0', { side: THREE.DoubleSide }), x, 3.5, 0.6, G); glow(DX + x, 3.3, 0.6, 1.4, '255,240,200', 0.9); }
   plane(5, 1.1, new THREE.MeshBasicMaterial({ map: (() => { const [c, g] = cv(512, 112); g.fillStyle = '#d8222a'; g.fillRect(0, 0, 512, 112); g.font = '900 72px Arial Black, Arial'; g.textAlign = 'center'; g.fillStyle = '#fff4d0'; g.fillText('TRUCK STOP', 256, 82); return P.tex(c); })() }), 0, 5.4, -3.8, 0, 0, G).userData.ndSkip = true;
   const dl = new THREE.PointLight('#fff0d8', 50, 30, 1.3); dl.position.set(DX, 5, 2); scene.add(dl); dl.userData = { zone: 'diner', I0: 50 }; pLights.push(dl); }
-const FOOD = []; for (let k = 0; k < 9; k++) { const G = new THREE.Group(); scene.add(G); add(cyl(0.32, 0.32, 0.04, 20), toon('#f4f4f0'), 0, 0, 0, G); add(new THREE.SphereGeometry(0.22, 14, 8, 0, Math.PI * 2, 0, Math.PI / 2), toon('#d8902a'), 0, 0.12, 0, G); add(cyl(0.23, 0.23, 0.06, 16), toon('#5a2a14'), 0, 0.1, 0, G, false); add(cyl(0.24, 0.24, 0.02, 16), toon('#5ab83a'), 0, 0.07, 0, G, false); FOOD.push(G); }
+const SESAME = (() => { const g = new THREE.SphereGeometry(0.012, 6, 4); g.scale(1, 0.5, 1.7); return g; })();
+const FOOD = []; for (let k = 0; k < 9; k++) { const G = new THREE.Group(); scene.add(G);
+  add(cyl(0.34, 0.3, 0.035, 32), new THREE.MeshPhysicalMaterial({ color: '#f6f6f2', roughness: 0.2, clearcoat: 1, envMapIntensity: 0.6 }), 0, 0.0, 0, G); add(new THREE.TorusGeometry(0.31, 0.018, 8, 40), toon('#d8e4ec'), 0, 0.02, 0, G, false).rotation.x = Math.PI / 2;
+  add(cyl(0.2, 0.18, 0.06, 28), toon('#d89a4a'), 0, 0.05, 0, G);
+  { const lg = new THREE.CylinderGeometry(0.235, 0.235, 0.025, 40); const p = lg.attributes.position; for (let i = 0; i < p.count; i++) { const a = Math.atan2(p.getZ(i), p.getX(i)); const r = Math.hypot(p.getX(i), p.getZ(i)); if (r > 0.2) p.setY(i, p.getY(i) - 0.02 + 0.015 * Math.sin(a * 9)); } lg.computeVertexNormals(); add(lg, toon('#58c03a'), 0, 0.09, 0, G); }
+  add(rbox(0.36, 0.06, 0.2, 0.02), toon('#6a3418'), 0, 0.12, 0, G).scale.set(1, 1, 1.8);
+  { const ch = add(box(0.36, 0.015, 0.36), toon('#ffc21a'), 0, 0.16, 0, G); ch.rotation.y = 0.6; }
+  for (const a of [0.4, 2.5, 4.4]) add(cyl(0.07, 0.07, 0.02, 16), toon('#e0342a'), Math.cos(a) * 0.12, 0.175, Math.sin(a) * 0.12, G, false);
+  const top = add(new THREE.SphereGeometry(0.21, 28, 14, 0, Math.PI * 2, 0, Math.PI / 2), new THREE.MeshPhysicalMaterial({ color: '#d8862a', roughness: 0.35, clearcoat: 0.6, envMapIntensity: 0.5 }), 0, 0.18, 0, G); top.scale.set(1, 0.8, 1);
+  for (let i = 0; i < 26; i++) { const th = i * 2.39996, ph = Math.acos(1 - (i + 0.5) / 26 * 0.9); const v = new THREE.Vector3(Math.sin(ph) * Math.cos(th), Math.cos(ph), Math.sin(ph) * Math.sin(th)); const sd = new THREE.Mesh(SESAME, toon('#fff4d8')); sd.position.set(v.x * 0.21, 0.18 + v.y * 0.21 * 0.8, v.z * 0.21); sd.lookAt(sd.position.clone().add(v)); sd.userData.ndSkip = true; G.add(sd); }
+  FOOD.push(G); }
 const CUP = new THREE.Group(); scene.add(CUP); add(cyl(0.09, 0.07, 0.22, 16), toon('#f4f4f0'), 0, 0.11, 0, CUP); add(cyl(0.095, 0.095, 0.05, 16), toon('#5a3a22'), 0, 0.2, 0, CUP, false);
 ZONE = 'xray';
 // ================= X-RAY STAGE (x = -600): dark teal backdrop, white mountain icons, road strip =================
@@ -201,3 +214,9 @@ const MAPCURVE = new THREE.CatmullRomCurve3(Array.from({ length: 12 }, (_, i) =>
 // snow spray puffs (wheel lock-up)
 const SPRAYP = []; { const [c, g] = cv(128, 128); for (let i = 0; i < 9; i++) { const x = 34 + (i * 37) % 60, y = 34 + (i * 53) % 60, gr = g.createRadialGradient(x, y, 0, x, y, 34); gr.addColorStop(0, 'rgba(255,255,255,.95)'); gr.addColorStop(1, 'rgba(255,255,255,0)'); g.fillStyle = gr; g.fillRect(0, 0, 128, 128); } const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace;
   for (let i = 0; i < 60; i++) { const m = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), new THREE.MeshBasicMaterial({ map: t, transparent: true, depthWrite: false, color: '#f4f8ff' })); m.userData.ndSkip = true; m.renderOrder = 3; m.visible = false; scene.add(m); SPRAYP.push(m); } }
+// ===== cutting a hole into a baffle (reference: glowing cut line runs round, sparks at the tip, disc falls out) =====
+const CUTX = TKX; // baffle #2 sits at the tank centre
+const CUTDISC = add(new THREE.CylinderGeometry(1.05, 1.05, 0.12, 48), new THREE.MeshStandardMaterial({ color: '#7fa6ae', roughness: 0.35, metalness: 0.45, envMapIntensity: 1.0 }), CUTX, TR, 0, scene); CUTDISC.rotation.z = Math.PI / 2; CUTDISC.visible = false;
+const CUTLINE = new THREE.Mesh(new THREE.TorusGeometry(1.05, 0.045, 8, 96, 0.01), new THREE.MeshBasicMaterial({ color: new THREE.Color(4.5, 2.2, 0.6) })); CUTLINE.userData.ndSkip = true; scene.add(CUTLINE); CUTLINE.visible = false;
+const CUTLINE2 = new THREE.Mesh(new THREE.TorusGeometry(1.05, 0.12, 8, 96, 0.01), new THREE.MeshBasicMaterial({ color: new THREE.Color(2.2, 0.7, 0.15), transparent: true, opacity: 0.55, depthWrite: false })); CUTLINE2.userData.ndSkip = true; scene.add(CUTLINE2); CUTLINE2.visible = false;
+const CUTTIP = glow(CUTX - 0.1, TR, 0, 0.55, '255,230,190', 1); const CUTL = new THREE.PointLight('#bff4ff', 0, 11, 1.2); scene.add(CUTL); CUTTIP.userData.zone = 'fx';

@@ -678,6 +678,7 @@ const eye = (p, kind, x, ey, u, side, look, skin)=>{
             }
     }
 };
+let GOLDT = false;
 const dmouth = (p, mx, y, rx, ry, u, tongue = false)=>{
     p.ell(mx, y, rx, ry, MOUTH, 0, 0, 180);
     p.clip([
@@ -699,6 +700,7 @@ const dmouth = (p, mx, y, rx, ry, u, tongue = false)=>{
         ]
     ], ()=>p.ell(mx, y, rx, ry, WHITE, 0, 0, 180));
     if (tongue) p.ell(mx + 2 * u, y + 0.62 * ry, 0.4 * rx, 0.28 * ry, TONGUE, 0);
+    if (GOLDT) { const gx = mx + 0.22 * rx, gw = 0.2 * rx; p.poly([[gx, y], [gx + gw, y], [gx + gw, y + 4.2 * u], [gx, y + 4.2 * u]], "#ffc21a", 1.2 * u); p.poly([[gx + gw * 0.2, y + 0.6 * u], [gx + gw * 0.45, y + 0.6 * u], [gx + gw * 0.45, y + 3 * u], [gx + gw * 0.2, y + 3 * u]], "#fff6c0", 0); }
     p.ell(mx, y, rx, ry, null, 3 * u, 0, 180);
 };
 const mouth = (p, kind, mx, my, u, k = 1)=>{
@@ -2572,6 +2574,8 @@ export const romanFront = (p, key, opts = {}) => {
   const S = (side) => [tcx + side * 0.85 * T.a, chin + 0.12 * HH];
   const arm = (side, pose) => {
     const s = S(side), X = (k) => tcx + side * (T.a * 1.1 + k * u);
+    if (pose && pose.to) { const [tx, ty] = pose.to, dx = tx - s[0], dy = ty - s[1], d = Math.hypot(dx, dy) || 1, la = Math.max(0.44 * HH, d / 2 + 1), hh = Math.sqrt(Math.max(0, la * la - d * d / 4)), mx = (s[0] + tx) / 2, my = (s[1] + ty) / 2, nx = -dy / d, ny = dx / d, sg = ny > 0 ? 1 : -1;
+      return { pts: [s, [mx + nx * hh * sg, my + ny * hh * sg], [tx, ty]], front: false }; }
     if (pose && typeof pose === "object") { const la = 0.44 * HH * (pose.len || 1), a = rad(pose.a || 0), e = rad(pose.e || 0);
       const el = [s[0] + side * Math.sin(a) * la, s[1] + Math.cos(a) * la], hd = [el[0] + side * Math.sin(a + e) * la, el[1] + Math.cos(a + e) * la];
       return { pts: [s, [el[0] * 1.0, el[1]], hd], front: !!pose.front, finger: !!pose.finger, thumb: !!pose.thumb }; }
@@ -2829,7 +2833,7 @@ export const romanFront = (p, key, opts = {}) => {
   if (O.pomp) { const A = H.a, B = H.b, hcY = hc; const pts = [[cx - 1.04 * A, hcY - 0.15 * B], [cx - 1.08 * A, hcY - 0.6 * B], [cx - 0.75 * A, hcY - 1.08 * B], [cx - 0.2 * A, hcY - 1.3 * B], [cx + 0.45 * A, hcY - 1.58 * B], [cx + 1.05 * A, hcY - 1.52 * B], [cx + 1.3 * A, hcY - 1.15 * B], [cx + 0.95 * A, hcY - 0.62 * B], [cx + 1.04 * A, hcY - 0.3 * B], [cx + 0.7 * A, hcY - 0.55 * B], [cx + 0.1 * A, hcY - 0.62 * B], [cx - 0.55 * A, hcY - 0.5 * B], [cx - 0.85 * A, hcY - 0.2 * B]];
     const sm = []; for (let i = 0; i < pts.length; i++) { const a0 = pts[i], a1 = pts[(i + 1) % pts.length]; for (let k = 0; k < 6; k++) { const t = k / 6; sm.push([a0[0] + (a1[0] - a0[0]) * t, a0[1] + (a1[1] - a0[1]) * t]); } }
     p.shadedFill(sm, O.pomp, "#000000", light, A, 0.25); p.inkRing(sm, ow * 0.9, thick); for (const [o, w] of [[0, 5], [0.14, 3]]) p.stroke([[cx - 0.55 * A, hcY - (1.02 - o) * B], [cx + 0.2 * A, hcY - (1.38 - o) * B], [cx + 0.95 * A, hcY - (1.38 - o) * B]], w * u, "#ffffffcc"); }
-  faceFront(p, cx, hc, W, expr, facing, look, lid, helmet, skin, O.beard ? O.beard : O.moustache, !!O.stout);
+  GOLDT = !!O.goldTooth; faceFront(p, cx, hc, W, expr, facing, look, lid, helmet, skin, O.beard ? O.beard : O.moustache, !!O.stout); GOLDT = false;
   if (opts.gogDown) { const ex = cx + 7 * u * facing; p.stroke([[cx - 1.02 * H.a, hc - 4 * u], [cx + 1.02 * H.a, hc - 4 * u]], 7 * u, "#2a2a30"); for (const sd of [-1, 1]) { p.ell(ex + sd * 16 * u, hc - 3 * u, 15 * u, 13 * u, "#8a5a1a", 3 * u); p.ell(ex + sd * 16 * u, hc - 3 * u, 11 * u, 9.5 * u, "#ffb02a", 0); p.ell(ex + sd * 16 * u - 4 * u, hc - 7 * u, 3.5 * u, 2.2 * u, "#fff4c0", 0); } }
   if (opts.tears) for (const sd of [-1, 1]) { const tx = cx + 7 * u * facing + sd * 15 * u; p.poly([[tx - 4 * u, hc + 2 * u], [tx + 4 * u, hc + 2 * u], [tx + sd * 10 * u + 5 * u, hc + 40 * u], [tx + sd * 10 * u - 5 * u, hc + 40 * u]], "#7ac8ff", 1.6 * u); p.ell(tx + sd * 10 * u, hc + 42 * u, 6 * u, 7 * u, "#7ac8ff", 1.6 * u); }
   if (O.stubble) for (let k = 0; k < 14; k++) p.ell(cx + 7 * u * facing + ((k * 37) % 50 - 25) * u, hc + (34 + (k * 13) % 14) * u, 1.4 * u, 1.4 * u, "#5a4a44", 0);
@@ -3153,7 +3157,7 @@ Object.assign(OUTFITS, {
 
 Object.assign(OUTFITS, {
   welder: { tunic: "#f08a1a", overalls: "#e87a12", skin: "#fffdf8", cap: "#2a6ad8", goggles: true, stubble: true, belt: "#5a3a1a", pants: "#e87a12", boot: "#3a2a1e", fat: 1.05 },
-  rival: { tunic: "#16161c", coat: true, skin: "#fffdf8", pomp: "#18181e", tie: "#d8222a", vest: "#22222a", belt: "#101014", pants: "#16161c", boot: "#0a0a0e" },
+  rival: { goldTooth: true, tunic: "#16161c", coat: true, skin: "#fffdf8", pomp: "#18181e", tie: "#d8222a", vest: "#22222a", belt: "#101014", pants: "#16161c", boot: "#0a0a0e" },
   tboss: { tunic: "#6a4a2a", skin: "#fffdf8", hair: "#c8c8c8", moustache: "#d8d8d8", vest: "#3a5a3a", tie: "#c8962e", belt: "#2a1e16", pants: "#4a3a2a", boot: "#2a1e16", stout: true, fat: 1.25 },
   cook: { tunic: "#f4f4f0", skin: "#fffdf8", chef: true, apron: "#f4f4f0", moustache: "#2a1e18", stout: true },
   trucker: { tunic: "#3a6a2a", skin: "#fffdf8", cap: "#e0262a", beard: "#5a3a24", pattern: "check", pcol: "#1a2a1a55", pcol2: "#e8e0d0", pants: "#3a4a6a" },
