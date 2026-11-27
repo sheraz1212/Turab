@@ -62,7 +62,9 @@ python3 tools/elevenlabsofficial/cli.py forget TASK_ID             # clear a stu
 - **Clones:** only MP3/WAV/M4A/OGG/OPUS/FLAC/AAC up to 100 MB; only `r2_url`s returned by this tool's own
   upload can be cloned; one clone at a time locally, and the server's 429 message is shown as-is.
 - **Errors** are normalised to `{status, code, message, retryable}`; messages never contain the key.
-- **Downloads** of finished audio never send the API key (it only goes to the base URL).
+- **Downloads** of finished audio never send the API key (it only goes to the base URL). The MP3 is served from
+  an R2 host (e.g. `pub-...r2.dev`); in a cloud session that host must be in the environment's allowed hosts. If a
+  download fails the task stays saved: rerun `tts-status TASK_ID --out FILE` (no new charge).
 
 ## Tests
 

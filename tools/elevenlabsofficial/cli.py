@@ -170,6 +170,10 @@ def main(argv=None) -> int:
     except ApiError as e:
         _out({"error": e.to_dict()})
         return 4
+    except OSError as e:  # audio download failed; the generation itself is saved and can be fetched again
+        print(f"Download failed ({type(e).__name__}). The task is saved: run `tts-status TASK_ID --out FILE` to retry "
+              "(check that the audio host is allowed by the network).", file=sys.stderr)
+        return 5
 
 
 if __name__ == "__main__":
