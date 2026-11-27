@@ -65,7 +65,7 @@ shot(4.2, (t, d) => ({ preset: 'tank', baf: 5, cam: [TX - 11 + ei(t / d) * 5.0, 
 // ======== 4 "His boss nearly fainted." — ref: looking UP at the manhole, a face fills the hole, welder at the bottom of frame
 const HOLE = [TX, HY + 0.22, 0];
 const upOf = (cam, look) => { let f = [look[0] - cam[0], look[1] - cam[1], look[2] - cam[2]]; const l = Math.hypot(...f); f = f.map((v) => v / l); const d = f[1]; let u = [-f[0] * d, 1 - f[1] * d, -f[2] * d]; const ul = Math.hypot(...u) || 1; return u.map((v) => v / ul); };
-let MCAM = null; const manhole = (who, o, t, extra = {}) => { const sc = extra.s || 1.55, u = upOf(MCAM.cam, MCAM.look), hf = 0.755 * 2.25 * sc; return J(who, HOLE[0] - u[0] * hf, HOLE[1] - u[1] * hf, HOLE[2] - u[2] * hf, { ...o }, [], t, { crop: true, blob: false, s: sc, face: true, ...extra }); };
+let MCAM = null; const manhole = (who, o, t, extra = {}) => { const sc = extra.s || 1.45, u = upOf(MCAM.cam, MCAM.look), hf = 0.74 * 2.25 * sc; const c0 = MCAM.cam, H0 = [TX - 0.02, HY, 0]; let dv = [H0[0] - c0[0], H0[1] - c0[1], H0[2] - c0[2]]; const dl = Math.hypot(...dv); dv = dv.map((v) => v / dl); const tgt = [H0[0] + dv[0] * 0.45, H0[1] + dv[1] * 0.45, H0[2] + dv[2] * 0.45]; return J(who, tgt[0] - u[0] * hf, tgt[1] - u[1] * hf, tgt[2] - u[2] * hf, { ...o }, [], t, { crop: true, blob: false, s: sc, face: true, ...extra }); };
 const MH = (cam, look) => (MCAM = { cam, look });
 shot(6.0, (t, d) => ({ preset: 'tank', flash: flashIn(t), baf: 0, ...MH(push(t, d, [TX - 0.2, 1.5, 1.6], [TX - 0.2, 1.55, 1.45]), [TX - 0.05, HY - 0.45, 0]), fov: 56, minD: 0.5,
   actors: [manhole('tboss', { expr: t < 0.4 ? 'shock' : 'terror', sweat: 2, L: 'hang', R: 'hang' }, t), J('welder', 0, 0, 0, { expr: 'squint', L: 'hip', R: 'hip' }, [], t, { hud: { d: 1.2, up: -1.12, right: 0.16 }, s: 0.46, crop: true, blob: false, order: 4 })] }));
@@ -76,7 +76,7 @@ shot(7.4, (t, d) => { const nb = Math.min(5, Math.floor(t / 0.28) + 1); return {
   actors: [counter('GALLONS', String(8000 - nb * 300).replace(/(\d)(\d{3})$/, '$1,$2'), t, '#ffd21a', 0.32, '-300')] }; });
 // ======== 6 "and every gallon of space was money he would never haul." — boss extreme close in the manhole
 shot(9.0, (t, d) => ({ preset: 'tank', baf: 0, ...MH(push(t, d, [TX - 0.2, 1.6, 1.6], [TX - 0.2, 1.7, 1.45]), [TX - 0.05, HY - 0.45, 0]), fov: 34, minD: 0.4,
-  actors: [manhole('tboss', { expr: 'pained', sweat: 2 }, t), popA('-$$$', t - 0.4, -0.55, RED)] }));
+  actors: [manhole('tboss', { expr: 'pained', sweat: 2 }, t), popA('-$$$', t - 0.4, -0.98, RED)] }));
 // ======== 7 "Down the road, a rival driver did the opposite:" — rival in his manhole, smug, welder head bottom right (ref 11/13)
 shot(11.9, (t, d) => ({ preset: 'tank', flash: flashIn(t) * 0.6, baf: 0, ...MH(push(t, d, [TX - 0.2, 1.5, 1.6], [TX - 0.2, 1.6, 1.4]), [TX - 0.05, HY - 0.45, 0]), fov: 56, minD: 0.4,
   actors: [manhole('rival', { expr: 'smug', shades: true, talk: true }, t), J('welder', 0, 0, 0, { expr: 'squint', L: 'hip', R: 'hip' }, [], t, { hud: { d: 1.2, up: -1.12, right: 0.16 }, s: 0.46, crop: true, blob: false, order: 4 })] }));
