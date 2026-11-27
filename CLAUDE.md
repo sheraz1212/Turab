@@ -119,6 +119,16 @@ Footage sources: US National Archives, Wikimedia (public domain).
   - Captions: one word at a time, timed by estimate because there is no voice track.
   - Render it: `python3 scripts/make_sfx.py public/cuchi_sfx.wav && npx remotion render CuChi out.mp4 --gl=swangle`
 
+## 5b. HOUSE STYLE FOR EVERY NEW SHORT (2026-11-28, user-approved; aim: better than the reference)
+Base engine: `shorts/fuel-baffles/web/` (copy it for the next short).
+1. **Copy the reference exactly first:** study it frame by frame (angles, how close characters are shot, brightness, what is in the background, camera speed) and match shot by shot. Then upgrade. Never add my own choices (fog, haze, extra effects, colour changes, new props) without asking first.
+2. **Look:** clean cel-shaded 3D (MeshToonMaterial 3-tone gradient) with black ink outlines on everything, rounded bevelled shapes (`rbox`), painted deep-blue sky with big cartoon clouds, bold colours. **No fog/haze anywhere.**
+3. **Shadows + shine always:** cast shadows on the ground; characters get a darker shading side; chrome/steel strong reflections, glossy paint (MeshPhysical clearcoat, low env so colours stay deep), glass with white streaks. Nothing may look flat, plastic or rubber.
+4. **Detail:** props and vehicles fully detailed (e.g. Peterbilt-style truck: long hood, mesh chrome grille + badge, dual headlights, sweeping fenders, chrome bumper, tall stacks, drum visor, air cleaners, big mirrors with reflection, wipers, steps, hollow cab with the driver visible). Materials must read correctly (steel looks like steel, not water; liquids have shading + streaks).
+5. **Camera/pace:** characters close (faces often fill a third of the frame), POV shots, macro close-ups, flythroughs; camera always moving, new angle every 1-2 s (motion mean ~10 like the reference).
+6. **Characters:** reference-quality hair and attitude (pompadour + shades + smug for the cool rival, stubble, goggles), expressive faces per beat.
+7. **Workflow:** voice via `tools/elevenlabsofficial` (Mike - Natural and Engaging Podcast Host, `EL:vDchjyOZZytffNeZXfZK`, speed 1.10); show a test sheet before the full render; re-render only the changed frames when fixing.
+
 ## 6. Repo map
 - `CLAUDE.md`: this file, the single source of truth. Claude Code reads it automatically; for other tools, paste its text.
 - `channel-notes/memory/`: original memory notes from the PC sessions.
