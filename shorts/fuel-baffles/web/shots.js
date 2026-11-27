@@ -10,6 +10,7 @@ const prop = (p, pr, h, t) => { const [x, y] = h; const u = U, g = p.g;
   if (pr.kind === 'watch') { p.poly([[x - 14 * u, y - 12 * u], [x + 14 * u, y - 12 * u], [x + 14 * u, y + 8 * u], [x - 14 * u, y + 8 * u]], '#1a1a22', 2.4 * u); g.save(); g.font = `900 ${13 * u}px Courier New`; g.textAlign = 'center'; g.fillStyle = '#ff4a2a'; g.fillText(String(10 + Math.floor(t * 20) % 89), x, y + 3 * u); g.restore(); }
   if (pr.kind === 'clip') { p.poly([[x - 16 * u, y - 24 * u], [x + 16 * u, y - 24 * u], [x + 16 * u, y + 16 * u], [x - 16 * u, y + 16 * u]], '#c89a5a', 2.2 * u); p.poly([[x - 12 * u, y - 18 * u], [x + 12 * u, y - 18 * u], [x + 12 * u, y + 12 * u], [x - 12 * u, y + 12 * u]], '#f6f2ea', 1 * u); for (let k = 0; k < 4; k++) p.stroke([[x - 8 * u, y - 10 * u + k * 6 * u], [x + 8 * u, y - 10 * u + k * 6 * u]], 1.4 * u, '#5a5a6a'); }
   if (pr.kind === 'stopwatch') { p.ell(x, y - 4 * u, 15 * u, 15 * u, '#f4f4f0', 2.6 * u); p.ell(x, y - 21 * u, 4 * u, 3 * u, '#c8c8d0', 1.6 * u); p.stroke([[x, y - 4 * u], [x + 8 * u, y - 10 * u]], 2 * u, '#e0262a'); }
+  if (pr.kind === 'coffee') { p.poly([[x - 13 * u, y - 30 * u], [x + 13 * u, y - 30 * u], [x + 10 * u, y + 12 * u], [x - 10 * u, y + 12 * u]], '#f4efe4', 2.2 * u); p.poly([[x - 12 * u, y - 18 * u], [x + 12 * u, y - 18 * u], [x + 11.4 * u, y - 4 * u], [x - 11.4 * u, y - 4 * u]], '#7a4a2a', 1.4 * u); p.poly([[x - 14 * u, y - 36 * u], [x + 14 * u, y - 36 * u], [x + 14 * u, y - 30 * u], [x - 14 * u, y - 30 * u]], '#3a2a22', 1.6 * u); }
   if (pr.kind === 'torch') { p.poly([[x - 6 * u, y - 4 * u], [x + 34 * u, y - 10 * u], [x + 36 * u, y - 2 * u], [x - 6 * u, y + 6 * u]], '#3a3a44', 2 * u); p.ell(x + 40 * u, y - 6 * u, 7 * u, 7 * u, '#d8f8ff', 0); }
   if (pr.kind === 'toycar') { p.poly([[x - 16 * u, y - 4 * u], [x + 16 * u, y - 4 * u], [x + 16 * u, y + 6 * u], [x - 16 * u, y + 6 * u]], '#e0262a', 2 * u); p.poly([[x - 8 * u, y - 12 * u], [x + 6 * u, y - 12 * u], [x + 9 * u, y - 4 * u], [x - 10 * u, y - 4 * u]], '#b8d8f0', 1.6 * u); } };
 const life = (t, seed = 1) => ({ bob: 0.006 * Math.sin((t * 30 + seed * 11) * 0.11), headTilt: 2 * Math.sin(t * 1.6 + seed), blink: ((t * 30 + seed * 13) % (40 + seed * 7)) < 3 ? 1 : 0 });
@@ -49,14 +50,14 @@ const BS = (x, z, o, props = [], t = 0, extra = {}) => J('tboss', x, extra.y || 
 const DRV = (who, tr, o = {}, t = 0) => { const c = Math.cos(tr.ry || 0), s = Math.sin(tr.ry || 0); return act(who, tr.x + 1.35 * c, (tr.y || 0) + 1.75, (tr.z || 0) - 1.35 * s - 0.35 * c, { L: { a: 60, e: 70 }, R: { a: 60, e: 70 }, ...(who === 'rival' ? { shades: true } : {}), ...o }, [], { s: 0.72, crop: true, blob: false }, t); };
 const TANKY = TR; // tank axis height (interior set)
 // a driver card sitting in a truck cab (truck front +x, driver on the left = -z)
-const DRV2 = (who, tr, o = {}, t = 0) => { const c = Math.cos(tr.ry || 0), sn = Math.sin(tr.ry || 0), lx = 1.45, lz = -0.45; return act(who, tr.x + lx * c + lz * sn, (tr.y || 0) + 1.95, (tr.z || 0) - lx * sn + lz * c, { L: { a: 60, e: 70 }, R: { a: 60, e: 70 }, ...(who === 'rival' ? { shades: true } : {}), ...o }, [], { s: 0.74, crop: true, blob: false }, t); };
+const DRV2 = (who, tr, o = {}, t = 0) => { const c = Math.cos(tr.ry || 0), sn = Math.sin(tr.ry || 0), lx = 1.45, lz = -0.45; return act(who, tr.x + lx * c + lz * sn, (tr.y || 0) + 2.05, (tr.z || 0) - lx * sn + lz * c, { L: { a: 60, e: 70 }, R: { a: 60, e: 70 }, ...(who === 'rival' ? { shades: true } : {}), ...o }, [], { s: 0.74, crop: true, blob: false }, t); };
 const front = (tr, dx, dy, dz) => { const c = Math.cos(tr.ry || 0), sn = Math.sin(tr.ry || 0); return [tr.x + dx * c + dz * sn, (tr.y || 0) + dy, (tr.z || 0) - dx * sn + dz * c]; };
 const HY = 2 * TR; // tank top
 // ======== 1 "This welder spent all night building walls inside an empty fuel tank." — ref: medium side shot, glowing ring at left, sparks
 shot(0.0, (t, d) => ({ preset: 'tank', baf: 3, spark: [TX - 0.02, TANKY - 0.4, -0.9], cam: push(t, d, [TX - 2.3, 2.1, 1.7], [TX - 2.1, 2.05, 1.45]), look: [TX - 0.5, 2.0, -0.6], fov: 50, minD: 1.0,
-  actors: [WD(TX - 0.9, -0.3, { expr: 'squint', L: { a: 60, e: 50 }, R: { a: 95, e: 25 }, headTilt: -6 }, [{ kind: 'torch', hand: 1 }], t, { y: 0.65, crop: true, s: 1.05 })] }));
+  actors: [WD(TX - 0.9, -0.3, { expr: 'stern', gogDown: true, L: { a: 60, e: 50 }, R: { a: 95, e: 25 }, headTilt: -6 }, [{ kind: 'torch', hand: 1 }], t, { y: 0.65, crop: true, s: 1.05 })] }));
 shot(1.6, (t, d) => ({ preset: 'tank', baf: 3, spark: [TX - 0.02, TANKY + 0.2, -1.0], cam: push(t, d, [TX - 1.6, 2.55, 0.9], [TX - 1.45, 2.6, 0.75]), look: [TX - 0.7, 2.75, -0.2], fov: 44, minD: 0.7,
-  actors: [WD(TX - 0.9, -0.3, { expr: 'squint', L: { a: 60, e: 50 }, R: { a: 110, e: 20 } }, [{ kind: 'torch', hand: 1 }], t, { y: 0.65, crop: true, s: 1.05 })] }));
+  actors: [WD(TX - 0.9, -0.3, { expr: 'stern', gogDown: true, L: { a: 60, e: 50 }, R: { a: 110, e: 20 } }, [{ kind: 'torch', hand: 1 }], t, { y: 0.65, crop: true, s: 1.05 })] }));
 // ======== 2 "Five of them," — ref: fly through the rings with numbers
 shot(3.3, (t, d) => ({ preset: 'tank', baf: 5, cam: [TX - 15 + ez(t / d) * 4.5, TANKY, 0.02], look: [TX + 6, TANKY, 0], fov: 58, mb: [0, 0.004], actors: [popA(String(Math.min(5, 1 + Math.floor(t / 0.16))), t % 0.16, -0.2)] }));
 // ======== 3 "each with a big round hole in the middle." — push through a hole
@@ -79,7 +80,7 @@ shot(9.0, (t, d) => ({ preset: 'tank', baf: 0, ...MH(push(t, d, [TX - 0.2, 1.6, 
   actors: [manhole('tboss', { expr: 'pained', sweat: 2 }, t), popA('-$$$', t - 0.4, -0.98, RED)] }));
 // ======== 7 "Down the road, a rival driver did the opposite:" — rival in his manhole, smug, welder head bottom right (ref 11/13)
 shot(11.9, (t, d) => ({ preset: 'tank', flash: flashIn(t) * 0.6, baf: 0, ...MH(push(t, d, [TX - 0.2, 1.5, 1.6], [TX - 0.2, 1.6, 1.4]), [TX - 0.05, HY - 0.45, 0]), fov: 56, minD: 0.4,
-  actors: [manhole('rival', { expr: 'smug', shades: true, talk: true }, t), J('welder', 0, 0, 0, { expr: 'squint', L: 'hip', R: 'hip' }, [], t, { hud: { d: 1.2, up: -1.12, right: 0.16 }, s: 0.46, crop: true, blob: false, order: 4 })] }));
+  actors: [manhole('rival', t < 1.1 ? { expr: 'smug', shades: true } : { expr: 'laugh', shades: true, tears: true, talk: true }, t), J('welder', 0, 0, 0, { expr: 'squint', L: 'hip', R: 'hip' }, [], t, { hud: { d: 1.2, up: -1.12, right: 0.16 }, s: 0.46, crop: true, blob: false, order: 4 })] }));
 // ======== 8 "a tank with nothing inside but fuel." — rival in the empty tunnel, symmetric, walking to camera (ref 15.5)
 shot(14.2, (t, d) => ({ preset: 'tank', baf: 0, cam: [TX + 3.0 - ez(t / d) * 1.2, TANKY - 0.2, 0], look: [TX + 14, TANKY - 0.4, 0], fov: 56, flash: flashIn(t) * 0.5,
   actors: [RV(TX + 7.4 - t * 0.6, 0, { expr: 'laugh', L: 'up', R: 'up', step: t * 3, stride: 10 }, [], t, { y: 0.65, crop: true, s: 1.1 })] }));
@@ -87,9 +88,9 @@ shot(14.2, (t, d) => ({ preset: 'tank', baf: 0, cam: [TX + 3.0 - ez(t / d) * 1.2
 shot(16.1, (t, d) => ({ preset: 'xray', trucks: [xr('red', { wave: { h: 1.0 } })], ...XCAM(t, d), actors: [counter('GALLONS', '8,000', t, '#4ae04a', 0.32), ...(t > 0.6 ? [cash(t, XX - 5, 4.6, 0, 1.6)] : [])] }));
 // ======== 10 "By winter, he was buying lunch for the whole truck stop." — ref: diner side-on medium at the window
 shot(18.1, (t, d) => ({ preset: 'diner', food: Array.from({ length: 4 }, (_, i) => [DX - 2.6 + i * 1.4, 1.26, 1.0 + (t > 0.3 + i * 0.2 ? 0 : 0.6)]), cam: push(t, d, [DX - 0.6, 1.85, 6.4], [DX - 0.2, 1.85, 5.8]), look: [DX - 0.4, 1.75, 1.6], fov: 46,
-  actors: [RV(DX - 1.5, 2.4, { expr: 'laugh', talk: true, L: 'up', R: 'point' }, [], t, { crop: true }), J('trucker', DX + 0.2, 0, 2.6, { expr: 'laugh', L: 'up', R: 'hip' }, [], t, { y: 0.1, crop: true }), J('trucker2', DX - 3.0, 0, 2.5, { expr: 'grin', L: 'thumb', R: 'hip' }, [], t, { y: 0.1, crop: true })] }));
+  actors: [RV(DX - 0.4, 2.5, { expr: 'laugh', tears: true, talk: true, L: 'up', R: 'point' }, [], t, { crop: true }), J('trucker', DX + 1.4, 0, 2.3, { expr: 'laugh', L: 'up', R: 'hip' }, [], t, { y: 0.1, crop: true }), J('trucker2', DX - 2.2, 0, 2.3, { expr: 'grin', L: 'thumb', R: 'hip' }, [], t, { y: 0.1, crop: true })] }));
 shot(19.6, (t, d) => ({ preset: 'diner', cup: [DX + 2.4, 1.26, 1.0], cam: push(t, d, [DX + 2.6, 1.8, 5.2], [DX + 2.5, 1.8, 4.7]), look: [DX + 2.4, 1.75, 1.6], fov: 46,
-  actors: [WD(DX + 2.4, 2.5, { expr: 'squint', L: 'hip', R: { a: 50, e: 80 } }, [], t, { crop: true }), RV(DX + 0.6, 3.6, { expr: 'laugh', L: 'up', R: 'up' }, [], t, { crop: true, s: 1.15 })] }));
+  actors: [WD(DX + 2.4, 2.5, { expr: 'squint', L: 'hip', R: { a: 50, e: 80 } }, [], t, { crop: true }), RV(DX + 1.45, 3.3, { expr: 'laugh', tears: true, L: 'up', R: 'up' }, [], t, { crop: true, s: 1.1 })] }));
 // ======== 11 "Then came the mountain pass, covered in ice." — ref: top-down map, winding road, pins, tiny truck
 const mapHud = (t) => hud((p) => { const g = p.g; g.save(); g.fillStyle = '#eef4fb'; g.fillRect(-60, -60, 720, 1120); for (let i = 0; i < 70; i++) { const x = (i * 97) % 640, y = (i * 61) % 1000; g.fillStyle = '#2f7a5a'; g.beginPath(); g.moveTo(x, y); g.lineTo(x - 8, y + 18); g.lineTo(x + 8, y + 18); g.fill(); }
   for (const [x, y, s] of [[80, 80, 70], [210, 40, 60], [500, 150, 80]]) { g.fillStyle = '#5a6a84'; g.beginPath(); g.moveTo(x - s, y + s * 0.8); g.lineTo(x, y - s * 0.6); g.lineTo(x + s, y + s * 0.8); g.fill(); g.fillStyle = '#f4f8ff'; g.beginPath(); g.moveTo(x - s * 0.35, y - s * 0.1); g.lineTo(x, y - s * 0.6); g.lineTo(x + s * 0.35, y - s * 0.1); g.fill(); }
@@ -107,11 +108,11 @@ shot(25.2, (t, d) => { const tr = { name: 'red', x: 14 + t * 2.4, z: 2 }; const 
 shot(26.0, (t, d) => ({ preset: 'snow', trucks: [{ name: 'red', x: 18.2 + t * 2, z: 6.2 }, { name: 'yel', x: 15.4 + t * 1.2, z: 2.4 }], boulder: [42, 2, 1.5], cam: push(t, d, [33, -0.35, 14.2], [32, -0.3, 13.8]), look: [20, 2.0, 4.4], fov: 52, shadowExt: 22,
   actors: [DRV2('rival', { x: 18.2 + t * 2, z: 6.2 }, { expr: 'shock' }, t), DRV2('welder', { x: 15.4 + t * 1.2, z: 2.4 }, { expr: 'squint' }, t)] }));
 // ======== 13 "The welder's truck groaned, and stopped." — yellow truck front close, driver through the windshield
-shot(26.9, (t, d) => { const tr = { name: 'yel', x: 17.2 + 1.2 * eo(t / 1.0), z: 2.4 }; return { preset: 'snow', trucks: [tr, { name: 'red', x: 20.5 + t * 2.5, z: 6.2 }], cam: push(t, d, front(tr, 8.6, 2.6, 0.5), front(tr, 8.1, 2.65, 0.45)), look: front(tr, 2.5, 2.7, 0), fov: 48, minD: 2,
+shot(26.9, (t, d) => { const tr = { name: 'yel', x: 17.2 + 1.2 * eo(t / 1.0), z: 2.4 }; return { preset: 'snow', trucks: [tr, { name: 'red', x: 20.5 + t * 2.5, z: 6.2 }], cam: push(t, d, front(tr, 8.6, 3.35, 0.4), front(tr, 8.1, 3.35, 0.35)), look: front(tr, 2.0, 2.8, -0.2), fov: 48, minD: 2,
   actors: [DRV2('welder', tr, { expr: 'smug', R: { a: 120, e: 40 } }, t)] }; });
 // ======== 14 "The smooth truck kept going... sliding..." — red truck front, low and close, SMOOTH plate, INCHES LEFT
-shot(29.2, (t, d) => { const k = ez(t / 2.5); const tr = { name: 'red', x: 22 + k * 4.5, z: 6.2 + k * 1.4, ry: -k * 0.2 }; return { preset: 'snow', trucks: [tr], cam: front(tr, 9.0, 1.6, -0.4), look: front(tr, 3.0, 2.4, 0), fov: 50, minD: 2, shake: 0.012,
-  actors: [DRV2('rival', tr, { expr: 'terror', L: 'up', R: 'up', sweat: 2 }, t), counter('INCHES LEFT', String(Math.max(1, 3 - Math.floor(t / 0.8))), t, '#ffd21a', 0.34)] }; });
+shot(29.2, (t, d) => { const k = ez(t / 2.5); const tr = { name: 'red', x: 22 + k * 4.5, z: 6.2 + k * 1.4, ry: -k * 0.2 }; return { preset: 'snow', trucks: [tr], cam: front(tr, 8.6, 3.35, -0.3), look: front(tr, 2.0, 2.8, -0.2), fov: 48, minD: 2, shake: 0.012,
+  actors: [DRV2('rival', tr, { expr: t < 1 ? 'terror' : 'scream', L: 'up', R: 'up', sweat: 3 }, t), counter('INCHES LEFT', String(Math.max(1, 3 - Math.floor(t / 0.8))), t, '#ffd21a', 0.34)] }; });
 // ======== 15 "until its bumper hung over the cliff." — ref 66.5: low angle up at the front wheel over the ice edge
 shot(31.7, (t, d) => { const tr = { name: 'red', x: 26.5, z: 7.6 + ez(t / 0.5) * 0.4, ry: -0.2 }; return { preset: 'snow', trucks: [tr], cam: push(t, d, [33.5, -2.0, 13.5], [33.0, -1.8, 13.0]), look: [30, 1.6, 9.2], fov: 54, shadowExt: 16,
   actors: [counter('INCHES LEFT', '0', t, '#ff3a2a', 0.36)] }; });
@@ -128,7 +129,7 @@ shot(41.9, (t, d) => { const k = ez((t - 0.4) / 0.8); return { preset: 'xray', t
 shot(44.3, (t, d) => ({ preset: 'tank', baf: 5, tfuel: { h: 1.9, chop: 0.7 }, cam: [TX - 13 + ez(t / d) * 9, 3.6, 0.02], look: [TX + 6, 3.0, 0], fov: 56, minD: 0.5, mb: [0, 0.003], actors: [popA(String(1 + Math.min(4, Math.floor(t / 0.45))), (t % 0.45), -0.05)] }));
 // ======== 21 "so the fuel has nothing to push with." — welder close-up, smug, coffee (ref 63)
 shot(46.7, (t, d) => ({ preset: 'garage', trucks: [{ name: 'yel', x: GX - 2, z: -3 }], cam: push(t, d, [GX + 0.3, 2.0, 2.3], [GX + 0.25, 2.0, 2.0]), look: [GX + 0.2, 2.0, 0], fov: 46, minD: 0.6,
-  actors: [WD(GX + 0.2, 0, { expr: 'smug', L: 'hip', R: { a: 110, e: 60 } }, [], t, { crop: true }), check(true, t - 0.5, 0.3)] }));
+  actors: [WD(GX + 0.2, 0, { expr: 'smug', L: 'hip', R: { a: 115, e: 70 } }, [{ kind: 'coffee', hand: 1 }], t, { crop: true }), check(true, t - 0.5, 0.3)] }));
 // ======== 22 "Next spring, the rival paid the welder to fill his tank with walls."
 shot(48.5, (t, d) => ({ preset: 'garage', flash: flashIn(t) * 0.5, trucks: [{ name: 'red', x: GX - 2, z: -3 }], cam: push(t, d, [GX + 0.5, 1.7, 3.0], [GX + 0.4, 1.7, 2.6]), look: [GX + 0.3, 1.8, 0.2], fov: 50,
   actors: [RV(GX - 0.6, 0.2, { expr: 'pained', L: 'hip', R: { a: 70, e: 20 }, sweat: 1 }, [], t, { crop: true }), WD(GX + 1.3, 0.4, { expr: 'smug', L: 'hip', R: { a: 80, e: 40 } }, [], t, { crop: true }), cash(t, GX + 0.4, 1.4, 0.4, 0.55)] }));
