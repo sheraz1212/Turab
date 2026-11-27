@@ -2826,7 +2826,11 @@ export const romanFront = (p, key, opts = {}) => {
     for (const x of [-1.05, -0.3, 0.3, 1.05]) { p.ell(cx + x * H.a, by - (Math.abs(x) > 0.5 ? 0.8 : 1.0) * H.b, 0.1 * H.a, 0.09 * H.b, "#d8222a", 1.4 * u); }
     p.ell(cx - 0.55 * H.a, by - 0.25 * H.b, 0.12 * H.a, 0.05 * H.b, "#fff6c8", 0); }
   if (O.pearls) for (let k = 0; k < 9; k++) { const a = Math.PI * (0.15 + 0.7 * k / 8); p.ell(cx + Math.cos(a) * 0.7 * H.a, hc + 1.05 * H.b + Math.sin(a) * 0.25 * H.b, 5 * u, 5 * u, "#fffaf0", 1.2 * u); }
+  if (O.pomp) { const A = H.a, B = H.b, hcY = hc; const pts = [[cx - 1.04 * A, hcY - 0.15 * B], [cx - 1.08 * A, hcY - 0.6 * B], [cx - 0.75 * A, hcY - 1.08 * B], [cx - 0.2 * A, hcY - 1.3 * B], [cx + 0.45 * A, hcY - 1.58 * B], [cx + 1.05 * A, hcY - 1.52 * B], [cx + 1.3 * A, hcY - 1.15 * B], [cx + 0.95 * A, hcY - 0.62 * B], [cx + 1.04 * A, hcY - 0.3 * B], [cx + 0.7 * A, hcY - 0.55 * B], [cx + 0.1 * A, hcY - 0.62 * B], [cx - 0.55 * A, hcY - 0.5 * B], [cx - 0.85 * A, hcY - 0.2 * B]];
+    const sm = []; for (let i = 0; i < pts.length; i++) { const a0 = pts[i], a1 = pts[(i + 1) % pts.length]; for (let k = 0; k < 6; k++) { const t = k / 6; sm.push([a0[0] + (a1[0] - a0[0]) * t, a0[1] + (a1[1] - a0[1]) * t]); } }
+    p.shadedFill(sm, O.pomp, "#000000", light, A, 0.25); p.inkRing(sm, ow * 0.9, thick); for (const [o, w] of [[0, 5], [0.14, 3]]) p.stroke([[cx - 0.55 * A, hcY - (1.02 - o) * B], [cx + 0.2 * A, hcY - (1.38 - o) * B], [cx + 0.95 * A, hcY - (1.38 - o) * B]], w * u, "#ffffffcc"); }
   faceFront(p, cx, hc, W, expr, facing, look, lid, helmet, skin, O.beard ? O.beard : O.moustache, !!O.stout);
+  if (O.stubble) for (let k = 0; k < 14; k++) p.ell(cx + 7 * u * facing + ((k * 37) % 50 - 25) * u, hc + (34 + (k * 13) % 14) * u, 1.4 * u, 1.4 * u, "#5a4a44", 0);
   if (O.eyepatch) { const ex = cx + 7 * u * facing + 14 * u; p.stroke([[cx - H.a * 0.95, hc - 0.45 * H.b], [ex, hc], [cx + H.a * 0.98, hc + 0.1 * H.b]], 2.8 * u, INK); p.ell(ex, hc + 1 * u, 13 * u, 11 * u, "#1a1418", 1.5 * u); p.ell(ex - 4 * u, hc - 3 * u, 4 * u, 2 * u, "#ffffff40", 0); }
   if (O.monocle) { const ex = cx + 7 * u * facing + 13 * u; p.ell(ex, hc, 15 * u, 15 * u, '#ffffff33', 3 * u); p.ell(ex - 5 * u, hc - 5 * u, 4 * u, 3 * u, '#ffffffaa', 0); p.stroke(curve([ex + 6 * u, hc + 14 * u], [ex + 18 * u, hc + 60 * u], [ex - 10 * u, hc + 110 * u], 8), 1.6 * u, '#c8a24a'); }
   if (O.soot) for (let k = 0; k < 7; k++) p.ell(cx + Math.sin(k * 3.1) * 0.6 * H.a, hc + (0.1 + ((k * 0.43) % 1) * 0.6) * H.b, 6 * u, 3.5 * u, "#2a242233", 0);
@@ -3146,8 +3150,8 @@ Object.assign(OUTFITS, {
 });
 
 Object.assign(OUTFITS, {
-  welder: { tunic: "#f08a1a", overalls: "#e87a12", skin: "#fffdf8", cap: "#2a6ad8", goggles: true, belt: "#5a3a1a", pants: "#e87a12", boot: "#3a2a1e", fat: 1.05 },
-  rival: { tunic: "#16161c", coat: true, skin: "#fffdf8", hair: "#101014", tie: "#d8222a", vest: "#22222a", belt: "#101014", pants: "#16161c", boot: "#0a0a0e" },
+  welder: { tunic: "#f08a1a", overalls: "#e87a12", skin: "#fffdf8", cap: "#2a6ad8", goggles: true, stubble: true, belt: "#5a3a1a", pants: "#e87a12", boot: "#3a2a1e", fat: 1.05 },
+  rival: { tunic: "#16161c", coat: true, skin: "#fffdf8", pomp: "#18181e", tie: "#d8222a", vest: "#22222a", belt: "#101014", pants: "#16161c", boot: "#0a0a0e" },
   tboss: { tunic: "#6a4a2a", skin: "#fffdf8", hair: "#c8c8c8", moustache: "#d8d8d8", vest: "#3a5a3a", tie: "#c8962e", belt: "#2a1e16", pants: "#4a3a2a", boot: "#2a1e16", stout: true, fat: 1.25 },
   cook: { tunic: "#f4f4f0", skin: "#fffdf8", chef: true, apron: "#f4f4f0", moustache: "#2a1e18", stout: true },
   trucker: { tunic: "#3a6a2a", skin: "#fffdf8", cap: "#e0262a", beard: "#5a3a24", pattern: "check", pcol: "#1a2a1a55", pcol2: "#e8e0d0", pants: "#3a4a6a" },

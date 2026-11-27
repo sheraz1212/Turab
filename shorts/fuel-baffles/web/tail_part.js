@@ -20,6 +20,7 @@ window.renderFrame = (f) => {
   // sparks
   SPARK.forEach((m, i) => { if (!S.spark) { m.position.y = -90; return; } const k = (t * 2.4 + rnd(i, 1)) % 1, d = new THREE.Vector3(rnd(i, 2) - 0.5, rnd(i, 3) * 0.9 - 0.1, rnd(i, 4) - 0.5).normalize(); m.position.set(S.spark[0] + d.x * k * 1.8, S.spark[1] + d.y * k * 1.6 - k * k * 1.4, S.spark[2] + d.z * k * 1.8); m.lookAt(m.position.clone().add(d)); m.scale.setScalar(1 - k); });
   WELDGLOW.visible = !!S.spark; if (S.spark) { WELDGLOW.position.set(...S.spark); WELDGLOW.material.opacity = 0.7 + 0.3 * Math.sin(t * 40); }
+  SPRAYP.forEach((m, i) => { m.visible = false; if (!S.spray) return; const [sx, sy, sz, dir] = S.spray; const k = (t * 1.7 + rnd(i, 1)) % 1; m.visible = true; m.position.set(sx - dir * k * 3.2 + (rnd(i, 2) - 0.5) * 0.6, sy + k * 1.4 * rnd(i, 3) + 0.1, sz + (rnd(i, 4) - 0.5) * 1.6 * k); m.scale.setScalar(0.4 + k * 1.6); m.quaternion.copy(camera.quaternion); m.material.opacity = (1 - k) * 0.9; });
   BOULDER.position.set(...(S.boulder || [0, -50, 0])); BOULDER.rotation.x = t * 2;
   FOOD.forEach((g, i) => { const fp = S.food && S.food[i]; g.visible = !!fp; if (fp) g.position.set(...fp); }); CUP.visible = !!S.cup; if (S.cup) CUP.position.set(...S.cup);
   // ---- camera ----
