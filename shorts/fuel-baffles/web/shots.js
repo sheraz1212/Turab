@@ -131,8 +131,8 @@ shot(44.3, (t, d) => ({ preset: 'tank', baf: 5, tfuel: { h: 1.9, chop: 0.7 }, ca
 shot(46.7, (t, d) => ({ preset: 'garage', trucks: [{ name: 'yel', x: GX - 2, z: -3 }], cam: push(t, d, [GX + 0.3, 2.0, 2.3], [GX + 0.25, 2.0, 2.0]), look: [GX + 0.2, 2.0, 0], fov: 46, minD: 0.6,
   actors: [WD(GX + 0.2, 0, { expr: 'smug', L: 'hip', R: { a: 115, e: 70 } }, [{ kind: 'coffee', hand: 1 }], t, { crop: true }), check(true, t - 0.5, 0.3)] }));
 // ======== 22 "Next spring, the rival paid the welder to fill his tank with walls."
-shot(48.5, (t, d) => ({ preset: 'garage', flash: flashIn(t) * 0.5, trucks: [{ name: 'red', x: GX - 2, z: -3 }], cam: push(t, d, [GX + 0.5, 1.7, 3.0], [GX + 0.4, 1.7, 2.6]), look: [GX + 0.3, 1.8, 0.2], fov: 50,
-  actors: [RV(GX - 0.6, 0.2, { expr: 'pained', L: 'hip', R: { a: 70, e: 20 }, sweat: 1 }, [], t, { crop: true }), WD(GX + 1.3, 0.4, { expr: 'smug', L: 'hip', R: { a: 80, e: 40 } }, [], t, { crop: true }), cash(t, GX + 0.4, 1.4, 0.4, 0.55)] }));
+shot(48.5, (t, d) => ({ preset: 'garage', flash: flashIn(t) * 0.5, trucks: [{ name: 'red', x: GX - 2, z: -3 }], cam: push(t, d, [GX + 0.2, 1.7, 4.6], [GX + 0.2, 1.7, 4.1]), look: [GX + 0.2, 1.7, 0.3], fov: 50,
+  actors: [RV(GX - 0.5, 0.2, { expr: 'pained', L: 'hip', R: { a: 70, e: 20 }, sweat: 1 }, [], t, { crop: true }), WD(GX + 0.9, 0.4, { expr: 'smug', L: 'hip', R: { a: 80, e: 40 } }, [], t, { crop: true }), cash(t, GX + 0.4, 1.4, 0.4, 0.55)] }));
 shot(50.4, (t, d) => ({ preset: 'tank', baf: 0, ...MH(push(t, d, [TX - 0.2, 1.5, 1.6], [TX - 0.2, 1.6, 1.4]), [TX - 0.05, HY - 0.45, 0]), fov: 56, minD: 0.4,
   actors: [manhole('rival', { expr: 'nervous', sweat: 1 }, t), J('welder', 0, 0, 0, { expr: 'grin', L: 'hip', R: 'hip' }, [], t, { hud: { d: 1.2, up: -1.12, right: 0.16 }, s: 0.46, crop: true, blob: false, order: 4 })] }));
 export const TOTAL = Math.ceil(52.2 * FPS);
