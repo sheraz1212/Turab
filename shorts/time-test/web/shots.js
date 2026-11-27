@@ -104,7 +104,7 @@ shot(20.0, (t, d) => { const y4 = dropY(t, 9); const land = Math.max(0, t - 0.36
 // ======== "Every jumper swore the fall took forever." (21.6)
 shot(21.6, (t, d) => { const x = lerp(-3.8, 2.0, ez(t / d)); return { cam: [x, 1.6, 16.4], look: [x + 0.3, 1.5, 13.2], fov: 52, mb: t < 0.25 ? [0.01, 0] : [0, 0],
   actors: [J('jmp2', -3.0, 0, 13, { expr: 'yell', talk: true, L: 'up', R: 'up' }, [], t), J('jmp3', -1.4, 0, 13.2, { expr: 'shock', L: 'cheek', R: 'cheek' }, [], t), J('jmp4', 0.2, 0, 13, { expr: 'yell', talk: true, L: { a: 160, e: 10 }, R: { a: 160, e: 10 } }, [], t), J('jmp1', 1.8, 0, 13.2, { expr: 'nervous', L: 'hip', R: 'temple', sweat: 1 }, [], t),
-    ...(t > 0.3 ? [bub('FOREVER!', t - 0.3, -3.0, 2.5, 13, 0.6)] : []), ...(t > 1.3 ? [bub('LIKE A MINUTE!', t - 1.3, 0.2, 2.5, 13, 0.6)] : [])] }; });
+    ...(t > 0.3 ? [bub('FOREVER!', t - 0.3, -3.0, 2.5, 13, 1.0)] : []), ...(t > 1.3 ? [bub('LIKE A MINUTE!', t - 1.3, 0.2, 2.5, 13, 1.0)] : [])] }; });
 // ======== "Way longer than it really did." (23.9)
 shot(23.9, (t, d) => ({ cam: snap(t, [4.6, 1.5, 16.6], [4.3, 1.5, 16.2]), look: [3.6, 1.6, 13.2], fov: 48,
   actors: [J('sci', 3.6, 0, 13.2, { expr: 'smug', L: 'hip', R: { a: 120, e: 30 } }, [{ kind: 'stopwatch', hand: 1 }], t), popA('REAL FALL: 3 SEC', t - 0.3, -0.62)] }));

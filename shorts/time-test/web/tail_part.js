@@ -13,6 +13,7 @@ window.renderFrame = (f) => {
   const sir = L.siren ? 0.5 + 0.5 * Math.sin(t * 9) : 0; SIREN.light.intensity = sir * 90; SIREN.mesh.material.emissiveIntensity = sir * 3;
   // ferris wheel
   { const hub = FERRIS.userData.hub; hub.rotation.z = t * 0.12; FERRIS.userData.gond.forEach((g, k) => { const a = k / 16 * Math.PI * 2; g.position.set(Math.cos(a) * 15, Math.sin(a) * 15 - 1.2, 0); g.rotation.z = -hub.rotation.z; }); }
+  CAROUSEL.userData.spin.rotation.y = t * 0.6; SWING.userData.top.rotation.y = t * 1.2; RACKLED.forEach((l, i) => (l.visible = Math.sin(t * 6 + i * 1.7) > -0.2));
   // net sag
   { const p = NET.geometry.attributes.position, b = NET.userData.base, n = S.net; for (let i = 0; i < p.count; i++) { let y = b[i * 3 + 1]; const x = b[i * 3], z = b[i * 3 + 2]; y -= 0.25 * (1 - (x * x + z * z) / 50) ; if (n) { const d2 = (x - n.x) ** 2 + (z - (n.z - NETZ)) ** 2; y -= n.k * 1.8 * Math.exp(-d2 / 6); } p.setY(i, y); } p.needsUpdate = true; NET.geometry.computeVertexNormals(); }
   // toy car crash
