@@ -48,17 +48,16 @@ const pp = (t, a, b) => push(t, 1.6, a, b);
 const conv = (x, z, o, props = [], t = 0, extra = {}) => act('convict', x, 0, z, o, props, extra, t);
 
 // ======== 1 "Every night, this skinny prisoner pushes his dinner into the wall."
-shot(0.0, (t, d) => ({ preset: 'cell', beans: 0.05, cam: push(t, d, [CX + 1.8, 1.4, 1.65], [CX + 1.6, 1.42, 1.45]), look: [CX + 0.05, 1.6, -0.25], fov: 50,
-  actors: [conv(CX - 0.25, WZ, { expr: 'smug', R: { a: 95 + Math.sin(t * 6) * 6, e: 10 }, L: { a: 40, e: 60 } }, [{ kind: 'spoon', hand: 1 }, { kind: 'bowl', hand: 0 }], t)] }));
-shot(1.9, (t, d) => ({ preset: 'cell', beans: 0.06, minD: 1.0, zoomOut: 1, cam: push(t, d, [CK + 0.55, 0.95, 0.55], [CK + 0.45, 0.92, 0.45]), look: [CK - 0.25, 0.8, -0.45], fov: 46,
-  actors: [conv(CX - 0.25, WZ, { expr: 'smug', R: { a: 95, e: 10 }, L: { a: 40, e: 60 } }, [{ kind: 'spoon', hand: 1 }], t)] }));
+shot(0.0, (t, d) => ({ preset: 'cell', keep: [[CK, 1.3, -0.49], [CK, 0.7, -0.49]], beans: 0.05, cam: push(t, d, [CX + 1.8, 1.4, 1.65], [CX + 1.6, 1.42, 1.45]), look: [CX + 0.05, 1.6, -0.25], fov: 50,
+  actors: [conv(CX + 0.0, WZ, { expr: 'smug', R: { a: 95 + Math.sin(t * 6) * 6, e: 10 }, L: { a: 40, e: 60 } }, [{ kind: 'spoon', hand: 1 }, { kind: 'bowl', hand: 0 }], t)] }));
+shot(1.9, (t, d) => ({ preset: 'cell', beans: 0.06, minD: 1.0, zoomOut: 1, cam: push(t, d, [CK + 0.55, 0.95, 0.55], [CK + 0.45, 0.92, 0.45]), look: [CK - 0.25, 0.8, -0.45], fov: 46, actors: [] }));
 // ======== 2 "One dry bean at a time, he packs them into a tiny crack."
-shot(4.3, (t, d) => ({ preset: 'cell', beans: 0.08 + t * 0.01, cam: push(t, d, [CX + 1.75, 1.35, 1.3], [CX + 1.6, 1.37, 1.15]), look: [CX + 0.05, 1.6, -0.25], fov: 48,
-  actors: [conv(CX - 0.2, WZ, { expr: 'squint', R: { a: 92, e: 4, finger: true }, L: 'hip' }, [], t)] }));
+shot(4.3, (t, d) => ({ preset: 'cell', keep: [[CK, 1.3, -0.49], [CK, 0.7, -0.49]], beans: 0.08 + t * 0.01, cam: push(t, d, [CX + 1.75, 1.35, 1.3], [CX + 1.6, 1.37, 1.15]), look: [CX + 0.05, 1.6, -0.25], fov: 48,
+  actors: [conv(CX + 0.0, WZ, { expr: 'squint', R: { a: 92, e: 4, finger: true }, L: 'hip' }, [], t)] }));
 shot(6.2, (t, d) => ({ preset: 'cell', beans: 0.1, minD: 0.9, zoomOut: 1, cam: push(t, d, [CK + 0.1, 0.85, 0.6], [CK + 0.05, 0.8, 0.35]), look: [CK, 0.72, -0.49], fov: 42, actors: [] }));
 // ======== 3 "Then he pours in his water and whispers, 'Grow big.'"
-shot(8.6, (t, d) => ({ preset: 'cell', beans: 0.12, cam: push(t, d, [CX + 1.8, 1.4, 1.65], [CX + 1.6, 1.42, 1.45]), look: [CX + 0.05, 1.6, -0.25], fov: 50,
-  actors: [conv(CX - 0.2, WZ, { expr: 'smile_closed', R: { a: 100, e: 10 }, L: 'hip' }, [{ kind: 'cup', hand: 1 }], t)] }));
+shot(8.6, (t, d) => ({ preset: 'cell', keep: [[CK, 1.3, -0.49], [CK, 0.7, -0.49]], beans: 0.12, cam: push(t, d, [CX + 1.8, 1.4, 1.65], [CX + 1.6, 1.42, 1.45]), look: [CX + 0.05, 1.6, -0.25], fov: 50,
+  actors: [conv(CX + 0.0, WZ, { expr: 'smile_closed', R: { a: 100, e: 10 }, L: 'hip' }, [{ kind: 'cup', hand: 1 }], t)] }));
 shot(11.1, (t, d) => ({ preset: 'cell', beans: 0.12, minD: 1.2, zoomOut: 1, cam: snap(t, [CX + 0.7, 1.7, 1.05], [CX + 0.6, 1.72, 0.95]), look: [CX - 0.25, 1.85, -0.1], fov: 46,
   actors: [conv(CX - 0.25, WZ, { expr: 'smug', talk: t > 0.3 && t < 1.2, R: 'cheek', L: 'hip' }, [], t)] }));
 // ======== 4 "The guards think he has lost his mind."
@@ -76,8 +75,8 @@ shot(18.4, (t, d) => ({ preset: 'dungeon', minD: 1.3, zoomOut: 1, cam: push(t, d
 // ======== 6 "The prisoner just smiles and gives the wall his last bean."
 shot(19.85, (t, d) => ({ preset: 'cell', beans: 0.15, minD: 1.3, zoomOut: 1, cam: push(t, d, [CX + 0.5, 1.55, 1.2], [CX + 0.45, 1.56, 1.05]), look: [CX - 0.25, 1.9, -0.1], fov: 46,
   actors: [conv(CX - 0.25, WZ, { expr: 'grin', L: 'hip', R: 'hip' }, [], t)] }));
-shot(21.3, (t, d) => ({ preset: 'cell', beans: 0.16, cam: push(t, d, [CX + 1.8, 1.4, 1.65], [CX + 1.6, 1.42, 1.45]), look: [CX + 0.05, 1.6, -0.25], fov: 50,
-  actors: [conv(CX - 0.25, WZ, { expr: 'smile_closed', R: { a: 95, e: 10 }, L: { a: 40, e: 60 } }, [{ kind: 'spoon', hand: 1 }], t)] }));
+shot(21.3, (t, d) => ({ preset: 'cell', keep: [[CK, 1.3, -0.49], [CK, 0.7, -0.49]], beans: 0.16, cam: push(t, d, [CX + 1.8, 1.4, 1.65], [CX + 1.6, 1.42, 1.45]), look: [CX + 0.05, 1.6, -0.25], fov: 50,
+  actors: [conv(CX + 0.0, WZ, { expr: 'smile_closed', R: { a: 95, e: 10 }, L: { a: 40, e: 60 } }, [{ kind: 'spoon', hand: 1 }], t)] }));
 shot(22.6, (t, d) => ({ preset: 'cell', beans: 0.16 + ez(t / 0.6) * 0.01, minD: 0.9, zoomOut: 1, cam: push(t, d, [CK + 0.25, 0.95, 0.55], [CK + 0.12, 0.9, 0.35]), look: [CK, 0.85, -0.49], fov: 42, actors: [] }));
 // ======== 7 "When the warden hears about it, he laughs so hard his buttons pop."
 shot(23.95, (t, d) => ({ preset: 'stall', cam: push(t, d, [WX - 0.7, 1.35, 2.9], [WX - 0.55, 1.35, 2.6]), look: [WX - 0.1, 1.8, 0.5], fov: 50,
@@ -94,8 +93,8 @@ shot(30.3, (t, d) => ({ preset: 'stall', cam: push(t, d, [WX - 0.5, 1.3, 2.4], [
 // ======== 9 "So the prisoner gets double. And the crack gets fuller."
 shot(32.1, (t, d) => ({ preset: 'cell', beans: 0.3, cam: push(t, d, [CX - 0.9, 2.3, 3.2], [CX - 0.7, 2.25, 2.9]), look: [CX - 0.1, 1.3, -0.1], fov: 50,
   actors: [conv(CX - 0.25, WZ, { expr: 'grin', L: { a: 40, e: 60 }, R: { a: 140, e: 60 } }, [{ kind: 'bowl', hand: 0 }, { kind: 'bowl', hand: 1 }], t)] }));
-shot(33.2, (t, d) => ({ preset: 'cell', beans: 0.35 + t * 0.1, cam: push(t, d, [CX + 1.8, 1.4, 1.65], [CX + 1.6, 1.42, 1.45]), look: [CX + 0.05, 1.6, -0.25], fov: 50,
-  actors: [conv(CX - 0.2, WZ, { expr: 'wink', R: { a: 95 + Math.sin(t * 8) * 8, e: 10 }, L: { a: 40, e: 60 } }, [{ kind: 'spoon', hand: 1 }, { kind: 'bowl', hand: 0 }], t)] }));
+shot(33.2, (t, d) => ({ preset: 'cell', keep: [[CK, 1.3, -0.49], [CK, 0.7, -0.49]], beans: 0.35 + t * 0.1, cam: push(t, d, [CX + 1.8, 1.4, 1.65], [CX + 1.6, 1.42, 1.45]), look: [CX + 0.05, 1.6, -0.25], fov: 50,
+  actors: [conv(CX + 0.0, WZ, { expr: 'wink', R: { a: 95 + Math.sin(t * 8) * 8, e: 10 }, L: { a: 40, e: 60 } }, [{ kind: 'spoon', hand: 1 }, { kind: 'bowl', hand: 0 }], t)] }));
 shot(34.1, (t, d) => ({ preset: 'cell', beans: 0.45 + t * 0.12, minD: 1.2, cam: push(t, d, [CK + 0.4, 1.7, 1.3], [CK + 0.2, 1.65, 0.95]), look: [CK, 1.55, -0.49], fov: 44, actors: [] }));
 // ======== 10 "Weeks pass. Ten thousand beans later, the guards start selling tickets."
 shot(36.05, (t, d) => ({ preset: 'cell', beans: 0.65 + t * 0.15, cam: push(t, d, [CX + 2.9, 1.65, 1.1], [CX + 2.7, 1.62, 1.0]), look: [CX - 0.2, 1.55, 0.2], fov: 50,
@@ -157,5 +156,18 @@ export const TOTAL = Math.ceil(73.9 * FPS);
 export const stateAt = (f) => { SEED = 0; const t = f / FPS; let i = SH.length - 1; while (i > 0 && SH[i].t0 > t) i--; const d = (i + 1 < SH.length ? SH[i + 1].t0 : TOTAL / FPS) - SH[i].t0; const S = SH[i].fn(t - SH[i].t0, d); S.shotIndex = i; frame(S); return S; };
 function frame(S) { const MIN = S.minD ?? 1.6; const c = S.cam, l = S.look; let dx = c[0] - l[0], dy = c[1] - l[1], dz = c[2] - l[2]; const dist = Math.hypot(dx, dy, dz);
   if (dist < MIN) { const k = MIN / Math.max(dist, 1e-3); dx *= k; dz *= k; dy *= k; S.cam = [l[0] + dx, l[1] + dy, l[2] + dz]; }
+  // keep every character (and its props) fully inside the 9:16 frame with a margin on every side
+  { const acts = (S.actors || []).filter((a) => !a.fx && !a.hud && !a.face && !a.crop);
+    if (acts.length) { const asp = 1080 / 1920, c0 = S.cam; let f = [S.look[0] - c0[0], S.look[1] - c0[1], S.look[2] - c0[2]]; const dist = Math.hypot(...f); f = f.map((v) => v / dist);
+      let r = [-f[2], 0, f[0]]; const rl = Math.hypot(...r) || 1; r = r.map((v) => v / rl); const u = [r[1] * f[2] - r[2] * f[1], r[2] * f[0] - r[0] * f[2], r[0] * f[1] - r[1] * f[0]];
+      const dot = (a, b) => a[0] * b[0] + a[1] * b[1] + a[2] * b[2]; let mn = 9, mx = -9, zs = 0, zn = 0, top = -9;
+      for (const a of acts) { const sc = a.s || 1, w = 0.58 * sc; for (const hy of [0.3, 1.0, 1.7]) { const q = [a.x - c0[0], (a.y || 0) + hy * sc - c0[1], a.z - c0[2]]; const z = dot(q, f); if (z < 0.15) continue; const xs = dot(q, r); mn = Math.min(mn, Math.atan2(xs - w, z)); mx = Math.max(mx, Math.atan2(xs + w, z)); zs += z; zn++; }
+        const qt = [a.x - c0[0], (a.y || 0) + 2.15 * sc - c0[1], a.z - c0[2]]; const zt = dot(qt, f); if (zt > 0.15) top = Math.max(top, Math.atan2(dot(qt, u), zt)); }
+      for (const k of S.keep || []) { const q = [k[0] - c0[0], k[1] - c0[1], k[2] - c0[2]]; const z = dot(q, f); if (z < 0.15) continue; const xs = dot(q, r); mn = Math.min(mn, Math.atan2(xs - 0.12, z)); mx = Math.max(mx, Math.atan2(xs + 0.12, z)); zs += z; zn++; }
+      if (zn) { const c = (mn + mx) / 2, cs = Math.cos(c), sn = Math.sin(c); let d = [f[0] * cs + r[0] * sn, f[1] * cs + r[1] * sn, f[2] * cs + r[2] * sn];
+        const h = (mx - mn) / 2 * 1.1; let vf = (S.fov || 45) * Math.PI / 180; const hf = Math.atan(Math.tan(vf / 2) * asp); let cam = c0;
+        if (h > hf) { vf = 2 * Math.atan(Math.tan(h) / asp); const cap = 72 * Math.PI / 180; if (vf > cap) { const zc = zs / zn, need = Math.tan(h), have = Math.tan(cap / 2) * asp; const back = zc * (need / have - 1); vf = cap; cam = [c0[0] - d[0] * back, c0[1] - d[1] * back, c0[2] - d[2] * back]; } }
+        const lim = vf / 2 * 0.86; if (top > lim) { const tilt = top - lim; d = [d[0] * Math.cos(tilt) + u[0] * Math.sin(tilt), d[1] * Math.cos(tilt) + u[1] * Math.sin(tilt), d[2] * Math.cos(tilt) + u[2] * Math.sin(tilt)]; }
+        S.cam = cam; S.look = [cam[0] + d[0] * dist, cam[1] + d[1] * dist, cam[2] + d[2] * dist]; S.fov = vf * 180 / Math.PI; } } }
   const Z = S.zoomOut ?? 1.0; const c2 = S.cam; S.cam = [l[0] + (c2[0] - l[0]) * Z, l[1] + (c2[1] - l[1]) * Z, l[2] + (c2[2] - l[2]) * Z]; }
 export const SHOTS = SH.map((s) => s.t0);

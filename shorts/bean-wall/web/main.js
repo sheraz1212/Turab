@@ -345,7 +345,7 @@ const skyEnv = (top, hor, gnd) => { const [c, g] = cv(512, 256); const gr = g.cr
 const DENV = skyEnv('#3a5a3a', '#c8783a', '#2a2418'), TENV = skyEnv('#5a8a5a', '#ffe0b0', '#8a2a2a');
 const PRESET = {
   dungeon: { cardTint: '#e4d8c6', vig: 0.8, hemi: ['#a8c898', '#3a2a1a', 0.75], key: ['#ffe0a0', 2.0], fog: ['#0e160e', 0.006], sun: [0.08, 1, 0.12], expo: 1.20, sat: 1.08, env: DENV, bloomK: 0.26, thr: 1.35, zone: 'dungeon' },
-  cell: { cardTint: '#e2dcd0', hemi: ['#a8d4d0', '#22282a', 0.85], key: ['#fff2dc', 2.6], fog: ['#0a1416', 0.012], sun: [0.7, 0.9, 0.9], expo: 2.04, sat: 1.05, vig: 0.6, env: DENV, bloomK: 0.35, thr: 1.35, zone: 'cell' },
+  cell: { cardTint: '#e2dcd0', hemi: ['#a8d4d0', '#22282a', 0.85], key: ['#fff2dc', 2.6], fog: ['#0a1416', 0.012], sun: [0.7, 0.9, 0.9], expo: 2.04, sat: 1.071, vig: 0.6, env: DENV, bloomK: 0.35, thr: 1.35, zone: 'cell' },
   night: { cardTint: '#a4b0dc', vig: 0.6, hemi: ['#5a78e0', '#1a2038', 0.75], key: ['#8aa8ff', 1.2], fog: ['#0a1028', 0.006], sun: [0.4, 1, 0.8], expo: 1.08, sat: 1.15, env: DENV, bloomK: 0.3, thr: 1.25, zone: 'cell' },
   stall: { cardTint: '#e6d8c4', vig: 0.8, hemi: ['#ffc890', '#2a1a10', 0.7], key: ['#ffe0b0', 1.6], fog: ['#1a100a', 0.01], sun: [0.3, 1, 0.6], expo: 1.01, sat: 1.15, env: DENV, bloomK: 0.26, thr: 1.35, zone: 'stall' },
   out: { cardTint: '#f2dcc8', vig: 0.55, hemi: ['#ffc8a0', '#3a2a1a', 0.9], key: ['#ffc080', 2.4], fog: ['#c88a7a', 0.012], sun: [0.4, 0.35, -1], expo: 1.05, sat: 1.15, env: DENV, bloomK: 0.35, thr: 1.25, zone: 'out' },
