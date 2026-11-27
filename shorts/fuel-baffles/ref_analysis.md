@@ -1,0 +1,5 @@
+# Reference: "Why Fuel Trucks Aren't Empty Inside" (67.4 s, 720x1280, 30 fps)
+- Pace: ~19 hard cuts plus constant camera motion. Frame-difference motion mean 10.7 (our Ka-Thunk Bridge was 3.6, Time Test 8.4) -> keep the camera moving fast and change framing every ~1-2 s.
+- Sets: teal ribbed steel tank interior (rings, rivets, weld sparks, round hole in each baffle), side view of the tanker with a cut-away glass tank showing orange fuel + GALLONS counter (8,000 -> 7,700, -300 per wall), diner/truck stop (counter, stools, lamps, burgers, coffee), snowy mountain pass map (winding road + pins), close truck front (big chrome grille, SMOOTH plate, fuel gauge HUD), cliff edge with icicles + boulder, coffee cup slosh macro, fuel wave inside the tank (smooth vs baffled), "12 TONS", "INCHES LEFT" counter.
+- Detail: every surface has texture (rivets, panel lines, snow, pine trees, rock strata, chrome), HUD counters, labels.
+- Camera moves: push into a hole in the wall -> tunnel of baffles; fly through the baffle holes numbered 1..5 to "FRONT"; truck-follow shots on the icy road; close-ups through the windshield.
