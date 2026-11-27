@@ -1,0 +1,279 @@
+{
+ "duration": 52.140408,
+ "frames30": 1564,
+ "source": "silence-align (cost 0.88)",
+ "segments": [
+  [
+   0.0,
+   3.19288
+  ],
+  [
+   3.47705,
+   4.0649
+  ],
+  [
+   4.20621,
+   5.80444
+  ],
+  [
+   6.15426,
+   7.26034
+  ],
+  [
+   7.50365,
+   8.84957
+  ],
+  [
+   9.01138,
+   11.3841
+  ],
+  [
+   11.9639,
+   14.0735
+  ],
+  [
+   14.33,
+   16.0272
+  ],
+  [
+   16.2952,
+   16.9879
+  ],
+  [
+   17.1565,
+   17.7906
+  ],
+  [
+   18.2193,
+   18.7092
+  ],
+  [
+   18.8951,
+   20.798
+  ],
+  [
+   21.3276,
+   22.5492
+  ],
+  [
+   22.7467,
+   23.4931
+  ],
+  [
+   23.8791,
+   26.7827
+  ],
+  [
+   27.1867,
+   28.3281
+  ],
+  [
+   28.482,
+   28.9928
+  ],
+  [
+   29.3503,
+   30.6712
+  ],
+  [
+   30.9642,
+   31.458
+  ],
+  [
+   31.7974,
+   33.4803
+  ],
+  [
+   33.9401,
+   34.291
+  ],
+  [
+   34.4628,
+   37.1112
+  ],
+  [
+   37.47,
+   38.3699
+  ],
+  [
+   38.5976,
+   39.3071
+  ],
+  [
+   39.7918,
+   40.6329
+  ],
+  [
+   40.8598,
+   44.1303
+  ],
+  [
+   44.4179,
+   46.5912
+  ],
+  [
+   46.7359,
+   48.2543
+  ],
+  [
+   48.6733,
+   49.2375
+  ],
+  [
+   49.4385,
+   51.8723
+  ]
+ ],
+ "phrases": [
+  {
+   "text": "This welder spent all night building walls inside an empty fuel tank.",
+   "s": 0.0,
+   "e": 3.193
+  },
+  {
+   "text": "Five of them,",
+   "s": 3.477,
+   "e": 4.065
+  },
+  {
+   "text": "each with a big round hole in the middle.",
+   "s": 4.206,
+   "e": 5.804
+  },
+  {
+   "text": "His boss nearly fainted.",
+   "s": 6.154,
+   "e": 7.26
+  },
+  {
+   "text": "Every wall stole space,",
+   "s": 7.504,
+   "e": 8.85
+  },
+  {
+   "text": "and every gallon of space was money he would never haul.",
+   "s": 9.011,
+   "e": 11.384
+  },
+  {
+   "text": "Down the road, a rival driver did the opposite:",
+   "s": 11.964,
+   "e": 14.073
+  },
+  {
+   "text": "a tank with nothing inside but fuel.",
+   "s": 14.33,
+   "e": 16.027
+  },
+  {
+   "text": "More gallons,",
+   "s": 16.295,
+   "e": 16.988
+  },
+  {
+   "text": "more cash.",
+   "s": 17.157,
+   "e": 17.791
+  },
+  {
+   "text": "By winter,",
+   "s": 18.219,
+   "e": 18.709
+  },
+  {
+   "text": "he was buying lunch for the whole truck stop.",
+   "s": 18.895,
+   "e": 20.798
+  },
+  {
+   "text": "Then came the mountain pass,",
+   "s": 21.328,
+   "e": 22.549
+  },
+  {
+   "text": "covered in ice.",
+   "s": 22.747,
+   "e": 23.493
+  },
+  {
+   "text": "Both drivers spotted a rock slide ahead and slammed the brakes.",
+   "s": 23.879,
+   "e": 26.783
+  },
+  {
+   "text": "The welder's truck groaned,",
+   "s": 27.187,
+   "e": 28.328
+  },
+  {
+   "text": "and stopped.",
+   "s": 28.482,
+   "e": 28.993
+  },
+  {
+   "text": "The smooth truck kept going...",
+   "s": 29.35,
+   "e": 30.671
+  },
+  {
+   "text": "sliding...",
+   "s": 30.964,
+   "e": 31.458
+  },
+  {
+   "text": "until its bumper hung over the cliff.",
+   "s": 31.797,
+   "e": 33.48
+  },
+  {
+   "text": "You see,",
+   "s": 33.94,
+   "e": 34.291
+  },
+  {
+   "text": "a full tanker carries about twenty-five tons of fuel.",
+   "s": 34.463,
+   "e": 37.111
+  },
+  {
+   "text": "When the truck stops,",
+   "s": 37.47,
+   "e": 38.37
+  },
+  {
+   "text": "the fuel doesn't.",
+   "s": 38.598,
+   "e": 39.307
+  },
+  {
+   "text": "In a smooth tank,",
+   "s": 39.792,
+   "e": 40.633
+  },
+  {
+   "text": "it rushes forward in one giant wave and shoves the whole truck ahead.",
+   "s": 40.86,
+   "e": 44.13
+  },
+  {
+   "text": "The walls break that wave into tiny splashes,",
+   "s": 44.418,
+   "e": 46.591
+  },
+  {
+   "text": "so the fuel has nothing to push with.",
+   "s": 46.736,
+   "e": 48.254
+  },
+  {
+   "text": "Next spring,",
+   "s": 48.673,
+   "e": 49.237
+  },
+  {
+   "text": "the rival paid the welder to fill his tank with walls.",
+   "s": 49.438,
+   "e": 51.872
+  }
+ ]
+}
