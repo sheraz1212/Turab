@@ -1,0 +1,336 @@
+{
+ "duration": 65.959184,
+ "frames30": 1979,
+ "source": "silence-align (cost 3.22)",
+ "segments": [
+  [
+   0.0,
+   0.569116
+  ],
+  [
+   0.814399,
+   4.29741
+  ],
+  [
+   4.78501,
+   5.48451
+  ],
+  [
+   5.73918,
+   7.11535
+  ],
+  [
+   7.40018,
+   8.83882
+  ],
+  [
+   9.51794,
+   10.5348
+  ],
+  [
+   10.8935,
+   12.9057
+  ],
+  [
+   13.4321,
+   15.8401
+  ],
+  [
+   16.4276,
+   18.5384
+  ],
+  [
+   19.024,
+   21.0608
+  ],
+  [
+   21.403,
+   23.1708
+  ],
+  [
+   23.6497,
+   25.1773
+  ],
+  [
+   25.5413,
+   26.7513
+  ],
+  [
+   26.9782,
+   27.9571
+  ],
+  [
+   28.6066,
+   29.2737
+  ],
+  [
+   29.4644,
+   31.499
+  ],
+  [
+   31.9022,
+   33.0007
+  ],
+  [
+   33.3598,
+   34.3247
+  ],
+  [
+   34.6588,
+   35.7487
+  ],
+  [
+   36.1754,
+   36.5054
+  ],
+  [
+   36.6868,
+   38.215
+  ],
+  [
+   38.5396,
+   39.0491
+  ],
+  [
+   39.3071,
+   39.8205
+  ],
+  [
+   40.0527,
+   40.6154
+  ],
+  [
+   41.1617,
+   42.9579
+  ],
+  [
+   43.2745,
+   44.4774
+  ],
+  [
+   44.7647,
+   46.9339
+  ],
+  [
+   47.4828,
+   47.8369
+  ],
+  [
+   48.0165,
+   50.1838
+  ],
+  [
+   50.6421,
+   53.573
+  ],
+  [
+   53.7468,
+   54.7237
+  ],
+  [
+   55.1698,
+   55.6577
+  ],
+  [
+   55.7924,
+   56.8406
+  ],
+  [
+   57.0239,
+   58.3693
+  ],
+  [
+   59.0688,
+   59.6008
+  ],
+  [
+   59.7887,
+   62.5407
+  ],
+  [
+   62.9484,
+   63.2136
+  ],
+  [
+   63.3712,
+   65.7597
+  ]
+ ],
+ "phrases": [
+  {
+   "text": "Every night,",
+   "s": 0.0,
+   "e": 0.569
+  },
+  {
+   "text": "a quiet worker sneaks onto the runway with a cart full of gray blocks.",
+   "s": 0.814,
+   "e": 4.297
+  },
+  {
+   "text": "At the very end,",
+   "s": 4.785,
+   "e": 5.485
+  },
+  {
+   "text": "right before a giant cliff,",
+   "s": 5.739,
+   "e": 7.115
+  },
+  {
+   "text": "he lays them down one by one.",
+   "s": 7.4,
+   "e": 8.839
+  },
+  {
+   "text": "But these blocks are weak.",
+   "s": 9.518,
+   "e": 10.535
+  },
+  {
+   "text": "Step on one, and it crumbles like a cookie.",
+   "s": 10.893,
+   "e": 12.906
+  },
+  {
+   "text": "A truck rolls over them, and its wheels sink right in.",
+   "s": 13.432,
+   "e": 15.84
+  },
+  {
+   "text": "The airport boss sees it and turns bright red.",
+   "s": 16.428,
+   "e": 18.538
+  },
+  {
+   "text": "\"You put garbage at the end of my runway?",
+   "s": 19.024,
+   "e": 21.061
+  },
+  {
+   "text": "A plane hits this and people die!\"",
+   "s": 21.403,
+   "e": 23.171
+  },
+  {
+   "text": "He slams a sign into the ground:",
+   "s": 23.65,
+   "e": 25.177
+  },
+  {
+   "text": "\"RIP IT OUT.",
+   "s": 25.541,
+   "e": 26.751
+  },
+  {
+   "text": "MONDAY 8 AM.\"",
+   "s": 26.978,
+   "e": 27.957
+  },
+  {
+   "text": "But on Sunday,",
+   "s": 28.607,
+   "e": 29.274
+  },
+  {
+   "text": "a passenger jet lands too fast in the rain.",
+   "s": 29.464,
+   "e": 31.499
+  },
+  {
+   "text": "Its brakes scream.",
+   "s": 31.902,
+   "e": 33.001
+  },
+  {
+   "text": "The runway runs out.",
+   "s": 33.36,
+   "e": 34.325
+  },
+  {
+   "text": "The cliff gets closer.",
+   "s": 34.659,
+   "e": 35.749
+  },
+  {
+   "text": "Then the wheels hit the soft blocks.",
+   "s": 36.175,
+   "e": 38.215
+  },
+  {
+   "text": "Crunch.",
+   "s": 38.54,
+   "e": 39.049
+  },
+  {
+   "text": "Crunch.",
+   "s": 39.307,
+   "e": 39.821
+  },
+  {
+   "text": "Crunch.",
+   "s": 40.053,
+   "e": 40.615
+  },
+  {
+   "text": "The jet sinks deeper with every row,",
+   "s": 41.162,
+   "e": 42.958
+  },
+  {
+   "text": "slower and slower,",
+   "s": 43.275,
+   "e": 44.477
+  },
+  {
+   "text": "until it stops just three feet from the edge.",
+   "s": 44.765,
+   "e": 46.934
+  },
+  {
+   "text": "You see,",
+   "s": 47.483,
+   "e": 47.837
+  },
+  {
+   "text": "this crushable concrete is built to break.",
+   "s": 48.017,
+   "e": 50.184
+  },
+  {
+   "text": "Every block that crumbles under the wheels eats up the plane's speed,",
+   "s": 50.642,
+   "e": 54.724
+  },
+  {
+   "text": "like a giant sponge.",
+   "s": 55.17,
+   "e": 55.658
+  },
+  {
+   "text": "It's called EMAS,",
+   "s": 55.792,
+   "e": 56.841
+  },
+  {
+   "text": "and real airports use it today.",
+   "s": 57.024,
+   "e": 58.369
+  },
+  {
+   "text": "On Monday,",
+   "s": 59.069,
+   "e": 59.601
+  },
+  {
+   "text": "the demolition crew shows up and finds a jet sitting in the blocks.",
+   "s": 59.789,
+   "e": 63.214
+  },
+  {
+   "text": "So the boss tears up the sign, and orders more garbage.",
+   "s": 63.371,
+   "e": 65.76
+  }
+ ]
+}
