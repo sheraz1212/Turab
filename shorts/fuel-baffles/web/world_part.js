@@ -158,14 +158,14 @@ const DX = 1200;
   const dl = new THREE.PointLight('#fff0d8', 50, 30, 1.3); dl.position.set(DX, 5, 2); scene.add(dl); dl.userData = { zone: 'diner', I0: 50 }; pLights.push(dl); }
 const SESAME = (() => { const g = new THREE.SphereGeometry(0.012, 6, 4); g.scale(1, 0.5, 1.7); return g; })();
 const FOOD = []; for (let k = 0; k < 9; k++) { const G = new THREE.Group(); scene.add(G);
-  add(cyl(0.34, 0.3, 0.035, 32), new THREE.MeshPhysicalMaterial({ color: '#f6f6f2', roughness: 0.2, clearcoat: 1, envMapIntensity: 0.6 }), 0, 0.0, 0, G); add(new THREE.TorusGeometry(0.31, 0.018, 8, 40), toon('#d8e4ec'), 0, 0.02, 0, G, false).rotation.x = Math.PI / 2;
+  add(cyl(0.34, 0.3, 0.035, 32), toon('#f6f6f2'), 0, 0.0, 0, G); add(new THREE.TorusGeometry(0.31, 0.018, 8, 40), toon('#d8e4ec'), 0, 0.02, 0, G, false).rotation.x = Math.PI / 2;
   add(cyl(0.2, 0.18, 0.06, 28), toon('#d89a4a'), 0, 0.05, 0, G);
   { const lg = new THREE.CylinderGeometry(0.235, 0.235, 0.025, 40); const p = lg.attributes.position; for (let i = 0; i < p.count; i++) { const a = Math.atan2(p.getZ(i), p.getX(i)); const r = Math.hypot(p.getX(i), p.getZ(i)); if (r > 0.2) p.setY(i, p.getY(i) - 0.02 + 0.015 * Math.sin(a * 9)); } lg.computeVertexNormals(); add(lg, toon('#58c03a'), 0, 0.09, 0, G); }
   add(rbox(0.36, 0.06, 0.2, 0.02), toon('#6a3418'), 0, 0.12, 0, G).scale.set(1, 1, 1.8);
   { const ch = add(box(0.36, 0.015, 0.36), toon('#ffc21a'), 0, 0.16, 0, G); ch.rotation.y = 0.6; }
   for (const a of [0.4, 2.5, 4.4]) add(cyl(0.07, 0.07, 0.02, 16), toon('#e0342a'), Math.cos(a) * 0.12, 0.175, Math.sin(a) * 0.12, G, false);
-  const top = add(new THREE.SphereGeometry(0.21, 28, 14, 0, Math.PI * 2, 0, Math.PI / 2), new THREE.MeshPhysicalMaterial({ color: '#d8862a', roughness: 0.35, clearcoat: 0.6, envMapIntensity: 0.5 }), 0, 0.18, 0, G); top.scale.set(1, 0.8, 1);
-  for (let i = 0; i < 26; i++) { const th = i * 2.39996, ph = Math.acos(1 - (i + 0.5) / 26 * 0.9); const v = new THREE.Vector3(Math.sin(ph) * Math.cos(th), Math.cos(ph), Math.sin(ph) * Math.sin(th)); const sd = new THREE.Mesh(SESAME, toon('#fff4d8')); sd.position.set(v.x * 0.21, 0.18 + v.y * 0.21 * 0.8, v.z * 0.21); sd.lookAt(sd.position.clone().add(v)); sd.userData.ndSkip = true; G.add(sd); }
+  const top = add(new THREE.SphereGeometry(0.21, 28, 14, 0, Math.PI * 2, 0, Math.PI / 2), toon('#e0903e'), 0, 0.18, 0, G); top.scale.set(1, 0.8, 1);
+  for (let i = 0; i < 0; i++) { const th = i * 2.39996, ph = Math.acos(1 - (i + 0.5) / 26 * 0.9); const v = new THREE.Vector3(Math.sin(ph) * Math.cos(th), Math.cos(ph), Math.sin(ph) * Math.sin(th)); const sd = new THREE.Mesh(SESAME, toon('#fff4d8')); sd.position.set(v.x * 0.21, 0.18 + v.y * 0.21 * 0.8, v.z * 0.21); sd.lookAt(sd.position.clone().add(v)); sd.userData.ndSkip = true; G.add(sd); }
   FOOD.push(G); }
 const CUP = new THREE.Group(); scene.add(CUP); add(cyl(0.09, 0.07, 0.22, 16), toon('#f4f4f0'), 0, 0.11, 0, CUP); add(cyl(0.095, 0.095, 0.05, 16), toon('#5a3a22'), 0, 0.2, 0, CUP, false);
 ZONE = 'xray';
@@ -191,7 +191,7 @@ ZONE = 'fx';
 const PRESET = {
   snow: { sky: true, cardTint: '#ffffff', vig: 0.22, hemi: ['#e8f2ff', '#a8b8d0', 1.25], key: ['#fff4e4', 2.6], fog: ['#d8e8ff', 0.0], sun: [-0.45, 0.8, 0.55], expo: 1.0, sat: 1.12, env: ENV.snow, bloomK: 0.22, thr: 1.35, zones: ['road'] },
   garage: { sky: false, cardTint: '#fff8f0', vig: 0.3, hemi: ['#e8f0ff', '#5a5a5a', 1.2], key: ['#fff2dc', 1.6], fog: ['#2a3a4a', 0.0], sun: [0.4, 0.9, 0.6], expo: 1.05, sat: 1.12, env: ENV.snow, bloomK: 0.25, thr: 1.3, zones: ['garage'] },
-  diner: { sky: false, cardTint: '#fff8f0', vig: 0.25, hemi: ['#fff4e4', '#8a5a4a', 1.25], key: ['#fff2dc', 1.4], fog: ['#f4e6c4', 0.0], sun: [0.3, 0.9, 0.7], expo: 1.05, sat: 1.12, env: ENV.snow, bloomK: 0.25, thr: 1.3, zones: ['diner'] },
+  diner: { sky: false, cardTint: '#fff8f0', vig: 0.0, hemi: ['#fff4e4', '#8a5a4a', 1.25], key: ['#fff2dc', 1.4], fog: ['#f4e6c4', 0.0], sun: [0.3, 0.9, 0.7], expo: 1.05, sat: 1.12, env: ENV.snow, bloomK: 0.0, thr: 9, zones: ['diner'] },
   xray: { sky: false, cardTint: '#ffffff', vig: 0.35, hemi: ['#c8e8f0', '#2a4a54', 1.2], key: ['#ffffff', 1.8], fog: ['#2a4a54', 0.0], sun: [-0.4, 0.8, 0.6], expo: 1.05, sat: 1.15, env: ENV.tank, bloomK: 0.35, thr: 1.1, zones: ['xray'] },
   tank: { sky: false, cardTint: '#f4fbff', vig: 0.5, hemi: ['#a8c0c8', '#141c20', 0.8], key: ['#e8f4f8', 0.6], fog: ['#1a262a', 0.0], sun: [0.3, 0.9, 0.5], expo: 0.95, sat: 1.1, env: ENV.tank, bloomK: 0.18, thr: 1.35, zones: ['tank'] },
 };
