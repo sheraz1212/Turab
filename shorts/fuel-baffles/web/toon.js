@@ -2464,7 +2464,10 @@ FACE.scream = { eye: ["shock", "shock"], brow: [-8, -7], mouth: "O" };
 FACE.wince = { eye: ["squeeze", "squeeze"], brow: [-4, 3], mouth: "snarl" };
 FACE.wink = { eye: ["dot", "happy"], brow: [2, -3], mouth: "smirk" };
 FACE.joy = { eye: ["happy", "happy"], brow: [3, 3], mouth: "laugh" };
-FACE.mock = { eye: ["happy", "happy"], brow: [-5, -5], mouth: "bigLaugh" };
+FACE.mock = { eye: ["happy", "happy"], brow: [-6, -6], mouth: "bigLaugh" };
+FACE.mockWink = { eye: ["dot", "happy"], brow: [-7, 3], mouth: "bigLaugh" };
+FACE.mockSquint = { eye: ["squeeze", "squeeze"], brow: [-4, -4], mouth: "bigLaugh" };
+FACE.mockCool = { eye: ["slit", "slit"], brow: [-6, -6], mouth: "bigLaugh" };
 FACE.smug = { eye: ["slit", "slit"], brow: [-2, -3], mouth: "smirk" };
 FACE.squint = { eye: ["slit", "slit"], brow: [3, -2], mouth: "dash" };
 
@@ -3181,8 +3184,8 @@ Object.assign(OUTFITS, {
 Object.assign(OUTFITS, {
   welder: { tunic: "#f08a1a", overalls: "#e87a12", skin: "#fffdf8", cap: "#2a6ad8", goggles: true, stubble: true, belt: "#5a3a1a", pants: "#e87a12", boot: "#3a2a1e", fat: 1.05 },
   buddyG: { belt: "#2a8a3a", suit: true, tunic: "#2a8a3a", skin: "#fffdf8", pomp: "#18181e", tie: "#d8222a", pants: "#16161c", boot: "#0a0a0e" },
-  buddyB: { belt: "#2a4a8a", suit: true, tunic: "#2a4a8a", skin: "#fffdf8", pomp: "#18181e", tie: "#d8222a", pants: "#16161c", boot: "#0a0a0e" },
-  buddyM: { belt: "#8a2a5a", suit: true, tunic: "#8a2a5a", skin: "#fffdf8", pomp: "#18181e", tie: "#d8222a", pants: "#16161c", boot: "#0a0a0e" },
+  buddyB: { belt: "#2a4a8a", suit: true, tunic: "#2a4a8a", skin: "#fffdf8", pomp: "#6a4228", moustache: "#5a3420", tie: "#d8222a", pants: "#16161c", boot: "#0a0a0e" },
+  buddyM: { belt: "#8a2a5a", suit: true, tunic: "#8a2a5a", skin: "#fffdf8", pomp: "#c0501e", tie: "#d8222a", pants: "#16161c", boot: "#0a0a0e" },
   rival: { goldTooth: true, belt: "#16161c", suit: true, tunic: "#16161c", skin: "#fffdf8", pomp: "#18181e", tie: "#d8222a", pants: "#16161c", boot: "#0a0a0e" },
   tboss: { tunic: "#6a4a2a", skin: "#fffdf8", hair: "#c8c8c8", moustache: "#d8d8d8", vest: "#3a5a3a", tie: "#c8962e", belt: "#2a1e16", pants: "#4a3a2a", boot: "#2a1e16", stout: true, fat: 1.25 },
   cook: { tunic: "#f4f4f0", skin: "#fffdf8", chef: true, apron: "#f4f4f0", moustache: "#2a1e18", stout: true },
