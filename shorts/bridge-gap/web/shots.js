@@ -59,11 +59,11 @@ const handIn = (kind, t) => (p) => { const g = p.g, k = eo(t * 3); g.save(); g.t
   if (kind === 'coin') { const y = hy + 110; p.ell(hx, y, 16, 58, '#e8b83a', 8); p.ell(hx - 4, y - 10, 5, 30, '#fff0a0', 0); }
   g.restore(); };
 // overview arrows over a bridge (world-space card above the deck, faces camera): kind 'out' | 'in' | 'block'
-const span = (kind, t, x, z, s = 26, lbl = '') => fx((p) => { const g = p.g, k = eo(t * 2); g.save(); g.translate(300, 500); const L = 240 * (0.4 + 0.6 * k), col = kind === 'block' ? '#ff4a2a' : kind === 'in' ? '#4ae04a' : '#ffd21a';
+const span = (kind, t, x, z, s = 26, lbl = '') => fx((p) => { const g = p.g, k = eo(t * 2); g.save(); g.translate(300, 930); const L = 240 * (0.4 + 0.6 * k), col = kind === 'block' ? '#ff4a2a' : kind === 'in' ? '#4ae04a' : '#ffd21a';
   const arrow = (x0, x1) => { const dir = Math.sign(x1 - x0); for (const [w, c] of [[16, '#1a1414'], [8, col]]) { g.strokeStyle = c; g.lineWidth = w; g.beginPath(); g.moveTo(x0, 0); g.lineTo(x1 - dir * 14, 0); g.stroke(); g.fillStyle = c; g.beginPath(); g.moveTo(x1 + dir * (w > 10 ? 8 : 0), 0); g.lineTo(x1 - dir * (w > 10 ? 34 : 26), w > 10 ? -26 : -18); g.lineTo(x1 - dir * (w > 10 ? 34 : 26), w > 10 ? 26 : 18); g.fill(); } };
   if (kind === 'out' || kind === 'block') { arrow(-20, -L); arrow(20, L); } if (kind === 'in') { arrow(-L - 40, -14); arrow(L + 40, 14); }
   if (lbl) { g.font = '900 60px Arial Black, Arial'; g.textAlign = 'center'; g.lineJoin = 'round'; g.lineWidth = 12; g.strokeStyle = '#1a1414'; g.strokeText(lbl, 0, -40); g.fillStyle = col; g.fillText(lbl, 0, -40); } g.restore(); }, x, 1.5, z, s, { face: true, order: 7 });
-const mark = (kind, t, x, y, z, s = 9) => fx((p) => { const g = p.g, k = eo(t * 5); g.save(); g.translate(300, 500); g.scale(k, k); if (kind === 'ok') { g.lineCap = 'round'; g.lineJoin = 'round'; g.strokeStyle = '#1a1414'; g.lineWidth = 70; g.beginPath(); g.moveTo(-120, 0); g.lineTo(-30, 90); g.lineTo(140, -110); g.stroke(); g.strokeStyle = '#4ae04a'; g.lineWidth = 42; g.stroke(); }
+const mark = (kind, t, x, y, z, s = 9) => fx((p) => { const g = p.g, k = eo(t * 5); g.save(); g.translate(300, 840); g.scale(k, k); if (kind === 'ok') { g.lineCap = 'round'; g.lineJoin = 'round'; g.strokeStyle = '#1a1414'; g.lineWidth = 70; g.beginPath(); g.moveTo(-120, 0); g.lineTo(-30, 90); g.lineTo(140, -110); g.stroke(); g.strokeStyle = '#4ae04a'; g.lineWidth = 42; g.stroke(); }
   else { g.lineWidth = 40; g.strokeStyle = '#1a1414'; g.beginPath(); g.arc(0, 0, 120, 0, 7); g.stroke(); g.strokeStyle = '#ff3a2a'; g.lineWidth = 24; g.beginPath(); g.arc(0, 0, 120, 0, 7); g.stroke(); g.beginPath(); g.moveTo(-84, -84); g.lineTo(84, 84); g.stroke(); } g.restore(); }, x, y, z, s, { face: true, order: 8 });
 const confetti = (t) => hud((p) => { const g = p.g; for (let i = 0; i < 70; i++) { const x = (i * 97) % 600, y = ((i * 53) % 400) - 200 + t * (300 + (i % 5) * 60); if (y > 1000) continue; g.save(); g.translate(x, y); g.rotate(i + t * (3 + i % 4)); g.fillStyle = ['#ff4a4a', '#ffd21a', '#3ac8ff', '#4ae04a', '#ff7ad8'][i % 5]; g.fillRect(-10, -5, 20, 10); g.restore(); } }, 0, 0.4);
 const creak = (t, x, y, z, s = 1.6) => fx((p) => T.fxCreak(p, t), x, y, z, s, { face: true });
@@ -104,7 +104,7 @@ shot(12.10, (t, d) => ({ gap: G0, comb: 1, topdown: true, minD: 0.5, handheld: 0
 // ======== 8 "their fingers sliding together."  (13.67)
 shot(13.67, (t, d) => ({ gap: G0 - 0.12 * Math.sin(t * 2.6) ** 2, comb: 1, topdown: true, minD: 0.5, handheld: 0.001, cam: push(t, d, [0, 2.0, 1.2], [0, 1.8, 1.1]), look: [0, 0, 1.1], fov: 42, actors: [] }));
 // ======== 9 "Next door, a rival company builds a flawless bridge."  (15.46)
-shot(15.46, (t, d) => ({ gap: G0, comb: 1, cam: push(t, d, [-6, 5, -14], [-3, 4.5, -18]), look: [0, -6, ZR], fov: 50, shadowExt: 50, actors: [] }));
+shot(15.46, (t, d) => ({ gap: G0, comb: 1, cam: push(t, d, [-4, 3, -29], [-2, 2.6, -32]), look: [0, -3.5, ZR], fov: 50, shadowExt: 50, actors: [] }));
 shot(16.90, (t, d) => ({ gap: G0, comb: 1, cam: push(t, d, [-1.0, 1.45, ZR + 5.2], [-1.0, 1.45, ZR + 4.7]), look: [-1.0, 1.5, ZR + 0.6], fov: 48,
   actors: [act('rworkA', -2.2, 0, ZR + 0.6, { expr: 'smug', L: 'hip', R: 'thumb' }, [], {}, t), act('rworkB', 0.2, 0, ZR + 0.4, { expr: 'stern', L: 'cross', R: 'cross' }, [], {}, t)] }));
 // ======== 10 "No gaps."  (18.40)
@@ -112,7 +112,7 @@ shot(18.40, (t, d) => ({ gap: G0, comb: 1, cam: push(t, d, [-5.5, 0.6, ZR + 1.2]
 // ======== 11 "Welded solid from cliff to cliff."  (19.22)
 shot(19.22, (t, d) => ({ gap: G0, comb: 1, sparks: [-20.6, 0.2, ZR + 2.6], cam: push(t, d, [-16.6, 1.3, ZR + 5.4], [-17.0, 1.2, ZR + 5.0]), look: [-19.8, 0.7, ZR + 2.2], fov: 48,
   actors: [act('rworkA', -19.6, 0, ZR + 2.2, { expr: 'squint', L: { a: 60, e: 40 }, R: { a: 70, e: 30 } }, [{ kind: 'torch', hand: 1 }], {}, t), popA('WELDED!', t - 0.4, -0.6, RED)] }));
-shot(20.30, (t, d) => ({ gap: G0, comb: 1, cam: push(t, d, [-6, -8, ZR + 58], [4, -6, ZR + 54]), look: [0, -9, ZR], fov: 50, shadowExt: 60, actors: [] }));
+shot(20.30, (t, d) => ({ gap: G0, comb: 1, cam: push(t, d, [-4, -6, ZR + 32], [3, -5, ZR + 28]), look: [0, -6, ZR], fov: 50, shadowExt: 60, actors: [] }));
 // ======== 12 "It opens first,"  (21.36)
 shot(21.36, (t, d) => ({ gap: G0, comb: 1, ribbon: { x: -16, z: ZR, cut: ez((t - 0.35) / 0.25) }, cam: push(t, d, [-20.4, 1.5, ZR + 3.2], [-20.0, 1.5, ZR + 3.0]), look: [-16.2, 1.5, ZR + 0.2], fov: 50,
   actors: [act('ladyG', -16.0, 0, ZR + 1.3, { expr: t < 0.4 ? 'smile' : 'laugh', L: 'up', R: { a: 80, e: 20 } }, [{ kind: 'scissors', hand: 1 }], {}, t), act('rboss', -15.6, 0, ZR - 1.2, { expr: 'laugh', L: 'up', R: 'up' }, [], {}, t), ...(t > 0.35 ? [confetti(t - 0.35)] : [])] }));
@@ -167,7 +167,7 @@ shot(46.40, (t, d) => ({ preset: 'hot', gap: 0.03, comb: 1, cam: push(t, d, [-6,
 shot(48.46, (t, d) => ({ preset: 'hot', gap: 0.03, comb: 1, bulge: ez(t / d) * 0.18, rivets: t > 0.3 ? t - 0.3 : undefined, shake: 0.01, cam: push(t, d, [-1.5, -0.6, ZR + 8.5], [-1.0, -0.6, ZR + 8.0]), look: [0, -0.4, ZR + 3.7], fov: 50,
   actors: [creak(t, -2.5, 0.9, ZR + 4.4), creak(t + 0.3, 2.6, 0.6, ZR + 4.4)] }));
 // ======== 30 "and its middle bulges up"  (49.60)
-shot(49.60, (t, d) => ({ preset: 'hot', gap: 0.03, comb: 1, bulge: lerp(0.18, 1, ez(t / 1.2)), shake: t < 1.2 ? 0.05 : 0.01, cam: push(t, d, [0, -1, ZR + 40], [0, -0.5, ZR + 36]), look: [0, -1.5, ZR], fov: 52, shadowExt: 40, actors: [] }));
+shot(49.60, (t, d) => ({ preset: 'hot', gap: 0.03, comb: 1, bulge: lerp(0.18, 1, ez(t / 1.2)), shake: t < 1.2 ? 0.05 : 0.01, cam: push(t, d, [0, -0.5, ZR + 30], [0, 0, ZR + 27]), look: [0, -0.5, ZR], fov: 52, shadowExt: 40, actors: [] }));
 // ======== 31 "like a giant speed bump."  (51.00)
 shot(51.00, (t, d) => ({ preset: 'hot', gap: 0.03, comb: 1, bulge: 1, cam: push(t, d, [-17, 1.1, ZR + 1.0], [-15.5, 1.1, ZR + 1.0]), look: [0, 1.4, ZR], fov: 46, actors: [popA('SPEED BUMP!', t - 0.3, -0.6, RED)] }));
 // ======== 32 "Cars launch off the top"  (52.66)
@@ -179,16 +179,16 @@ shot(53.80, (t, d) => { const k = ez(t / 0.25); const car = { name: 'red', x: 10
   return { preset: 'hot', gap: 0.03, comb: 1, bulge: 1, cars: [car], dust: t > 0.2 ? [11.6, 0, ZR + 1.8, (t - 0.2) * 1.3] : undefined, shake: t > 0.2 && t < 0.5 ? 0.06 : 0, minD: 1.2, cam: push(t, d, [16.5, 1.6, ZR + 8.5], [16.0, 1.6, ZR + 8.0]), look: [10.6, 1.4, ZR + 1.8], fov: 50,
     actors: [act('drvA', 9.6, 1.4, ZR + 1.6, { expr: 'shock', L: 'up', R: 'up' }, [], { s: 0.75, crop: true, blob: false }, t), ...(t > 0.2 ? [burst('CRUNCH!', t - 0.2, -0.4)] : [])] }; });
 // ======== 34 "You see, steel swells when it gets hot."  (55.26)
-const OV = (t, d, a, b) => ({ preset: 'day', gap: G0, comb: 1, cam: push(t, d, a, b), look: [0, -8, -24], fov: 46, handheld: 0.02, shadowExt: 70 });
-shot(55.26, (t, d) => ({ ...OV(t, d, [0, 120, 70], [0, 110, 62]), actors: [span('out', t, 0, 0, 30), span('out', t, 0, ZR, 30)] }));
+const OV = (t, d, a, b) => ({ preset: 'day', gap: G0, comb: 1, cam: push(t, d, a, b), look: [0, -6, -23], fov: 50, handheld: 0.01, shadowExt: 50 });
+shot(55.26, (t, d) => ({ ...OV(t, d, [0, 62, 30], [0, 58, 27]), actors: [span('out', t, 0, 0, 22), span('out', t, 0, ZR, 22)] }));
 // ======== 35 "On a long bridge, it can push out by several inches."  (57.59)
-shot(57.59, (t, d) => ({ ...OV(t, d, [0, 110, 62], [0, 100, 56]), actors: [span('out', 1, 0, 0, 30, '+6 IN'), span('out', 1, 0, ZR, 30, '+6 IN')] }));
+shot(57.59, (t, d) => ({ ...OV(t, d, [0, 58, 27], [0, 55, 25]), actors: [span('out', 1, 0, 0, 22, '+6 IN'), span('out', 1, 0, ZR, 22, '+6 IN')] }));
 // ======== 36 "The kid's combs gave the steel room to stretch."  (60.43)
-shot(60.43, (t, d) => ({ ...OV(t, d, [0, 100, 56], [0, 94, 52]), gap: lerp(G0, 0.04, ez(t / d)), actors: [span('in', t, 0, 0, 30, 'ROOM TO GROW'), mark('ok', t - 0.6, 22, 3, 0, 16)] }));
+shot(60.43, (t, d) => ({ ...OV(t, d, [0, 55, 25], [0, 52, 23]), gap: lerp(G0, 0.04, ez(t / d)), actors: [span('in', t, 0, 0, 22, 'ROOM TO GROW'), mark('ok', t - 0.6, 13, 3, 0, 8)] }));
 // ======== 37 "The welded bridge had nowhere to go,"  (62.94)
-shot(62.94, (t, d) => ({ ...OV(t, d, [0, 94, 52], [0, 90, 48]), actors: [span('in', 1, 0, 0, 30), mark('ok', 1, 22, 3, 0, 16), span('block', t, 0, ZR, 30, 'NOWHERE TO GO'), mark('no', t - 0.2, -22, 3, ZR, 16), mark('no', t - 0.3, 22, 3, ZR, 16)] }));
+shot(62.94, (t, d) => ({ ...OV(t, d, [0, 52, 23], [0, 50, 21]), actors: [span('in', 1, 0, 0, 22), mark('ok', 1, 13, 3, 0, 8), span('block', t, 0, ZR, 22, 'NOWHERE TO GO'), mark('no', t - 0.2, -15, 3, ZR, 8), mark('no', t - 0.3, 15, 3, ZR, 8)] }));
 // ======== 38 "so it bent."  (64.59)
-shot(64.59, (t, d) => ({ preset: 'hot', gap: 0.03, comb: 1, bulge: ez(t / 0.6), shake: t < 0.6 ? 0.04 : 0, cam: push(t, d, [8, -4, ZR + 34], [7, -3.5, ZR + 31]), look: [0, -2, ZR], fov: 52, shadowExt: 40, actors: [] }));
+shot(64.59, (t, d) => ({ preset: 'hot', gap: 0.03, comb: 1, bulge: ez(t / 0.6), shake: t < 0.6 ? 0.04 : 0, cam: push(t, d, [6, -1.5, ZR + 27], [5, -1, ZR + 24]), look: [0, -0.8, ZR], fov: 52, shadowExt: 40, actors: [] }));
 // ======== 39 "By August,"  (65.73)
 shot(65.73, (t, d) => { const car = { name: 'green2', x: -3.2 + t * 5, z: -1.6 }; const b = Math.exp(-Math.pow((car.x + 1.35) / 0.2, 2)) * 0.14; car.bounce = b;
   return { preset: 'gold', gap: 0.06, comb: 1, cars: [car], cam: push(t, d, [0.4, 1.45, 3.4], [0.4, 1.45, 3.15]), look: [0.2, 1.4, -0.4], fov: 50, keep: [[0, 0.2, -1.6]],
