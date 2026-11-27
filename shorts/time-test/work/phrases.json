@@ -1,0 +1,171 @@
+{
+ "duration": 38.478367,
+ "frames30": 1154,
+ "source": "silence-align (cost 0.44)",
+ "segments": [
+  [
+   0.0,
+   3.11082
+  ],
+  [
+   3.36059,
+   4.61696
+  ],
+  [
+   5.02737,
+   7.45138
+  ],
+  [
+   7.72966,
+   9.11952
+  ],
+  [
+   9.51605,
+   11.9703
+  ],
+  [
+   12.263,
+   14.4699
+  ],
+  [
+   14.8999,
+   16.922
+  ],
+  [
+   17.1506,
+   18.3134
+  ],
+  [
+   18.7523,
+   21.2801
+  ],
+  [
+   21.7725,
+   23.6822
+  ],
+  [
+   24.0042,
+   25.2061
+  ],
+  [
+   25.5609,
+   27.403
+  ],
+  [
+   27.8833,
+   28.4657
+  ],
+  [
+   28.8019,
+   29.6174
+  ],
+  [
+   29.7381,
+   31.2199
+  ],
+  [
+   31.535,
+   32.8436
+  ],
+  [
+   33.1848,
+   34.0376
+  ],
+  [
+   34.2663,
+   38.1476
+  ]
+ ],
+ "phrases": [
+  {
+   "text": "A scientist talked people into falling off a fifteen-story tower,",
+   "s": 0.0,
+   "e": 3.111
+  },
+  {
+   "text": "just to catch time cheating.",
+   "s": 3.361,
+   "e": 4.617
+  },
+  {
+   "text": "You see, car crash survivors all swear the same thing:",
+   "s": 5.027,
+   "e": 7.451
+  },
+  {
+   "text": "the world went into slow motion.",
+   "s": 7.73,
+   "e": 9.12
+  },
+  {
+   "text": "So he strapped a tiny screen to every jumper's wrist.",
+   "s": 9.516,
+   "e": 11.97
+  },
+  {
+   "text": "It flashed numbers just a little too fast to read.",
+   "s": 12.263,
+   "e": 14.47
+  },
+  {
+   "text": "If a scared brain really slows time down,",
+   "s": 14.9,
+   "e": 16.922
+  },
+  {
+   "text": "they should read them in mid-air.",
+   "s": 17.151,
+   "e": 18.313
+  },
+  {
+   "text": "One by one, they dropped, screaming, straight into the net.",
+   "s": 18.752,
+   "e": 21.28
+  },
+  {
+   "text": "Every jumper swore the fall took forever.",
+   "s": 21.773,
+   "e": 23.682
+  },
+  {
+   "text": "Way longer than it really did.",
+   "s": 24.004,
+   "e": 25.206
+  },
+  {
+   "text": "But not one of them could read a single number.",
+   "s": 25.561,
+   "e": 27.403
+  },
+  {
+   "text": "Here's the trick.",
+   "s": 27.883,
+   "e": 28.466
+  },
+  {
+   "text": "When you're terrified,",
+   "s": 28.802,
+   "e": 29.617
+  },
+  {
+   "text": "your brain doesn't slow time down.",
+   "s": 29.738,
+   "e": 31.22
+  },
+  {
+   "text": "It just takes way more notes.",
+   "s": 31.535,
+   "e": 32.844
+  },
+  {
+   "text": "So when you look back,",
+   "s": 33.185,
+   "e": 34.038
+  },
+  {
+   "text": "all those extra memories stretch three seconds into something that feels much longer.",
+   "s": 34.266,
+   "e": 38.148
+  }
+ ]
+}

@@ -1,0 +1,136 @@
+// ================= TIME TEST WORLD =================
+// park at origin (drop tower at 0,0,0); support-group room at x=-400; dark display room at x=-400,z=80; brain room at x=+400.
+ZONE = 'park';
+const TH = 45; // tower height (15 stories)
+const SR = -700, DRX = -700, DRZ = 80, BR = 700;
+const skyEnv = (top, hor, gnd) => { const [c, g] = cv(512, 256); const gr = g.createLinearGradient(0, 0, 0, 256); gr.addColorStop(0, top); gr.addColorStop(0.5, hor); gr.addColorStop(0.52, gnd); gr.addColorStop(1, gnd); g.fillStyle = gr; g.fillRect(0, 0, 512, 256);
+  const t = new THREE.CanvasTexture(c); t.mapping = THREE.EquirectangularReflectionMapping; t.colorSpace = THREE.SRGBColorSpace; return pmrem.fromEquirectangular(t).texture; };
+const ENV = { day: skyEnv('#3a72e0', '#d8ecff', '#6a9a4a'), room: skyEnv('#f4e8d8', '#f0dcc0', '#8a6a4a'), dark: skyEnv('#101828', '#202a40', '#0a0a10'), alarm: skyEnv('#401010', '#803020', '#200808') };
+const T2 = (c, rx = 1, ry = 1) => { const t = P.tex(c); t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(rx, ry); t.anisotropy = 8; return t; };
+const noiseTex = (base, spots, seed, n = 3000, s = 512) => { const [c, g] = cv(s, s), r = R(seed); g.fillStyle = base; g.fillRect(0, 0, s, s); for (let i = 0; i < n; i++) { g.fillStyle = spots[i % spots.length]; g.globalAlpha = 0.15 + r() * 0.3; g.fillRect(r() * s, r() * s, 1 + r() * 3, 1 + r() * 3); } g.globalAlpha = 1; return c; };
+const grassC = (() => { const [c, g] = cv(512, 512), r = R(52); g.fillStyle = '#5ab83a'; g.fillRect(0, 0, 512, 512); for (let i = 0; i < 26; i++) { const x = r() * 512, y = r() * 512, rr = 40 + r() * 110, gr = g.createRadialGradient(x, y, 0, x, y, rr); gr.addColorStop(0, r() < 0.5 ? 'rgba(140,220,70,.35)' : 'rgba(30,120,40,.3)'); gr.addColorStop(1, 'rgba(0,0,0,0)'); g.fillStyle = gr; g.fillRect(0, 0, 512, 512); }
+  for (let i = 0; i < 5000; i++) { g.strokeStyle = `hsl(${88 + r() * 30},${55 + r() * 20}%,${32 + r() * 25}%)`; g.lineWidth = 1.6; const x = r() * 512, y = r() * 512; g.beginPath(); g.moveTo(x, y); g.lineTo(x + (r() - 0.5) * 5, y - 5 - r() * 8); g.stroke(); } return c; })();
+const tilesC = (base = '#d8cbb4', seam = '#8a7a64', n = 4) => { const [c, g] = cv(512, 512), r = R(9); const q = 512 / n; g.fillStyle = seam; g.fillRect(0, 0, 512, 512); for (let y = 0; y < n; y++) for (let x = 0; x < n; x++) { g.fillStyle = base; g.globalAlpha = 0.85 + r() * 0.15; g.fillRect(x * q + 3, y * q + 3, q - 6, q - 6); } g.globalAlpha = 1; return c; };
+const cloudTex = (seed) => { const [c, g] = cv(512, 256), r = R(seed); for (let i = 0; i < 14; i++) { const x = 90 + r() * 330, y = 120 + (r() - 0.3) * 60, rr = 40 + r() * 60; const gr = g.createRadialGradient(x, y - rr * 0.3, rr * 0.1, x, y, rr); gr.addColorStop(0, '#ffffff'); gr.addColorStop(0.75, '#f4f8ff'); gr.addColorStop(1, 'rgba(220,232,250,0)'); g.fillStyle = gr; g.beginPath(); g.arc(x, y, rr, 0, 7); g.fill(); }
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t; };
+const skyTex = (stops) => { const [c, g] = cv(16, 512); const gr = g.createLinearGradient(0, 0, 0, 512); stops.forEach(([k, col]) => gr.addColorStop(k, col)); g.fillStyle = gr; g.fillRect(0, 0, 16, 512); const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t; };
+const SKY = new THREE.Mesh(new THREE.SphereGeometry(1400, 32, 16), new THREE.MeshBasicMaterial({ map: skyTex([[0, '#1a4ec8'], [0.3, '#3a86f0'], [0.47, '#a8d4ff'], [0.5, '#e4f2ff'], [1, '#e4f2ff']]), side: THREE.BackSide, fog: false, depthWrite: false })); SKY.userData.ndSkip = true; SKY.renderOrder = -1; scene.add(SKY);
+for (let i = 0; i < 20; i++) { const r = R(400 + i), a = r() * 6.283, d = 420 + r() * 400; const m = new THREE.Mesh(new THREE.PlaneGeometry(1, 0.5), new THREE.MeshBasicMaterial({ map: cloudTex(410 + i), transparent: true, depthWrite: false, fog: false })); m.position.set(Math.cos(a) * d, 70 + r() * 150, Math.sin(a) * d); m.scale.setScalar(140 + r() * 140); m.lookAt(0, m.position.y, 0); m.userData.ndSkip = true; scene.add(m); }
+const WHITE = std({ color: '#f4f2ea', roughness: 0.6 }), YEL = std({ color: '#f2c41a', roughness: 0.5 });
+const ORANGE = std({ color: '#ff7a14', roughness: 0.35, metalness: 0.3, envMapIntensity: 1.2 }), BLUE = std({ color: '#2a5ad8', roughness: 0.4 }), RED = std({ color: '#e0262a', roughness: 0.4 }), DARK = std({ color: '#22242a', roughness: 0.5 });
+const textTex = (lines, w = 1024, h = 256, bg = '#1f4fc8', fg = '#ffffff', stripe = true) => { const [c, g] = cv(w, h); g.fillStyle = bg; g.fillRect(0, 0, w, h); if (stripe) { g.fillStyle = '#e0262a'; g.fillRect(0, 0, w, h * 0.12); g.fillRect(0, h * 0.88, w, h * 0.12); g.fillStyle = '#ffffff'; g.fillRect(0, h * 0.12, w, h * 0.03); g.fillRect(0, h * 0.85, w, h * 0.03); }
+  g.textAlign = 'center'; g.textBaseline = 'middle'; lines.forEach(([t, sz, y, col], i) => { g.font = `900 ${sz}px Arial Black, Arial`; g.lineWidth = sz * 0.12; g.strokeStyle = '#101018'; g.strokeText(t, w / 2, y); g.fillStyle = col || fg; g.fillText(t, w / 2, y); }); return P.tex(c); };
+
+// ================= PARK =================
+{ const gm = new THREE.MeshStandardMaterial({ map: T2(grassC, 80, 80), roughness: 0.9 }); plane(900, 900, gm, 0, 0, 0, -Math.PI / 2).receiveShadow = true;
+  const pz = new THREE.MeshStandardMaterial({ map: T2(tilesC(), 12, 12), roughness: 0.7 }); plane(48, 48, pz, 0, 0.02, 0, -Math.PI / 2).receiveShadow = true;
+  const asph = new THREE.MeshStandardMaterial({ map: T2(noiseTex('#4a4c52', ['#2a2c30', '#7a7c82'], 3), 20, 8), roughness: 0.85 }); plane(140, 60, asph, 0, 0.015, 70, -Math.PI / 2).receiveShadow = true;
+  for (let x = -66; x <= 66; x += 4) for (const z of [52, 72]) plane(0.18, 8, WHITE, x, 0.03, z, -Math.PI / 2);
+  // parked cars (instanced)
+  const N = 120, body = new THREE.InstancedMesh(new THREE.BoxGeometry(1.9, 1.0, 4.2), std({ color: '#ffffff', roughness: 0.3, metalness: 0.2, envMapIntensity: 1.3 }), N), top = new THREE.InstancedMesh(new THREE.BoxGeometry(1.7, 0.7, 2.2), std({ color: '#ffffff', roughness: 0.15, metalness: 0.4 }), N); const m4 = new THREE.Matrix4(), c = new THREE.Color(), r = R(77); let i = 0;
+  const cols = ['#e0262a', '#2a5ad8', '#f4f4f0', '#1a1a1e', '#f2c41a', '#3aa84a', '#c8c8d0', '#8a2ad8']; for (let x = -64; x <= 64 && i < N; x += 4) for (const z of [56, 68, 76, 88]) { if (r() < 0.2 || i >= N) continue; m4.makeTranslation(x, 0.75, z); body.setMatrixAt(i, m4); m4.makeTranslation(x, 1.55, z + 0.2); top.setMatrixAt(i, m4); body.setColorAt(i, c.set(cols[(i * 5) % cols.length])); top.setColorAt(i, c.set('#2a3a4a')); i++; }
+  body.count = top.count = i; body.castShadow = top.castShadow = true; scene.add(body); scene.add(top);
+  // trees
+  const TN = 220, tops = new THREE.InstancedMesh(new THREE.IcosahedronGeometry(2.4, 1), std({ color: '#ffffff', roughness: 0.8 }), TN), trunks = new THREE.InstancedMesh(new THREE.CylinderGeometry(0.25, 0.35, 3, 6), std({ color: '#6a4426' }), TN); i = 0;
+  while (i < TN) { const a = r() * 6.283, d = 32 + r() * 140, x = Math.cos(a) * d, z = Math.sin(a) * d; if (z > 45 && z < 95 && Math.abs(x) < 75) continue; const s = 0.8 + r() * 0.8; m4.compose(new THREE.Vector3(x, 3.2 * s + 1.4, z), new THREE.Quaternion(), new THREE.Vector3(s, s * 1.1, s)); tops.setMatrixAt(i, m4); tops.setColorAt(i, c.setHSL(0.27 + r() * 0.06, 0.6, 0.3 + r() * 0.12)); m4.compose(new THREE.Vector3(x, 1.5, z), new THREE.Quaternion(), new THREE.Vector3(s, s, s)); trunks.setMatrixAt(i, m4); i++; }
+  tops.castShadow = true; tops.userData.ndSkip = true; trunks.userData.ndSkip = true; scene.add(tops); scene.add(trunks); }
+// --- drop tower ---
+const TOWER = new THREE.Group(); scene.add(TOWER);
+{ const W = 2.2; for (const sx of [-1, 1]) for (const sz of [-1, 1]) add(box(0.55, TH, 0.55), ORANGE, sx * W, TH / 2, sz * W, TOWER);
+  const br = std({ color: '#2a6ae8', roughness: 0.4, metalness: 0.3 }); const L = Math.hypot(2 * W, 3);
+  for (let y = 0; y < TH - 2; y += 3) { for (const [sx, sz, ry] of [[0, W, 0], [0, -W, 0], [W, 0, Math.PI / 2], [-W, 0, Math.PI / 2]]) { for (const s of [-1, 1]) { const b = add(box(L, 0.16, 0.16), y % 6 === 0 ? ORANGE : br, sx, y + 1.5, sz, TOWER, false); b.rotation.set(0, ry, s * Math.atan2(3, 2 * W)); } add(box(ry ? 0.2 : 2 * W, 0.2, ry ? 2 * W : 0.2), ORANGE, sx, y, sz, TOWER, false); } }
+  // vertical banner on the front face
+  const bt = (() => { const [c, g] = cv(256, 2048); g.fillStyle = '#1f4fc8'; g.fillRect(0, 0, 256, 2048); g.fillStyle = '#e0262a'; g.fillRect(0, 0, 28, 2048); g.fillRect(228, 0, 28, 2048); g.fillStyle = '#fff'; g.fillRect(28, 0, 10, 2048); g.fillRect(218, 0, 10, 2048);
+    g.font = '900 220px Arial Black, Arial'; g.textAlign = 'center'; g.textBaseline = 'middle'; 'SKYDROP'.split('').forEach((ch, k) => { g.lineWidth = 18; g.strokeStyle = '#101018'; g.strokeText(ch, 128, 170 + k * 260); g.fillStyle = '#ffffff'; g.fillText(ch, 128, 170 + k * 260); }); return P.tex(c); })();
+  const bn = plane(3.2, 25, new THREE.MeshStandardMaterial({ map: bt, roughness: 0.6, side: THREE.DoubleSide }), 0, TH - 16, W + 0.35, 0, 0, TOWER);
+  // top platform + railing + crown lights
+  add(box(7, 0.4, 7), std({ color: '#c8ccd4', metalness: 0.5, roughness: 0.4 }), 0, TH, 0, TOWER); for (const [sx, sz, ry] of [[0, 3.4, 0], [0, -3.4, 0], [3.4, 0, Math.PI / 2], [-3.4, 0, Math.PI / 2]]) { const rl = add(box(7, 0.1, 0.1), YEL, sx, TH + 1.1, sz, TOWER, false); rl.rotation.y = ry; for (let k = -3; k <= 3; k += 1.5) { const p = add(box(0.1, 1.1, 0.1), YEL, sx + (ry ? 0 : k), TH + 0.55, sz + (ry ? k : 0), TOWER, false); } }
+  add(box(8, 1.2, 8), ORANGE, 0, TH + 2.6, 0, TOWER).visible = false; add(cyl(0.2, 0.2, 4, 8), DARK, 0, TH + 2.2, -3.0, TOWER);
+  // drop gate arm sticking out at the front (where jumpers hang)
+  add(box(0.4, 0.4, 3.2), YEL, 0, TH + 0.2, W + 2.2, TOWER); for (let k = 0; k < 8; k++) glow(Math.cos(k / 8 * 6.283) * 3.4, TH + 0.6, Math.sin(k / 8 * 6.283) * 3.4, 1.6, '255,230,150', 0.7); }
+// landing net under the front of the tower (sags when hit)
+const NETZ = 6.2, NETW = 10;
+const NET = (() => { const seg = 24, g = new THREE.PlaneGeometry(NETW, NETW, seg, seg); g.rotateX(-Math.PI / 2); const tx = (() => { const [c, gg] = cv(256, 256); gg.fillStyle = 'rgba(40,50,90,.28)'; gg.fillRect(0, 0, 256, 256); gg.strokeStyle = '#1a1e3a'; gg.lineWidth = 11; for (let k = 0; k <= 256; k += 32) { gg.beginPath(); gg.moveTo(k, 0); gg.lineTo(k, 256); gg.stroke(); gg.beginPath(); gg.moveTo(0, k); gg.lineTo(256, k); gg.stroke(); } const t = new THREE.CanvasTexture(c); t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(4, 4); return t; })();
+  const m = new THREE.Mesh(g, new THREE.MeshStandardMaterial({ map: tx, transparent: true, depthWrite: false, side: THREE.DoubleSide, roughness: 0.8 })); m.position.set(0, 2.6, NETZ); m.castShadow = true; scene.add(m); m.userData.base = Float32Array.from(g.attributes.position.array);
+  const fr = std({ color: '#e0262a', roughness: 0.4 }); for (const sx of [-1, 1]) { add(box(0.3, 0.3, NETW + 0.6), fr, sx * NETW / 2, 2.6, NETZ); add(box(NETW + 0.6, 0.3, 0.3), fr, 0, 2.6, NETZ + sx * NETW / 2); for (const sz of [-1, 1]) add(box(0.3, 2.6, 0.3), fr, sx * NETW / 2, 1.3, NETZ + sz * NETW / 2); }
+  const pad = std({ color: '#2a5ad8', roughness: 0.6 }); for (const sx of [-1, 1]) add(box(0.6, 0.5, NETW + 1.2), pad, sx * (NETW / 2 + 0.3), 2.9, NETZ); for (const sz of [-1, 1]) add(box(NETW + 1.2, 0.5, 0.6), pad, 0, 2.9, NETZ + sz * (NETW / 2 + 0.3));
+  return m; })();
+// park banner on a long fence + entrance arch
+{ const bt = textTex([['SKYLINE THRILLS PARK', 120, 128]], 2048, 256); const bm = new THREE.MeshStandardMaterial({ map: bt, roughness: 0.6, side: THREE.DoubleSide });
+  plane(26, 3.2, bm, 0, 2.6, -14); for (const x of [-13, 13]) add(cyl(0.15, 0.15, 4.4, 8), WHITE, x, 2.2, -14.1);
+  const fence = std({ color: '#f4f4f0', roughness: 0.5 }); for (let x = -24; x <= 24; x += 2) add(box(0.12, 1.2, 0.12), fence, x, 0.6, 24, scene, false); add(box(48, 0.1, 0.1), fence, 0, 1.1, 24, scene, false); add(box(48, 0.1, 0.1), fence, 0, 0.6, 24, scene, false);
+  // flags + lamp posts + snack stand
+  for (let k = 0; k < 8; k++) { const a = k / 8 * 6.283, x = Math.cos(a) * 20, z = Math.sin(a) * 20 - 2; add(cyl(0.08, 0.08, 6, 8), WHITE, x, 3, z); const f = plane(1.6, 1, [RED, BLUE, YEL][k % 3], x + 0.8, 5.4, z, 0, 0); f.material = f.material.clone(); f.material.side = THREE.DoubleSide; }
+  const st = new THREE.Group(); st.position.set(14, 0, 8); scene.add(st); add(box(4, 2.4, 2.4), std({ color: '#f4f0e6' }), 0, 1.2, 0, st); for (let k = 0; k < 8; k++) add(box(0.5, 0.15, 2.8), k % 2 ? RED : WHITE, -1.75 + k * 0.5, 2.7, 0.2, st, false).rotation.x = -0.2; }
+// ferris wheel
+const FERRIS = new THREE.Group(); FERRIS.position.set(-34, 0, -40); scene.add(FERRIS);
+{ const R0 = 15, hub = new THREE.Group(); hub.position.y = R0 + 3; FERRIS.add(hub); FERRIS.userData.hub = hub; const wm = std({ color: '#f4f4f0', metalness: 0.4, roughness: 0.3 });
+  for (const z of [-1, 1]) { add(new THREE.TorusGeometry(R0, 0.25, 8, 64), wm, 0, 0, z, hub); for (let k = 0; k < 16; k++) { const s = add(box(0.12, R0, 0.12), wm, 0, 0, z, hub, false); s.rotation.z = k / 16 * Math.PI * 2; s.geometry = s.geometry.clone(); s.geometry.translate(0, R0 / 2, 0); } }
+  for (const s of [-1, 1]) { const leg = add(box(0.5, R0 + 4, 0.5), wm, s * 6, (R0 + 3) / 2, 0, FERRIS); leg.rotation.z = s * 0.35; leg.position.x = s * 3.2; }
+  FERRIS.userData.gond = []; for (let k = 0; k < 16; k++) { const gd = add(box(1.6, 1.4, 1.4), [RED, BLUE, YEL, ORANGE][k % 4], 0, 0, 0, hub); FERRIS.userData.gond.push(gd); }
+  }
+// roller coaster
+{ const pts = []; for (let i = 0; i <= 40; i++) { const u = i / 40, x = 30 + u * 70, z = -45 - Math.sin(u * 6.283) * 18; const y = 4 + 14 * Math.abs(Math.sin(u * Math.PI * 3)) * (1 - u * 0.4); pts.push(new THREE.Vector3(x, y, z)); }
+  const cur = new THREE.CatmullRomCurve3(pts); for (const o of [-0.6, 0.6]) add(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts.map((p) => p.clone().add(new THREE.Vector3(0, 0, o)))), 200, 0.18, 6), RED, 0, 0, 0);
+  for (let i = 0; i <= 40; i += 2) { const p = pts[i]; add(box(0.3, p.y, 0.3), WHITE, p.x, p.y / 2, p.z, scene, false); } }
+
+// ================= SUPPORT-GROUP ROOM (x = SR) =================
+{ const G = new THREE.Group(); G.position.set(SR, 0, 0); scene.add(G); const wall = std({ color: '#e8dcc4', roughness: 0.8 }), floorM = new THREE.MeshStandardMaterial({ map: T2(tilesC('#c8b898', '#8a7a5a', 6), 3, 3), roughness: 0.6 });
+  plane(18, 18, floorM, 0, 0, 0, -Math.PI / 2, 0, G).receiveShadow = true; add(box(18, 6, 0.3), wall, 0, 3, -9, G); add(box(0.3, 6, 18), wall, -9, 3, 0, G); add(box(0.3, 6, 18), wall, 9, 3, 0, G); add(box(18, 6, 0.3), wall, 0, 3, 9, G); add(box(18, 0.3, 18), std({ color: '#f4ece0', roughness: 0.9 }), 0, 6.1, 0, G, false);
+  add(box(18, 1.2, 0.32), std({ color: '#5ab8a0', roughness: 0.6 }), 0, 0.6, -8.98, G); add(box(0.32, 1.2, 18), std({ color: '#5ab8a0', roughness: 0.6 }), -8.98, 0.6, 0, G);
+  const rug = (() => { const [c, g] = cv(512, 512); const cols = ['#e86a3a', '#f2c41a', '#5ab870', '#3a8ae0', '#8a5ad8']; for (let k = 0; k < 5; k++) { g.fillStyle = cols[k]; g.beginPath(); g.arc(256, 256, 250 - k * 44, 0, 7); g.fill(); } return P.tex(c); })();
+  const rg = plane(9, 9, new THREE.MeshStandardMaterial({ map: rug, transparent: true, roughness: 0.9 }), 0, 0.02, 0, -Math.PI / 2, 0, G); rg.receiveShadow = true;
+  const bt = textTex([['CAR CRASH SURVIVORS', 86, 110], ['THURSDAYS 7 PM', 54, 190, '#ffd84a']], 1024, 256, '#2a5ad8'); plane(7, 1.75, new THREE.MeshStandardMaterial({ map: bt, roughness: 0.6 }), 0, 4.4, -8.8, 0, 0, G);
+  const chairM = std({ color: '#e8a01a', roughness: 0.5 }), leg = DARK; G.userData.chairs = [];
+  for (let k = 0; k < 7; k++) { const a = k / 7 * Math.PI * 2 + 0.2, x = Math.cos(a) * 3.4, z = Math.sin(a) * 3.4; const ch = new THREE.Group(); ch.position.set(x, 0, z); ch.rotation.y = -a - Math.PI / 2; G.add(ch); add(box(0.9, 0.1, 0.9), chairM, 0, 0.75, 0, ch); add(box(0.9, 0.9, 0.1), chairM, 0, 1.25, -0.45, ch); for (const [lx, lz] of [[-0.4, -0.4], [0.4, -0.4], [-0.4, 0.4], [0.4, 0.4]]) add(box(0.06, 0.75, 0.06), leg, lx, 0.37, lz, ch, false); G.userData.chairs.push([SR + x, z, a]); }
+  // coffee table in the middle with toy cars
+  add(cyl(1.1, 1.1, 0.12, 24), std({ color: '#8a5a34', roughness: 0.5 }), 0, 0.7, 0, G); add(cyl(0.12, 0.2, 0.7, 10), DARK, 0, 0.35, 0, G);
+  // snack table + window + plant + clock
+  add(box(3, 0.1, 1), WHITE, 5.5, 1, -8.2, G); for (let k = 0; k < 5; k++) add(cyl(0.1, 0.08, 0.25, 10), [RED, BLUE, YEL][k % 3], 4.4 + k * 0.5, 1.18, -8.1, G, false);
+  add(box(0.1, 2.2, 3.2), std({ color: '#a8d8ff', emissive: '#88c0ff', emissiveIntensity: 0.5 }), -8.83, 3, 2.5, G); add(cyl(0.6, 0.6, 0.08, 24), WHITE, 0, 5.4, -8.8, G).rotation.x = Math.PI / 2;
+  const pl = new THREE.PointLight('#fff0d8', 30, 30, 1.4); pl.position.set(SR, 5.5, 0); scene.add(pl); pl.userData = { zone: 'room', I0: 30 }; pLights.push(pl); }
+// toy cars for the slow-motion crash
+const TOYS = []; for (const col of ['#e0262a', '#2a5ad8']) { const G = new THREE.Group(); scene.add(G); const pm = std({ color: col, roughness: 0.25, metalness: 0.2, envMapIntensity: 1.3 }); add(box(0.5, 0.14, 0.24), pm, 0, 0.12, 0, G); add(box(0.26, 0.11, 0.21), std({ color: '#b8d8f0', roughness: 0.1, metalness: 0.4 }), -0.03, 0.24, 0, G); for (const x of [-0.16, 0.16]) for (const z of [-0.12, 0.12]) { const w = add(cyl(0.06, 0.06, 0.05, 12), DARK, x, 0.06, z, G, false); w.rotation.x = Math.PI / 2; } G.scale.setScalar(1.4); TOYS.push(G); }
+const BITS = []; for (let i = 0; i < 30; i++) { const m = add(box(0.04, 0.04, 0.04), std({ color: ['#e0262a', '#2a5ad8', '#f4f4f0', '#b8d8f0'][i % 4] }), 0, -50, 0, scene, false); m.userData.ndSkip = true; BITS.push(m); }
+
+// ================= DARK DISPLAY ROOM (x = DRX, z = DRZ) =================
+const LED = (() => { const [c, g] = cv(1024, 320); const t = P.tex(c); t.userData = { c, g }; return t; })();
+const drawLED = (txt) => { const { c, g } = LED.userData; g.fillStyle = '#120404'; g.fillRect(0, 0, 1024, 320); g.font = '900 230px Courier New, monospace'; g.textAlign = 'center'; g.textBaseline = 'middle'; g.shadowColor = '#ff3020'; g.shadowBlur = 30; g.fillStyle = '#ff5a3a'; g.fillText(txt, 512, 170); g.shadowBlur = 0; g.fillStyle = 'rgba(0,0,0,.35)'; for (let y = 0; y < 320; y += 8) g.fillRect(0, y, 1024, 3); LED.needsUpdate = true; };
+{ const G = new THREE.Group(); G.position.set(DRX, 0, DRZ); scene.add(G); const wm = std({ color: '#2a2e3a', roughness: 0.8 }); plane(20, 20, std({ color: '#3a3e4a', roughness: 0.7 }), 0, 0, 0, -Math.PI / 2, 0, G).receiveShadow = true; add(box(20, 8, 0.3), wm, 0, 4, -6, G); add(box(0.3, 8, 20), wm, -10, 4, 0, G); add(box(0.3, 8, 20), wm, 10, 4, 0, G);
+  add(box(7.4, 2.6, 0.3), DARK, 0, 3.6, -5.7, G); plane(7, 2.2, new THREE.MeshBasicMaterial({ map: LED, color: new THREE.Color(1.8, 1.8, 1.8) }), 0, 3.6, -5.53, 0, 0, G).userData.ndSkip = true;
+  for (const x of [-5, 0, 5]) { add(cyl(0.05, 0.05, 1.2, 6), DARK, x, 7.4, -1, G); add(new THREE.ConeGeometry(0.5, 0.6, 16, 1, true), std({ color: '#2a2a30', side: THREE.DoubleSide }), x, 6.6, -1, G); const l = new THREE.SpotLight('#ffe0b0', 120, 16, 0.6, 0.5, 1.2); l.position.set(DRX + x, 6.5, DRZ - 1); l.target.position.set(DRX + x, 0, DRZ + 0.5); scene.add(l); scene.add(l.target); l.userData = { zone: 'dark', I0: 120 }; pLights.push(l); glow(DRX + x, 6.4, DRZ - 1, 1.6, '255,220,160', 0.9).userData.zone = 'dark'; } }
+
+// ================= BRAIN ROOM (x = BR) =================
+const PORT = new THREE.Group(); const SIREN = { light: null, mesh: null };
+{ const G = new THREE.Group(); G.position.set(BR, 0, 0); scene.add(G); const wall = new THREE.MeshStandardMaterial({ map: T2(noiseTex('#f2e2c8', ['#e4d0b0', '#fff4e0'], 21, 2500), 2, 1), roughness: 0.8 });
+  plane(16, 16, new THREE.MeshStandardMaterial({ map: T2(noiseTex('#a8743a', ['#8a5a2a', '#c8945a'], 22, 4000), 4, 4), roughness: 0.6 }), 0, 0, 0, -Math.PI / 2, 0, G).receiveShadow = true;
+  add(box(16, 7, 0.3), wall, 0, 3.5, -6, G); add(box(0.3, 7, 16), wall, -8, 3.5, 0, G); add(box(0.3, 7, 16), wall, 8, 3.5, 0, G); add(box(16, 0.6, 0.32), std({ color: '#7a4a2a' }), 0, 0.3, -5.98, G);
+  const rug = (() => { const [c, g] = cv(512, 512); const cols = ['#e0262a', '#ff8a1a', '#f2c41a', '#5ab870', '#3a8ae0', '#8a5ad8']; for (let k = 0; k < 6; k++) { g.fillStyle = cols[k]; g.beginPath(); g.arc(256, 256, 250 - k * 38, 0, 7); g.fill(); } return P.tex(c); })();
+  plane(6, 6, new THREE.MeshStandardMaterial({ map: rug, transparent: true, roughness: 0.9 }), 0, 0.02, 0.5, -Math.PI / 2, 0, G).receiveShadow = true;
+  // round porthole window = the eye, looking out at the tower
+  PORT.position.set(0, 3.8, -5.82); G.add(PORT); add(new THREE.TorusGeometry(1.6, 0.25, 12, 40), std({ color: '#7a4a24', roughness: 0.4 }), 0, 0, 0, PORT);
+  const view = (() => { const [c, g] = cv(512, 512); const gr = g.createLinearGradient(0, 0, 0, 512); gr.addColorStop(0, '#2a6ae8'); gr.addColorStop(1, '#bfe2ff'); g.fillStyle = gr; g.fillRect(0, 0, 512, 512); g.fillStyle = '#ffffff'; for (const [x, y, r] of [[120, 140, 40], [170, 130, 50], [380, 200, 36], [420, 190, 44]]) { g.beginPath(); g.arc(x, y, r, 0, 7); g.fill(); } g.fillStyle = '#ff7a14'; g.fillRect(300, 120, 26, 392); g.fillRect(372, 120, 26, 392); for (let y = 140; y < 512; y += 40) { g.save(); g.translate(349, y); g.rotate(0.5); g.fillRect(-46, -5, 92, 10); g.restore(); } g.fillStyle = '#5ab83a'; g.fillRect(0, 440, 512, 72); return P.tex(c); })();
+  const vm = add(new THREE.CircleGeometry(1.6, 40), new THREE.MeshBasicMaterial({ map: view }), 0, 0, -0.02, PORT, false); vm.userData.ndSkip = true;
+  // desk + papers + lamp + bookshelf + filing cabinets
+  const wood = std({ color: '#8a5a2a', roughness: 0.5 }); add(box(3.4, 0.14, 1.6), wood, 0, 1.25, -3.4, G); for (const [x, z] of [[-1.5, -4], [1.5, -4], [-1.5, -2.8], [1.5, -2.8]]) add(box(0.12, 1.25, 0.12), wood, x, 0.62, z, G, false);
+  for (let k = 0; k < 7; k++) { const p = plane(0.6, 0.8, std({ color: '#fffdf4', roughness: 0.9 }), -1.2 + (k % 4) * 0.55, 1.33 + k * 0.003, -3.3 + Math.floor(k / 4) * 0.4, -Math.PI / 2, 0, G); p.rotation.z = (k * 0.37) % 0.6 - 0.3; }
+  add(cyl(0.18, 0.22, 0.06, 12), DARK, 1.3, 1.35, -3.8, G); add(cyl(0.03, 0.03, 0.7, 6), DARK, 1.3, 1.7, -3.8, G); add(new THREE.ConeGeometry(0.25, 0.3, 14, 1, true), std({ color: '#3aa84a', side: THREE.DoubleSide }), 1.15, 2.0, -3.6, G);
+  const shelf = new THREE.Group(); shelf.position.set(-5.5, 0, -5.4); G.add(shelf); add(box(3, 4.5, 0.6), wood, 0, 2.25, 0, shelf); for (let s = 0; s < 4; s++) for (let k = 0; k < 9; k++) add(box(0.22, 0.75, 0.45), [RED, BLUE, YEL, ORANGE, std({ color: '#5ab870' })][(s * 3 + k) % 5], -1.2 + k * 0.3, 0.6 + s * 1.05, 0.1, shelf, false);
+  for (const [x, lbl] of [[4.4, 'NORMAL DAYS'], [6.2, 'SCARY STUFF']]) { const cab = add(box(1.5, 3.4, 1.0), std({ color: '#8a9aa8', metalness: 0.5, roughness: 0.4 }), x, 1.7, -5.3, G); for (let k = 0; k < 3; k++) add(box(1.3, 0.9, 0.05), std({ color: '#a8b8c4', metalness: 0.5, roughness: 0.35 }), x, 0.7 + k * 1.05, -4.78, G, false);
+    plane(1.3, 0.4, new THREE.MeshStandardMaterial({ map: textTex([[lbl, 60, 64]], 512, 128, '#f4f0e0', '#1a1a1e', false) }), x, 3.6, -4.77, 0, 0, G); }
+  // red alarm siren on the wall
+  SIREN.mesh = add(new THREE.SphereGeometry(0.35, 16, 10, 0, Math.PI * 2, 0, Math.PI / 2), std({ color: '#ff2020', emissive: '#ff0000', emissiveIntensity: 0 }), -2.6, 5.6, -5.8, G); SIREN.mesh.rotation.x = Math.PI / 2;
+  SIREN.light = new THREE.PointLight('#ff2a1a', 0, 22, 1.2); SIREN.light.position.set(BR - 2.6, 5.4, -5.2); scene.add(SIREN.light);
+  const lamp = new THREE.PointLight('#fff0d0', 40, 24, 1.3); lamp.position.set(BR, 6, -1); scene.add(lamp); lamp.userData = { zone: 'brain', I0: 40 }; pLights.push(lamp); }
+// memory page stack (instanced sheets that grow into a tower)
+const PAGE_N = 600; const PAGES = new THREE.InstancedMesh(new THREE.BoxGeometry(0.9, 0.012, 1.2), std({ color: '#ffffff', roughness: 0.9 }), PAGE_N); PAGES.castShadow = true; PAGES.receiveShadow = true; PAGES.frustumCulled = false; scene.add(PAGES);
+// flying papers (when the brain scribbles)
+const FLY = []; for (let i = 0; i < 24; i++) { const m = add(new THREE.PlaneGeometry(0.4, 0.55), std({ color: '#fffdf4', side: THREE.DoubleSide, roughness: 0.9 }), 0, -50, 0, scene, false); FLY.push(m); }
+ZONE = 'fx';
+const PRESET = {
+  day: { sky: true, cardTint: '#f6f0e8', vig: 0.28, hemi: ['#d8e8ff', '#6a9a4a', 1.15], key: ['#fff2dc', 3.0], fog: ['#dcecff', 0.0012], sun: [-0.5, 0.85, 0.6], expo: 1.0, sat: 1.15, env: ENV.day, bloomK: 0.3, thr: 1.3, zones: ['park'] },
+  room: { sky: false, cardTint: '#fff4e8', vig: 0.32, hemi: ['#fff0dc', '#8a6a4a', 1.0], key: ['#fff0d8', 1.6], fog: ['#f0e0c8', 0.0001], sun: [0.3, 0.9, 0.6], expo: 1.05, sat: 1.15, env: ENV.room, bloomK: 0.3, thr: 1.2, zones: ['room'] },
+  brain: { sky: false, cardTint: '#fff4e8', vig: 0.3, hemi: ['#fff0dc', '#8a6a4a', 1.1], key: ['#fff0d8', 1.6], fog: ['#f0e0c8', 0.0001], sun: [0.4, 0.9, 0.7], expo: 1.05, sat: 1.18, env: ENV.room, bloomK: 0.35, thr: 1.2, zones: ['brain'] },
+  alarm: { sky: false, cardTint: '#ffe0d8', vig: 0.45, hemi: ['#ff8a7a', '#401010', 0.8], key: ['#ffb0a0', 1.2], fog: ['#401010', 0.0001], sun: [0.4, 0.9, 0.7], expo: 1.0, sat: 1.2, env: ENV.alarm, bloomK: 0.5, thr: 1.0, zones: ['brain'], siren: true },
+  dark: { sky: false, cardTint: '#e8dcd0', vig: 0.55, hemi: ['#5a6a9a', '#0a0a14', 0.45], key: ['#ffe0b0', 0.3], fog: ['#0a0a14', 0.0001], sun: [0.2, 0.9, 0.6], expo: 1.1, sat: 1.15, env: ENV.dark, bloomK: 0.6, thr: 0.95, zones: ['dark'] },
+};
