@@ -1,0 +1,377 @@
+{
+ "duration": 69.198367,
+ "frames30": 2076,
+ "source": "silence-align (cost 2.35)",
+ "segments": [
+  [
+   0.0,
+   2.55338
+  ],
+  [
+   2.7532,
+   4.07506
+  ],
+  [
+   4.49946,
+   5.25229
+  ],
+  [
+   5.55832,
+   6.32365
+  ],
+  [
+   6.4515,
+   6.90474
+  ],
+  [
+   7.34957,
+   8.0446
+  ],
+  [
+   8.1651,
+   8.50175
+  ],
+  [
+   8.86748,
+   10.1744
+  ],
+  [
+   10.5601,
+   13.4765
+  ],
+  [
+   13.6731,
+   14.8916
+  ],
+  [
+   15.4632,
+   18.142
+  ],
+  [
+   18.4013,
+   19.0031
+  ],
+  [
+   19.2201,
+   20.9028
+  ],
+  [
+   21.3576,
+   22.1251
+  ],
+  [
+   22.2638,
+   24.1109
+  ],
+  [
+   24.6084,
+   25.3452
+  ],
+  [
+   25.5577,
+   26.7886
+  ],
+  [
+   27.1152,
+   27.7333
+  ],
+  [
+   28.1852,
+   29.3486
+  ],
+  [
+   29.7178,
+   30.7266
+  ],
+  [
+   31.1829,
+   32.3173
+  ],
+  [
+   32.8729,
+   34.1612
+  ],
+  [
+   34.4138,
+   35.4913
+  ],
+  [
+   35.953,
+   37.075
+  ],
+  [
+   37.6353,
+   38.529
+  ],
+  [
+   38.891,
+   39.7824
+  ],
+  [
+   40.1616,
+   41.1407
+  ],
+  [
+   41.5336,
+   41.9892
+  ],
+  [
+   42.1431,
+   42.8734
+  ],
+  [
+   43.0494,
+   44.0934
+  ],
+  [
+   44.4251,
+   46.1429
+  ],
+  [
+   46.3985,
+   48.079
+  ],
+  [
+   48.4555,
+   52.1933
+  ],
+  [
+   52.6564,
+   54.8
+  ],
+  [
+   55.2594,
+   55.5663
+  ],
+  [
+   55.7099,
+   57.1659
+  ],
+  [
+   57.5862,
+   60.0171
+  ],
+  [
+   60.4313,
+   62.5616
+  ],
+  [
+   62.9443,
+   64.3183
+  ],
+  [
+   64.5894,
+   65.3003
+  ],
+  [
+   65.7305,
+   66.2652
+  ],
+  [
+   66.4234,
+   68.9068
+  ]
+ ],
+ "phrases": [
+  {
+   "text": "This young engineer just built his very first bridge,",
+   "s": 0.0,
+   "e": 2.553
+  },
+  {
+   "text": "and it stops six inches short.",
+   "s": 2.753,
+   "e": 4.075
+  },
+  {
+   "text": "Not by mistake.",
+   "s": 4.499,
+   "e": 5.252
+  },
+  {
+   "text": "He measured that gap twice.",
+   "s": 5.558,
+   "e": 6.905
+  },
+  {
+   "text": "His boss turns purple.",
+   "s": 7.35,
+   "e": 8.502
+  },
+  {
+   "text": "\"Did you run out of steel, boy?\"",
+   "s": 8.867,
+   "e": 10.174
+  },
+  {
+   "text": "So the kid plugs the hole with two giant steel combs,",
+   "s": 10.56,
+   "e": 13.476
+  },
+  {
+   "text": "their fingers sliding together.",
+   "s": 13.673,
+   "e": 14.892
+  },
+  {
+   "text": "Next door, a rival company builds a flawless bridge.",
+   "s": 15.463,
+   "e": 18.142
+  },
+  {
+   "text": "No gaps.",
+   "s": 18.401,
+   "e": 19.003
+  },
+  {
+   "text": "Welded solid from cliff to cliff.",
+   "s": 19.22,
+   "e": 20.903
+  },
+  {
+   "text": "It opens first,",
+   "s": 21.358,
+   "e": 22.125
+  },
+  {
+   "text": "and fancy cars float across like butter.",
+   "s": 22.264,
+   "e": 24.111
+  },
+  {
+   "text": "On the kid's bridge,",
+   "s": 24.608,
+   "e": 25.345
+  },
+  {
+   "text": "every tire hits the comb.",
+   "s": 25.558,
+   "e": 26.789
+  },
+  {
+   "text": "Ka-thunk!",
+   "s": 27.115,
+   "e": 27.733
+  },
+  {
+   "text": "The newspaper gives it a nickname:",
+   "s": 28.185,
+   "e": 29.349
+  },
+  {
+   "text": "\"The Ka-Thunk Bridge.\"",
+   "s": 29.718,
+   "e": 30.727
+  },
+  {
+   "text": "Everyone takes the smooth one.",
+   "s": 31.183,
+   "e": 32.317
+  },
+  {
+   "text": "But as spring turns to summer,",
+   "s": 32.873,
+   "e": 34.161
+  },
+  {
+   "text": "something strange happens.",
+   "s": 34.414,
+   "e": 35.491
+  },
+  {
+   "text": "The gap starts closing.",
+   "s": 35.953,
+   "e": 37.075
+  },
+  {
+   "text": "A sandwich in April.",
+   "s": 37.635,
+   "e": 38.529
+  },
+  {
+   "text": "A pencil in June.",
+   "s": 38.891,
+   "e": 39.782
+  },
+  {
+   "text": "A coin in July.",
+   "s": 40.162,
+   "e": 41.141
+  },
+  {
+   "text": "\"Look!\"",
+   "s": 41.534,
+   "e": 41.989
+  },
+  {
+   "text": "the boss cheers.",
+   "s": 42.143,
+   "e": 42.873
+  },
+  {
+   "text": "\"It finally fits!\"",
+   "s": 43.049,
+   "e": 44.093
+  },
+  {
+   "text": "Then comes the hottest day of the year.",
+   "s": 44.425,
+   "e": 46.143
+  },
+  {
+   "text": "One hundred fifteen degrees.",
+   "s": 46.398,
+   "e": 48.079
+  },
+  {
+   "text": "The flawless bridge groans, and its middle bulges up like a giant speed bump.",
+   "s": 48.456,
+   "e": 52.193
+  },
+  {
+   "text": "Cars launch off the top and land on their bumpers.",
+   "s": 52.656,
+   "e": 54.8
+  },
+  {
+   "text": "You see,",
+   "s": 55.259,
+   "e": 55.566
+  },
+  {
+   "text": "steel swells when it gets hot.",
+   "s": 55.71,
+   "e": 57.166
+  },
+  {
+   "text": "On a long bridge, it can push out by several inches.",
+   "s": 57.586,
+   "e": 60.017
+  },
+  {
+   "text": "The kid's combs gave the steel room to stretch.",
+   "s": 60.431,
+   "e": 62.562
+  },
+  {
+   "text": "The welded bridge had nowhere to go,",
+   "s": 62.944,
+   "e": 64.318
+  },
+  {
+   "text": "so it bent.",
+   "s": 64.589,
+   "e": 65.3
+  },
+  {
+   "text": "By August,",
+   "s": 65.731,
+   "e": 66.265
+  },
+  {
+   "text": "the line to cross the Ka-Thunk Bridge is a mile long.",
+   "s": 66.423,
+   "e": 68.907
+  }
+ ]
+}
