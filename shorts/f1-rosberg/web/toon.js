@@ -2463,6 +2463,11 @@ FACE.terror = { eye: ["shock", "shock"], brow: [-8, -7], mouth: "snarl" };
 FACE.scream = { eye: ["shock", "shock"], brow: [-8, -7], mouth: "O" };
 FACE.wince = { eye: ["squeeze", "squeeze"], brow: [-4, 3], mouth: "snarl" };
 FACE.wink = { eye: ["dot", "happy"], brow: [2, -3], mouth: "smirk" };
+FACE.sad = { ...FACE.pained, mouth: "frown" };
+FACE.angry = FACE.rage;
+FACE.worried = FACE.nervous;
+FACE.calm = { eye: ["happy", "happy"], brow: [2, 2], mouth: "smile" };
+FACE.sleep = FACE.snore;
 FACE.joy = { eye: ["happy", "happy"], brow: [3, 3], mouth: "laugh" };
 FACE.mock = { eye: ["happy", "happy"], brow: [-6, -6], mouth: "bigLaugh" };
 FACE.mockWink = { eye: ["dot", "happy"], brow: [-7, 3], mouth: "bigLaugh" };
@@ -2683,11 +2688,16 @@ export const romanFront = (p, key, opts = {}) => {
         const px = tcx + 0.55 * T.a, py = chin + 0.42 * HH; p.poly([[px - 0.14 * T.a, py], [px + 0.14 * T.a, py], [px + 0.1 * T.a, py - 0.07 * HH], [px, py - 0.03 * HH], [px - 0.1 * T.a, py - 0.08 * HH]], "#d8222a", 1.2 * u); p.stroke([[px - 0.16 * T.a, py], [px + 0.16 * T.a, py]], 1.4 * u, "#3a3a44");
         p.stroke(curve([tcx - 0.85 * T.a, chin + 0.25 * HH], [tcx - 0.95 * T.a, chin + 0.7 * HH], [tcx - 0.8 * T.a, torsoBot - 0.1 * HH]), 2.2 * u, "#ffffffb0");
       }
-      if (O.race) { // race suit: teal collar, side panels + stripes, chest badges, zip
-        const rc = O.race; p.band([[tcx - 0.42 * T.a, chin + 0.02 * HH], [tcx + 0.42 * T.a, chin + 0.02 * HH]], rc, 0.07 * HH, 1.4 * u);
-        for (const s of [-1, 1]) { p.poly([[tcx + s * 0.62 * T.a, chin + 0.12 * HH], [tcx + s * 0.9 * T.a, chin + 0.3 * HH], [tcx + s * 0.92 * T.a, torsoBot - 0.1 * HH], [tcx + s * 0.7 * T.a, torsoBot - 0.05 * HH]], rc, 1.2 * u); p.stroke([[tcx + s * 0.58 * T.a, chin + 0.16 * HH], [tcx + s * 0.66 * T.a, torsoBot - 0.06 * HH]], 1.6 * u, O.race2 || "#1a1a20"); }
-        p.stroke([[tcx, chin + 0.06 * HH], [tcx, torsoBot - 0.12 * HH]], 1.4 * u, "#9aa0aa"); p.poly(rrect(tcx - 0.5 * T.a, chin + 0.26 * HH, tcx - 0.14 * T.a, chin + 0.4 * HH, 1.5 * u), "#ffffff", 1.1 * u); p.poly(rrect(tcx + 0.14 * T.a, chin + 0.26 * HH, tcx + 0.5 * T.a, chin + 0.36 * HH, 1.5 * u), rc, 1.1 * u);
-        if (O.raceNum) { const gg = p.g; gg.save(); gg.font = `900 ${10 * u}px Arial Black`; gg.textAlign = "center"; gg.textBaseline = "middle"; gg.fillStyle = "#1a1a20"; gg.fillText(O.raceNum, tcx - 0.32 * T.a, chin + 0.335 * HH); gg.restore(); } }
+      if (O.race) { // F1 race overall: high collar, wide side panels, shoulder straps (epaulettes), sponsor patches, zip, number
+        const rc = O.race, r2 = O.race2 || "#1a1a20", gg = p.g;
+        p.poly([[tcx - 0.36 * T.a, chin - 0.04 * HH], [tcx + 0.36 * T.a, chin - 0.04 * HH], [tcx + 0.4 * T.a, chin + 0.09 * HH], [tcx - 0.4 * T.a, chin + 0.09 * HH]], rc, 1.4 * u);
+        for (const s of [-1, 1]) { p.poly([[tcx + s * 0.5 * T.a, chin + 0.06 * HH], [tcx + s * 0.96 * T.a, chin + 0.22 * HH], [tcx + s * 1.0 * T.a, torsoBot - 0.05 * HH], [tcx + s * 0.62 * T.a, torsoBot], [tcx + s * 0.56 * T.a, chin + 0.4 * HH]], rc, 1.3 * u);
+          p.stroke([[tcx + s * 0.54 * T.a, chin + 0.12 * HH], [tcx + s * 0.6 * T.a, torsoBot - 0.02 * HH]], 2.2 * u, r2); p.stroke([[tcx + s * 0.25 * T.a, chin + 0.02 * HH], [tcx + s * 0.85 * T.a, chin + 0.14 * HH]], 3.2 * u, "#ffffff"); }
+        p.stroke([[tcx, chin + 0.09 * HH], [tcx, torsoBot - 0.08 * HH]], 1.6 * u, "#8a909a");
+        const patch = (x0, y0, x1, y1, bg, fg, t) => { p.poly(rrect(x0, y0, x1, y1, 1.2 * u), bg, 1 * u); gg.save(); gg.font = `900 ${5.2 * u}px Arial Black`; gg.textAlign = "center"; gg.textBaseline = "middle"; gg.fillStyle = fg; gg.fillText(t, (x0 + x1) / 2, (y0 + y1) / 2 + 0.3 * u); gg.restore(); };
+        patch(tcx - 0.46 * T.a, chin + 0.16 * HH, tcx - 0.08 * T.a, chin + 0.26 * HH, "#ffffff", "#1a1a20", O.raceNum || "1"); { const sx = tcx + 0.28 * T.a, sy = chin + 0.2 * HH, sr = 0.1 * T.a; p.ell(sx, sy, sr, sr, "#d8dce4", 1.2 * u); const gg2 = p.g; gg2.save(); gg2.fillStyle = "#3a3e48"; for (let k = 0; k < 3; k++) { const a = -Math.PI / 2 + k * Math.PI * 2 / 3; gg2.beginPath(); gg2.moveTo(sx + Math.cos(a) * sr * 0.85, sy + Math.sin(a) * sr * 0.85); gg2.lineTo(sx + Math.cos(a + 1.2) * sr * 0.16, sy + Math.sin(a + 1.2) * sr * 0.16); gg2.lineTo(sx, sy); gg2.lineTo(sx + Math.cos(a - 1.2) * sr * 0.16, sy + Math.sin(a - 1.2) * sr * 0.16); gg2.fill(); } gg2.restore(); }
+        patch(tcx - 0.42 * T.a, chin + 0.36 * HH, tcx - 0.06 * T.a, chin + 0.43 * HH, "#d8202a", "#ffffff", "APEX"); patch(tcx + 0.06 * T.a, chin + 0.34 * HH, tcx + 0.44 * T.a, chin + 0.42 * HH, "#1a1a20", "#ffd21a", "NITRO");
+        patch(tcx - 0.36 * T.a, chin + 0.56 * HH, tcx + 0.36 * T.a, chin + 0.66 * HH, "#1e2a5a", "#ffffff", "VELOCITY"); }
       if (O.coat) { // lapels + double row of brass buttons
         for (const s of [-1, 1]) { p.poly([[tcx + s * 0.08 * T.a, chin + 0.02 * HH], [tcx + s * 0.62 * T.a, chin + 0.0 * HH], [tcx + s * 0.32 * T.a, chin + 0.42 * HH], [tcx + s * 0.1 * T.a, chin + 0.5 * HH]], mul(O.tunic, [0.78, 0.78, 0.82]), 1.8 * u);
           for (let k = 0; k < 3; k++) { p.dot(tcx + s * 0.3 * T.a, chin + (0.62 + k * 0.2) * HH, 4 * u, "#f2c94a"); p.dot(tcx + s * 0.3 * T.a - 1.2 * u, chin + (0.62 + k * 0.2) * HH - 1.2 * u, 1.4 * u, "#fff6c8"); } }
@@ -2700,8 +2710,8 @@ export const romanFront = (p, key, opts = {}) => {
         for (const s of [-1, 1]) { p.band([[tcx + s * 0.45 * T.a, chin + 0.36 * HH], [tcx + s * 0.7 * T.a, chin - 0.02 * HH]], O.overalls, 0.08 * HH, 1.4 * u); p.dot(tcx + s * 0.45 * T.a, chin + 0.4 * HH, 3 * u, "#d9d9d9"); }
         p.poly(rrect(tcx - 0.25 * T.a, chin + 0.45 * HH, tcx + 0.25 * T.a, chin + 0.68 * HH, 2 * u), mul(O.overalls, [0.85, 0.85, 0.9]), 1.4 * u);
         for (let k = 0; k < 6; k++) p.ell(tcx + Math.sin(k * 2.7) * 0.5 * T.a, chin + (0.5 + ((k * 0.37) % 1) * 0.6) * HH, 5 * u, 3 * u, "#00000030", 0); }
-      if (!O.suit) p.band([[tcx - 1.4 * T.a, torsoBot - 0.24 * HH], [tcx + 1.4 * T.a, torsoBot - 0.24 * HH]], O.belt || (O.apron ? "#5a3b2a" : "#e2c27a"), 0.05 * HH, 1.2 * u);
-      if (O.belt && !O.suit) { p.poly(rrect(tcx - 7 * u, torsoBot - 0.24 * HH - 6 * u, tcx + 7 * u, torsoBot - 0.24 * HH + 6 * u, 1.5 * u), "#e8c25a", 1.6 * u); p.ell(tcx - 2 * u, torsoBot - 0.24 * HH - 2 * u, 2 * u, 1.2 * u, "#fff6c8", 0); }
+      if (!O.suit && !O.race) p.band([[tcx - 1.4 * T.a, torsoBot - 0.24 * HH], [tcx + 1.4 * T.a, torsoBot - 0.24 * HH]], O.belt || (O.apron ? "#5a3b2a" : "#e2c27a"), 0.05 * HH, 1.2 * u);
+      if (O.belt && !O.suit && !O.race) { p.poly(rrect(tcx - 7 * u, torsoBot - 0.24 * HH - 6 * u, tcx + 7 * u, torsoBot - 0.24 * HH + 6 * u, 1.5 * u), "#e8c25a", 1.6 * u); p.ell(tcx - 2 * u, torsoBot - 0.24 * HH - 2 * u, 2 * u, 1.2 * u, "#fff6c8", 0); }
       if (O.pockets) for (const sd of [-1, 1]) { const px = tcx + sd * 0.48 * T.a, py = chin + 0.38 * HH; p.poly(rrect(px - 10 * u, py, px + 10 * u, py + 16 * u, 2 * u), mul(O.tunic, [0.92, 0.92, 0.95]), 1.5 * u); p.poly([[px - 11 * u, py - 1 * u], [px + 11 * u, py - 1 * u], [px + 10 * u, py + 5 * u], [px - 10 * u, py + 5 * u]], mul(O.tunic, [0.82, 0.82, 0.86]), 1.5 * u); p.dot(px, py + 3 * u, 1.8 * u, "#e8c25a"); }
       if (O.sam) p.band([[tcx + 0.7 * T.a, chin + 0.02 * HH], [tcx - 0.6 * T.a, torsoBot - 0.26 * HH]], "#6a4022", 0.045 * HH, 1.2 * u);
       for (let k = 0; k < 3; k++) p.stroke([[tcx - 0.6 * T.a + k * 0.5 * T.a, torsoBot - 0.2 * HH], [tcx - 0.5 * T.a + k * 0.5 * T.a, torsoBot - 0.02 * HH]], 1.1 * u, "#00000030");
@@ -3191,8 +3201,8 @@ Object.assign(OUTFITS, {
   buddyG: { belt: "#2a8a3a", suit: true, tunic: "#2a8a3a", skin: "#fffdf8", pomp: "#18181e", tie: "#d8222a", pants: "#16161c", boot: "#0a0a0e" },
   buddyB: { belt: "#2a4a8a", suit: true, tunic: "#2a4a8a", skin: "#fffdf8", pomp: "#6a4228", moustache: "#5a3420", tie: "#d8222a", pants: "#16161c", boot: "#0a0a0e" },
   buddyM: { belt: "#8a2a5a", suit: true, tunic: "#8a2a5a", skin: "#fffdf8", pomp: "#c0501e", tie: "#d8222a", pants: "#16161c", boot: "#0a0a0e" },
-  nico: { tunic: "#eef0f4", race: "#00b8a8", raceNum: "6", skin: "#ffe6d2", pomp: "#e8b040", pants: "#eef0f4", boot: "#1a1a20", belt: "#eef0f4" },
-  lewis: { tunic: "#eef0f4", race: "#00b8a8", race2: "#ffd21a", raceNum: "44", skin: "#9a6440", hair: "#141010", beard: "#141010", pants: "#eef0f4", boot: "#1a1a20", belt: "#eef0f4" },
+  nico: { tunic: "#eef0f4", race: "#00a89a", race2: "#1a1a20", raceNum: "6", skin: "#ffe6d2", pomp: "#e8b040", pants: "#eef0f4", boot: "#1a1a20", belt: "#eef0f4" },
+  lewis: { tunic: "#eef0f4", race: "#00b8a8", race2: "#ffd21a", raceNum: "44", skin: "#9a6440", hair: "#141010", stubble: true, moustache: "#141010", pants: "#eef0f4", boot: "#1a1a20", belt: "#eef0f4" },
   nicoKid: { tunic: "#f4f4f0", race: "#2a6ad8", raceNum: "6", skin: "#ffe6d2", pomp: "#f0c050", pants: "#f4f4f0", boot: "#1a1a20", belt: "#f4f4f0" },
   lewisKid: { tunic: "#ffd21a", race: "#1a1a20", raceNum: "44", skin: "#9a6440", hair: "#141010", pants: "#ffd21a", boot: "#1a1a20", belt: "#ffd21a" },
   coach: { tunic: "#4a5a7a", vest: "#8a9ab8", tie: "#2a3a5a", skin: "#ffe6d2", hair: "#9a9a9a", pants: "#2a2e38", boot: "#2a1e16", belt: "#2a2e38" },

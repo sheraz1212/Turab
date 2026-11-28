@@ -3,7 +3,7 @@
 > **Read this file first.** (Claude Code loads it automatically. For any other AI tool or new chat, paste its whole text.) It holds everything an AI tool or a new chat needs to know about this project: who the user is, what we make, how we make it, and the rules.
 > **Keep it up to date:** whenever a new decision, rule, script, tool or result is added, update this file in the same change. Add a dated line to the Changelog at the bottom.
 
-Last updated: 2026-11-19
+Last updated: 2026-11-28
 
 ---
 
@@ -146,6 +146,7 @@ Base engine: `shorts/fuel-baffles/web/` (copy it for the next short).
 - Channel name: **Victor Tales** (final, 2026-11-23).
 
 ## Changelog
+- 2026-11-28: **F1 Rosberg** (reference 'He Beat Lewis Hamilton, Then Quit', own script, 2016 facts checked; voice Mike 1.10 = 104 s) in `shorts/f1-rosberg/`: new F1 world (`web/f1_world.js`, `web/f1_sets.js`): detailed 2016-style F1 cars (multi-element wings, carbon floor, swoosh livery, rims, wishbones, steering wheel with screen + thick/thin gloves), circuit with drawn seated fans, truss roof, real F1 start gantry, premium sponsor barriers, Japan ferris wheel, Abu Dhabi night (LED lattice hotel, floodlights, dusk sky, fireworks), kart track, team garage (star emblem, live scrolling TV timing), podium, realistic office/coach/meditation/bedroom (PBR plaster + wood, mouldings, curtains, Poly Haven armchairs/frames), stage, street + bike, awards gala. Realistic fbm sky dome (user: not cartoon clouds, slightly dim). **User rules from this session:** everything detailed and realistic, not cartoon-looking (rooms, grass, trees, sky, fans with faces seated); premium colours; race suits must read as real F1 overalls (patches, collar, logo); mild shine only.
 - 2026-11-28: **Fuel Walls** (tanker baffles; reference 'Why Fuel Trucks Aren't Empty Inside', own script, voice via our tool) rendered and sent: 52 s, 1080x1920, -14.9 LUFS, ~45 min render. Code in `shorts/fuel-baffles/` = the new base engine (see 5b House Style). Gotcha: the old `rbox` helper added the bevel on top of the size (everything swollen, 'rubber' look); fixed by shrinking the shape by the bevel radius.
 - 2026-11-28: **User rule (always):** every object and character must have proper shadows (cast shadows + a darker shading side on characters) and material shine (chrome/steel strong reflections, glossy paint, glass streaks), like the reference, so nothing looks flat, plastic or rubber.
 - 2026-11-28: **User rule: don't make my own style decisions.** Copy the reference exactly (angles, closeness, lighting, look); anything not in the reference or not asked for (e.g. fog/haze, extra effects, new props) must be asked first. Fuel short moved to a cel-shaded look (toon materials, ink on everything, painted sky), a detailed Peterbilt-style truck (from the user's photo), real roof hole for the manhole faces, no fog.
